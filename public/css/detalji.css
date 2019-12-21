@@ -1,0 +1,86 @@
+.flexRowES
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px auto 5px;
+    flex-wrap: wrap;
+}
+
+.screen
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.oneVisit
+{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    z-index: 10;
+    padding: 5px;
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+    overflow: auto;
+    transition: box-shadow 0.3s;
+    border: groove 5px lightseagreen;
+}
+
+.oneVisit:hover
+{
+    box-shadow: 2px 10px 20px rgba(0,0,0,0.5);
+    /* cursor: pointer; */
+}
+
+.partVisit
+{
+    padding: 5px;
+}
+
+.oneLecenje
+{
+    height: 30px;
+    line-height: 30px;
+}
+
+.oneVisit::-webkit-scrollbar
+{
+    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
+    sa elementom koji ima scrolbar */
+    /* background-color: green; */
+    width: 15px;
+}
+
+.oneVisit::-webkit-scrollbar-thumb
+{
+    /* border-radius: 6px; */
+    background-color: lightseagreen;
+}
+
+.oneVisit::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px;
+    background-color: #f5f5f5;
+}
+
+.oneVisit h3
+{
+    margin: 0px auto 10px;
+    text-align: center;
+    color: coral;
+}
+
+.maloDugme
+{
+    border-radius: 0;
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px;
+    padding: 0px;
+}
+

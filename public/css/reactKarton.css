@@ -1,0 +1,116 @@
+
+:root
+{
+    --main-color: #84a0d4;
+    --compl-color: #ed9d64;
+    --mono-color: #6495ed;
+    --compl-color-2: #ed7b64;
+    --link-hover: #d13415;
+    
+}
+
+.r_scroll
+{
+    width: 100%;
+    height: 70vh;
+    text-align: center;
+    overflow: auto;
+    margin: 5px auto;
+}
+
+.r_scroll::-webkit-scrollbar
+{
+    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
+    sa elementom koji ima scrolbar */
+    /* background-color: green; */
+    width: 15px;
+}
+
+.r_scroll::-webkit-scrollbar-thumb
+{
+    border-radius: 6px;
+    background-color: var(--mono-color);
+}
+
+.r_scroll::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px;
+    background-color: #f5f5f5;
+}
+
+.r_pacijent
+{
+    display: grid;
+    min-width: 500px;
+    grid-template-columns: repeat(5,minmax(50px,300px));
+    margin: 5px auto;
+    background-color: var(--main-color);
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.r_pacijent:hover
+{
+    cursor: pointer;
+}
+
+.r_karton
+{
+    
+}
+
+.r_osnovni
+{
+    border: 1px solid var(--compl-color-2);
+    background-color: var(--compl-color);
+    width: 70%;
+    margin: 5px auto;
+}
+
+.r_visit
+{
+    border: 3px solid var(--compl-color-2);
+    background-color: var(--main-color);
+    margin: 0px auto 10px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.r_visit:hover
+{
+    cursor: pointer;
+}
+
+.r_treatmant
+{
+    background-color: var(--mono-color);
+}
+
+.r_naslov
+{
+    color: var(--link-hover);
+    margin: 2px auto 10px;
+}
+
+.r_oneVisit
+{
+   
+}
+
+.r_oneVisit:hover
+{
+    box-shadow: 2px 10px 20px rgba(0,0,0,0.5);
+    /* cursor: pointer; */
+}
+
+.prazan
+{
+    position:relative;
+}
+
+.flexRowRight
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
