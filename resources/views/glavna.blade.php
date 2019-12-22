@@ -2,7 +2,27 @@
 
 @section('content')
 
-<div class="flexRow">
+<div class="mainContent">
+    <div class="contentOptions">
+        <div class="optionsItems">1</div>
+        <div class="optionsItems">2</div>
+        <div class="optionsItems">3</div>
+        <div class="optionsItems">4</div>
+        <div class="optionsItems">5</div>
+    </div>
+    <div class="weather">
+        <div class="weatherItems">
+            <div class="margin_20">
+                <h3>React</h3>
+                <div id="vreme"></div>
+                <script src="/js/app.js"></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="flexRow">
     <div class="margin_20">
         <h3>Vue</h3>
         <div class="vueApi">
@@ -32,6 +52,6 @@
         <div id="vreme"></div>
         <script src="/js/app.js"></script>
     </div>
-</div>
+</div> -->
 
 @endsection
