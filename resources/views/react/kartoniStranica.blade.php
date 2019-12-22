@@ -3,18 +3,21 @@
 @section('content')
     @csrf
 
-    <div id="showVisit" class="disapear">
+    <div id="showVisit" class="showVisit disapear">
         <div class="flexRowRight"><button id="disapearVisit">X</button></div>
 
         <div class="vueFormaVisit">
             
             <div class="donje">
-                <label for="tipPosete">
-                    <select name="tip_pos" id="tipPosete" v-model='tip_pos'>
-                        <option value="1">Prva Poseta</option>
-                        <option value="0">Kontrolna Poseta</option>
-                    </select>
-                </label>
+                <div class="flexRow">
+                    <label for="tipPosete">
+                        <select name="tip_pos" id="tipPosete" v-model='tip_pos'>
+                            <option value="1">Prva Poseta</option>
+                            <option value="0">Kontrolna Poseta</option>
+                        </select>
+                    </label> 
+                </div>
+                
                 <label for="dijagnoza">Dijagnoza <br><textarea id="dijagnoza" cols="30" rows="10" v-model='dijagnoza'></textarea></label><br>
                 <label for="terapija">Terapija <br><textarea id="terapija" cols="30" rows="10" v-model='terapija'></textarea></label><br>
     

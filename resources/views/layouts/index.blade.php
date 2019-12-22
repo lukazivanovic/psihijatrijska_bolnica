@@ -69,32 +69,44 @@
 
         <div class="main">
             <aside>
-                    <div class="nav-btn">
-                        <a href="/glavna"><i class="fas fa-hospital"></i>Glavna</a>
-                    </div>
+                    <a href="/glavna">
+                        <div class="nav-btn">
+                            <i class="fas fa-hospital"></i>Glavna
+                        </div>
+                    </a>
                     @auth
                     @if (Auth::user()->role==3)
-                    <div class="nav-btn">
-                        <a href="/admin"><i class="fas fa-user-md"></i>Spisak korisnika</a>
-                    </div>
+                    <a href="/admin">
+                        <div class="nav-btn">
+                            <i class="fas fa-user-md"></i>Spisak korisnika
+                        </div>
+                    </a>
                     @endif
                     @if (Auth::user()->role==1)
-                    <div class="nav-btn">
-                        <a href="/osoblje"><i class="fas fa-user-nurse"></i>Svi Pacijenti</a>
-                    </div>
+                    <a href="/osoblje">
+                        <div class="nav-btn">
+                            <i class="fas fa-user-nurse"></i>Svi Pacijenti
+                        </div>
+                    </a>
                     @endif
                     @if (Auth::user()->role==2)
-                    <div class="nav-btn">
-                        <a href="/kartoniStranica"><i class="fas fa-id-card-alt"></i>Kartoni</a>
-                    </div>            
+                    <a href="/kartoniStranica">
+                        <div class="nav-btn">
+                            <i class="fas fa-id-card-alt"></i>Kartoni
+                        </div>  
+                    </a>          
                     @endif
                     @if (Auth::user()->role==1 or Auth::user()->role==2)
-                    <div class="nav-btn">
-                        <a href="/bolesti"><i class="fas fa-pills"></i>Spisak bolesti</a>
-                    </div> 
-                    <div class="nav-btn">
-                        <a href="/lekovi"><i class="fas fa-pills"></i>Spisak lekova</a>
-                    </div>            
+                    <a href="/bolesti">
+                        <div class="nav-btn">
+                            <i class="fas fa-pills"></i>Spisak bolesti
+                        </div> 
+                    </a>
+                    <a href="/lekovi">
+                        <div class="nav-btn">
+                            <i class="fas fa-pills"></i>Spisak lekova
+                        </div>    
+                    </a>        
                     @endif
                     {{-- <li><a href="/test">Test</a></li> --}}
                     {{-- <li><a href="/createDataJSON" target="_blank">JSON</a></li> --}}

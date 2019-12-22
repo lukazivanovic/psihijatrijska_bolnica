@@ -120,7 +120,7 @@ class KartoniStranica extends Component
                 <div>
                     <h1>Kartoni</h1>
                     {/* <p>Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} /></p> */}
-                    <p>Filter: <input type="text" ref={this.filterPacijenti} onChange={this.upisiFilter}/></p>
+                    <p>Pretraga: <input type="text" ref={this.filterPacijenti} onChange={this.upisiFilter}/></p>
                     
                     <Scroll>
                         {pacijenti}

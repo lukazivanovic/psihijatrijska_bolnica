@@ -1,16 +1,12 @@
-/* @import url('https://fonts.googleapis.com/css?family=Muli:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Archivo:400,700&display=swap'); */
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:200,300,400,500,600,700,800,900&display=swap&subset=latin-ext');
 
 :root
 {
-    --main-color: #84a0d4;
-    --compl-color: #ed9d64;
-    --mono-color: #6495ed;
-    --compl-color-2: #ed7b64;
-    --link-hover: #d13415;
-    
+    --bojaA:#d3f4ff;
+    --bojaB:#b2dffb;
+    --bojaC:#e7a4e4;
+    --bojaD:#ffc55c;
 }
 
 
@@ -20,8 +16,7 @@ html
     height: 100%;
     margin: 0;
     padding: 0;
-    font-weight: bold;
-    font-family: 'Bree Serif', serif;
+    font-family: 'Saira Extra Condensed', sans-serif;
 }
 
 body
@@ -56,7 +51,7 @@ ol,ul,li
     grid-template-columns: auto;
     justify-content: center;
     align-items: flex-start;
-    background-color:#B0C4DE;
+    background-color:var(--bojaA);
     height: 8%;
     width: 100%;
     margin: 0 auto;
@@ -118,10 +113,10 @@ ol,ul,li
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #B0C4DE;
+    background-color: var(--bojaA);
     height: 12%;
     font-size: 1.2em;
-    border-bottom: 1px solid #9A0606;
+    border-bottom: 1px solid var(--bojaD)
 }
 
 .logo
@@ -160,14 +155,14 @@ color: white;
 /* mouse over link */
 a:hover 
 {
-color: var(--compl-color-2);
+color: var(--bojaC);
 font-weight: bold;
 }
 
 /* selected link */
 a:active 
 {
-color: var(--compl-color-2);
+color: var(--bojaC);
 font-weight: bold;
 }
 
@@ -227,23 +222,23 @@ font-weight: bold;
 .glavna::-webkit-scrollbar-thumb
 {
     border-radius: 6px;
-    background-color: var(--compl-color-2);
+    background-color: var(--bojaB);
 }
 
 .glavna::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px;
-    background-color: #f5f5f5;
+    background-color: white;
 }
 
 .karton
 {
     display: grid;
     grid-template-columns: 520px 520px;
-    border: 1px solid #9A0606;
-    background: #B0C4DE;
+    border: 1px solid var(--bojaC);
+    background: var(--bojaA);
     color: white;
-    text-shadow: 2px 1px #778899;
+    /* text-shadow: 2px 1px #778899; */
 
 }
 
@@ -271,7 +266,7 @@ font-weight: bold;
 table
 {
     width: 1040px;
-    border: 1px solid #9A0606;
+    border: 1px solid var(--bojaC);
     margin: 20px auto 20px;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
@@ -286,8 +281,8 @@ table:last-of-type
 
 tr
 {
-    background-color:  #B0C4DE;
-    border-bottom: 1px solid #9A0606;
+    background-color:  var(--bojaB);
+    border-bottom: 1px solid var(--bojaD);
 }
 
 tr:nth-child(2n)
@@ -298,7 +293,7 @@ tr:nth-child(2n)
 th
 {
     color: white;
-    background-color: #778899;
+    background-color: var(--bojaA);
     padding: 15px 15px;
     font-size: 20px;
     font-weight: 500;
@@ -327,13 +322,13 @@ table a:visited
 
 table a:hover
 {
-    color: var(--link-hover);
+    color: var(--bojaD);
     font-weight: bold;
 }
 
 table a:active
 {
-    color: var(--link-hover);
+    color: var(--bojaD);
     font-weight: bold;
 }
 
@@ -376,8 +371,8 @@ h1,h2,h3,h4,h5,h6
 
 form, .forma
 {
-    background-color: #B0C4DE;
-    border: 1px solid #9A0606;
+    background-color: var(--bojaA);
+    border: 1px solid var(--bojaC);
     margin: 20px auto;
     padding: 20px;
     max-width: 1280px;
@@ -404,12 +399,13 @@ button,#dugme
 {
     width: 60px;
     padding: 5px;
+    background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 1em;
     font-weight: 400;
     transition: all 0.3s;
-    border: 1px solid #ccc;
+    border: 1px solid var(--bojaD);
     border-radius: 8px;
 }
 
@@ -435,7 +431,7 @@ button:hover
 {
     cursor: pointer;
     box-shadow: 0px 0px gray;
-    background-color: #778899;
+    background-color: var(--bojaD);
     color: white;
     transform: translate(2px,2px);
     border-top: 1px solid #778899;
@@ -447,22 +443,22 @@ button:hover
 {
     cursor: pointer;
     box-shadow: 0px 0px gray;
-    background-color: var(--compl-color-2);
+    background-color: var(--bojaC);
     color: white;
     transform: translate(2px,2px);
-    border-top: 3px solid var(--compl-color-2);
-    border-left: 3px solid var(--compl-color-2);
+    border-top: 3px solid var(--bojaC);
+    border-left: 3px solid var(--bojaC);
 }
 
 #dugme2:hover
 {
     cursor: pointer;
     box-shadow: 0px 0px gray;
-    background-color: var(--compl-color-2);
+    background-color: var(--bojaD);
     color: white;
     transform: translate(2px,2px);
-    border-top: 3px solid var(--compl-color-2);
-    border-left: 3px solid var(--compl-color-2);
+    border-top: 3px solid var(--bojaD);
+    border-left: 3px solid var(--bojaD);
 }
 
 .dugmeRezervisi:hover
@@ -490,7 +486,7 @@ button:hover
     position: absolute;
     top: 30%; left: 35%;
     height: 180px; width: 250px;
-    background-color: var(--compl-color);
+    background-color: var(--bojaA);
     z-index: 10;
     padding: 5px;
     box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
@@ -505,21 +501,21 @@ button:hover
 .info_rez
 {
     font-size: 1.4em;
-    color: var(--main-color);
+    color: var(--bojaA);
     margin: 30px auto;
 }
 
 .bckRed
 {
-    background-color: var(--compl-color);
-    border: 1px solid var(--compl-color-2);
+    background-color: var(--bojaB);
+    border: 1px solid var(--bojaD);
     font-weight: bold;
 }
 
 .response
 {
     
-    background-color: var(--main-color);
+    background-color: var(--bojaA);
     width: 60%;
     margin: 10px auto;
     padding: 10px;
@@ -528,7 +524,7 @@ button:hover
 .response2
 {
     
-    background-color: var(--main-color);
+    background-color: var(--bojaA);
     width: 60%;
     margin: 10px auto;
     padding: 10px;
@@ -559,7 +555,7 @@ button:hover
 
 .formZakazivanje
 {
-    background-color: var(--main-color);
+    background-color: var(--bojaA);
     max-width: 2000px;
     /* width: 100%; */
     margin: 20px auto;
@@ -611,7 +607,7 @@ textarea
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
-    background-color: var(--main-color);
+    background-color: var(--bojaA);
     /* padding: 0px 2px 2px 0px; */
     box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
     transition: 0.2s;
@@ -697,14 +693,14 @@ font-weight: bold;
 /* mouse over link */
 .linkA a:hover 
 {
-color: var(--compl-color-2);
+color: var(--bojaC);
 font-weight: bold;
 }
 
 /* selected link */
 .linkA a:active 
 {
-color: var(--compl-color-2);
+color: var(--bojaC);
 font-weight: bold;
 }
 
@@ -796,7 +792,7 @@ p
     flex-direction: row;
     justify-content: space-between;
     margin: 20px;
-    background-color: var(--main-color);
+    background-color: var(--bojaA);
     width: 531px;
     height: 182px;
     margin: 20px;
@@ -870,16 +866,11 @@ p
     justify-content: space-evenly;
 }
 
-.vueFormaVisit
-{
-    border: 1px solid black;
-}
-
 .hidden
 {
-    border: 1px solid green;
+    border: 1px solid var(--bojaC);
     opacity: 0.5;
-    background-color: yellow;
+    background-color: var(--bojaA);
 }
 
 .flexRow
@@ -890,32 +881,25 @@ p
 
 .upis
 {
-    border: 1px solid red;
-    background-color: rgb(198, 215, 230);
+    background-color: var(--bojaA);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 100px;
+    justify-content: center;
+    max-width: 1280px;
+    margin: 5px auto;
 }
 
 .donje
 {
-    border: 1px solid blue;
     text-align: center;
-    background-color: springgreen;
-}
-
-.upis
-{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 100px;
-    justify-content: center;
-    width: 1280px;
-    margin: 5px auto;
-    
+    background-color: var(--bojaB);
 }
 
 aside
 {
-   background-color:#778899;
+   background-color:var(--bojaB);
    padding: 5px;
-   border-right: 1px solid #9A0606;
+   border-right: 1px solid var(--bojaC);
    flex:0 0 220px;
 }
 
@@ -944,7 +928,7 @@ aside ul
     color: white;
 }
 .nav-btn:hover{
-    background: rgb(119, 74, 74);
+    background: var(--bojaD);
 
 }
 .nav-btn i{
@@ -957,9 +941,9 @@ aside ul
     grid-template-columns: fit-content(250px)  250px;
     width: 500px;
     height: 250px;
-    border: 1px solid #9A0606;
+    border: 1px solid var(--bojaC);
     border-radius: 25px;
-    background-color: #B0C4DE;
+    background-color: var(--bojaA);
     font-family: 'Bree Serif', serif;
     font-weight: normal;
 }
@@ -1008,4 +992,9 @@ aside ul
     flex-wrap: nowrap;
 }
 
+.showVisit
+{
+    background-color: var(--bojaB);
+    border: 2px solid var(--bojaC);
+}
 

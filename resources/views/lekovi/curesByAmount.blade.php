@@ -6,7 +6,7 @@
         @endphp
         @auth
             <div class="margin_20">
-                <label for="filter">Filter tabela: 
+                <label for="filter">Pretraga: 
                     <input type="text" id="filter" class='filter'>
                 </label>
             </div>
