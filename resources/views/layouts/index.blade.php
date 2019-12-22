@@ -120,26 +120,6 @@
                 @show
             </div>
         </div>
-        
-
-        <div class="footer">
-            <div class="info">
-                <span class="icons">
-                    <span>
-                        <img src="/images/clock.png" alt="radno vreme">00 - 24
-                    </span>
-                    <span>
-                        <img src="/images/location.png" alt="adresa">Savski Nasip 1
-                    </span>
-                    <span>
-                        <img src="/images/phone.png" alt="telefon">011 222 3333
-                    </span>
-                </span>
-            </div>
-        </div>
-
-            
-        
     </div>
 
     

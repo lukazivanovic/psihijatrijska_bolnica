@@ -45,41 +45,6 @@ ol,ul,li
     list-style-type: none;
 }
 
-.footer
-{
-    display: grid;
-    grid-template-columns: auto;
-    justify-content: center;
-    align-items: flex-start;
-    background-color:var(--bojaA);
-    height: 8%;
-    width: 100%;
-    margin: 0 auto;
-    color: white;
-    padding: 10px;
-    font-family: 'Bree Serif', serif;
-    font-weight: normal;
-    font-size: 20px;
-    text-shadow: 1px 1px black;
-    border-top: 1px solid #9A0606;
-    overflow: hidden;
-}
-
-.info
-{
-    padding: 20px;
-}
-
-.icons span 
-{
-    margin-right: 20px;
-}
-
-.icons span img
-{
-    margin-right: 10px;
-    width: 30px;
-}
 
 .kontenjer
 {
@@ -187,7 +152,7 @@ font-weight: bold;
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    height: 80%;
+    height: 100%;
     overflow: hidden;
     margin: 0 auto;
 }
