@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ url('/css/mainStyle.css') }}">
     <link rel="stylesheet" href="{{ url('/css/reactKarton.css') }}">
     <link rel="stylesheet" href="{{ url('/css/detalji.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/all.min.css') }}">
 
     {{-- JS --}}
 
@@ -38,7 +39,7 @@
     
 </head>
 <body>
-    <div class="container">
+    <div class="kontenjer">
         <div class="header"> 
             <div class="logo">
                 <img src="/images/logoNoviDva.jpg" alt="logo">
@@ -66,10 +67,10 @@
 
         <div class="prazan"></div>
 
-        <div class="flexRow">
+        <div class="main">
             <aside>
                     <div class="nav-btn">
-                        <a href="/glavna"><i class="fas fa-user-md"></i>Glavna</a>
+                        <a href="/glavna"><i class="fas fa-hospital"></i>Glavna</a>
                     </div>
                     @auth
                     @if (Auth::user()->role==3)
@@ -79,12 +80,12 @@
                     @endif
                     @if (Auth::user()->role==1)
                     <div class="nav-btn">
-                        <a href="/osoblje"><i class="fas fa-user-md"></i>Svi Pacijenti</a>
+                        <a href="/osoblje"><i class="fas fa-user-nurse"></i>Svi Pacijenti</a>
                     </div>
                     @endif
                     @if (Auth::user()->role==2)
                     <div class="nav-btn">
-                        <a href="/kartoniStranica"><i class="fas fa-user-md"></i>Kartoni</a>
+                        <a href="/kartoniStranica"><i class="fas fa-id-card-alt"></i>Kartoni</a>
                     </div>            
                     @endif
                     @if (Auth::user()->role==1 or Auth::user()->role==2)
