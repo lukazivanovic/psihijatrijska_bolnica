@@ -90,6 +90,7 @@ export default class Karton_osnovni_podaci extends Component
         sessionStorage.setItem('lekar_id',this.props.data.lekar);
         if(document.querySelector('#showVisit').className=="disapear")
         {
+            console.log('test');
             location.reload()
         }
     }

@@ -51784,6 +51784,7 @@ function (_Component) {
       sessionStorage.setItem('lekar_id', this.props.data.lekar);
 
       if (document.querySelector('#showVisit').className == "disapear") {
+        console.log('test');
         location.reload();
       }
     }
