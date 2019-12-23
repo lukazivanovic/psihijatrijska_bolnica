@@ -46,6 +46,18 @@ class AssistController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'ime'=>'required',
+            'prezime'=>'required',
+            'dat_rodjenja'=>'required',
+            'pol'=>'required',
+            'grad'=>'required',
+            'ulica'=>'required',
+            'broj'=>'required',
+            'jmbg'=>'required',
+            'lekar'=>'required',
+        ]);
+
         $newPatient=new PatientModel;
         $newPatient->ime=$request->ime;
         $newPatient->prezime=$request->prezime;
@@ -85,6 +97,18 @@ class AssistController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'ime'=>'required',
+            'prezime'=>'required',
+            'dat_rodjenja'=>'required',
+            'pol'=>'required',
+            'grad'=>'required',
+            'ulica'=>'required',
+            'broj'=>'required',
+            'jmbg'=>'required',
+            'lekar'=>'required',
+        ]);
+        
         //samo podaci koji nisu poverljivi
         $newPatient=PatientModel::find($request->id);
         $newPatient->ime=$request->ime;

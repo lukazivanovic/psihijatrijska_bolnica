@@ -72,6 +72,12 @@ class DiseaseController extends Controller
     public function update(Request $request)
     {
         //
+        $request->validate([
+            'id'=>'required',
+            'sifra_bolest'=>'required',
+            'ime_bolest'=>'required',
+        ]);
+
         $disease=DiseaseModel::find($request->id);
 
         $disease->sifra_bolest=$request->sifra;

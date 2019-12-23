@@ -45,6 +45,11 @@ class CureController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'sifra_lek'=>'required',
+            'ime_lek'=>'required',
+            'kolicina_lek'=>'required',
+        ]);
         //
         $cure=new CureModel;
 
@@ -80,6 +85,13 @@ class CureController extends Controller
     public function update(Request $request)
     {
         //
+        $request->validate([
+            'id'=>'required',
+            'sifra_lek'=>'required',
+            'ime_lek'=>'required',
+            'kolicina_lek'=>'required',
+        ]);
+
         $cure=CureModel::find($request->id);
 
         $cure->sifra_lek=$request->sifra;

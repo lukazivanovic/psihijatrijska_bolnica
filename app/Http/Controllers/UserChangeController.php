@@ -17,6 +17,12 @@ class UserChangeController extends Controller
     //izmena podataka od strane usera
     public function madeChangeUser(Request $request)
     {
+        $request->validate([
+            'id'=>'required',
+            'name'=>'required',
+            'email'=>'required',
+        ]);
+
         $id=$request->id;
         $id_user=auth()->user()->id;
         if($id==$id_user)

@@ -32,6 +32,13 @@ class AdminController extends Controller
     //menjanje role usera
     public function change(Request $request)
     {
+        $request->validate([
+            'id'=>'required',
+            'name'=>'required',
+            'email'=>'required',
+            'role'=>'required',
+        ]);
+
         $id=$request->id;
 
         $user=UserModel::findOrFail($id);
@@ -59,6 +66,7 @@ class AdminController extends Controller
     //funkcija za uklanjanje usera
     public function delete($id)
     {
+        
         $user=UserModel::findOrFail($id);
         if($user->role<3)
         {

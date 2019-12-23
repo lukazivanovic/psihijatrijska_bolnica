@@ -40,9 +40,13 @@ class ChartController extends Controller
     //upisuje se izmene poverljivih podataka o pacijentu
     public function updateChart(Request $request)
     {
+        $request->validate([
+            'id'=>'required',
+        ]);
+
         $pom=PatientModel::find($request->id);
-        $pom->istorija_bolesti=$request->istorija_bolesti;
-        $pom->alergija_lek=$request->alergija_lek;
+        $pom->istorija_bolesti=$request->istorija_bolesti ?? "";
+        $pom->alergija_lek=$request->alergija_lek ?? "";
 
         $json=$request->json ?? false;
 

@@ -27,6 +27,18 @@ class PartVisitController extends Controller
 
     public function storeTreatmant(Request $request)
     {
+        $request->validate([
+            'datum'=>'required',
+            'id_pacijent'=>'required',
+            'id_lekar'=>'required',
+            'dijagnoza'=>'required',
+            'terapija'=>'required',
+            'prva_poseta'=>'required',
+            'sifra_bolesti'=>'required',
+            'sifra_leka'=>'required',
+            'lek_prepisana_kol'=>'required',
+        ]);
+
         $pom=new TreatmentModel;
 
         $pom->datum=$request->datum;
@@ -72,6 +84,13 @@ class PartVisitController extends Controller
 
     public function updateTreatmant(Request $request)
     {
+        $request->validate([
+            'id'=>'required',
+            'sifra_bolesti'=>'required',
+            'sifra_leka'=>'required',
+            'lek_prepisana_kol'=>'required',
+        ]);
+
         $pom=TreatmentModel::find($request->id);
 
         $pom->id_bolest=HelpFuncResource::getIdBolesti($request->sifra_bolesti);
