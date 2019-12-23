@@ -46,9 +46,9 @@ class CureController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sifra_lek'=>'required',
-            'ime_lek'=>'required',
-            'kolicina_lek'=>'required',
+            'sifra'=>'required',
+            'ime'=>'required',
+            'kolicina'=>'required',
         ]);
         //
         $cure=new CureModel;
@@ -87,9 +87,9 @@ class CureController extends Controller
         //
         $request->validate([
             'id'=>'required',
-            'sifra_lek'=>'required',
-            'ime_lek'=>'required',
-            'kolicina_lek'=>'required',
+            'sifra'=>'required',
+            'ime'=>'required',
+            'kolicina'=>'required',
         ]);
 
         $cure=CureModel::find($request->id);

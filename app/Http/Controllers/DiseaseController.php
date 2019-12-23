@@ -39,6 +39,11 @@ class DiseaseController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'sifra'=>'required',
+            'ime'=>'required',
+        ]);
+
         $disease=new DiseaseModel;
 
         $disease->sifra_bolest=$request->sifra;
@@ -74,8 +79,8 @@ class DiseaseController extends Controller
         //
         $request->validate([
             'id'=>'required',
-            'sifra_bolest'=>'required',
-            'ime_bolest'=>'required',
+            'sifra'=>'required',
+            'ime'=>'required',
         ]);
 
         $disease=DiseaseModel::find($request->id);

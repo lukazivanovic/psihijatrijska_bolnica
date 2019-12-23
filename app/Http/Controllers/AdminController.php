@@ -35,7 +35,7 @@ class AdminController extends Controller
         $request->validate([
             'id'=>'required',
             'name'=>'required',
-            'email'=>'required',
+            'meil'=>'required',
             'role'=>'required',
         ]);
 
