@@ -132,6 +132,8 @@ class API extends Component
                         Zona: <p>{ zone }</p>
                         Datum: <p>{ datum }</p>
                         Vreme: <p>{ time }</p>
+                        div*2
+                        
                     </div>
 
                     <div>

@@ -51292,7 +51292,7 @@ function (_Component) {
         value: "Europe/London/uk"
       }, "London"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Asia/Tokyo/jp"
-      }, "Tokio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Zona: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, zone), "Datum: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, datum), "Vreme: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grad: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, name), "Temperatura: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, temp, " C"), "Pritisak: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, pressure), "Vlaznost vazduha: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, humidity, " %")));
+      }, "Tokio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Zona: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, zone), "Datum: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, datum), "Vreme: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, time), "div*2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Grad: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, name), "Temperatura: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, temp, " C"), "Pritisak: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, pressure), "Vlaznost vazduha: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, humidity, " %")));
     }
   }]);
 
@@ -52348,8 +52348,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\hospitalPlus\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\hospitalPlus\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
