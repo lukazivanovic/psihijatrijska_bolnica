@@ -3,10 +3,14 @@
 
 :root
 {
-   --bojaJedan:#6E7DA2;
-   --bojaDva:#DB996C;
-   --bojaTri:#FCF8F3;
-   --bojaCetiri:#AEDADD;
+    --bojaJedan:#6E7DA2;
+    --bojaDva:#DB996C;
+    --bojaTri:#FCF8F3;
+    --bojaCetiri:#AEDADD;
+    --bojaA:#6E7DA2;
+    --bojaB:#DB996C;
+    --bojaC:#FCF8F3;
+    --bojaD:#AEDADD;
 }
 
 
@@ -159,17 +163,22 @@ font-weight: bold;
 
 .glavna
 {
+    /* NE DIRAJ */
     display: flex;
+    flex-direction: column;
+    overflow: auto;
+    flex: 1 1 auto;
+    /* END NE DIRAJ */
     padding: 20px;
 }
 
-.glavna::after
+/* .glavna::after
 {
     content:' ';
     display: block;
     height: 80px;
     width: 100%;
-}
+} */
 
 .glavna::-webkit-scrollbar
 {
