@@ -9,8 +9,9 @@
             @if (Auth::user()->role==2)
             <div class="optionsItems">
                 <a href="/kartoniStranica">
-                    <div class="nav-btn">
-                        <!-- <img src="/images/medical-record.png" alt="slika">Kartoni -->
+                    <div class="nav-btn btn-icons btn-icons">
+                        <p class="records">Kartoni</p>
+                        <img src="/images/medical-report.png" alt="report">
                     </div>  
                 </a>
             </div>          
@@ -18,8 +19,9 @@
             @if (Auth::user()->role==3)
             <div class="optionsItems">
                 <a href="/admin">
-                    <div class="nav-btn">
-                        <i class="fas fa-user-md"></i>Spisak korisnika
+                    <div class="nav-btn btn-icons">
+                        <p class="records">Spisak korisnika</p>
+                        <i class="fas fa-user-md"></i>
                     </div>
                 </a>
             </div>
@@ -27,7 +29,7 @@
             @if (Auth::user()->role==1)
             <div class="optionsItems">
                 <a href="/osoblje">
-                    <div class="nav-btn">
+                    <div class="nav-btn btn-icons">
                         <i class="fas fa-user-nurse"></i>Svi Pacijenti
                     </div>
                 </a>
@@ -36,15 +38,17 @@
             @if (Auth::user()->role==1 or Auth::user()->role==2)
             <div class="optionsItems">
                 <a href="/bolesti">
-                    <div class="nav-btn">
-                        <i class="fas fa-book-medical"></i>Spisak bolesti
+                    <div class="nav-btn btn-icons">
+                        <p class="records">Knjiga bolesti</p>
+                        <img src="/images/medical-notes.png" alt="medical-notes">
                     </div> 
                 </a>
             </div>
             <div class="optionsItems">
                 <a href="/lekovi">
-                    <div class="nav-btn">
-                        <i class="fas fa-capsules"></i>Spisak lekova
+                    <div class="nav-btn btn-icons">
+                        <p class="records">Spisak lekova</p>
+                        <img src="/images/medical-pills.png" alt="pills">
                     </div>    
                 </a>
             </div>        

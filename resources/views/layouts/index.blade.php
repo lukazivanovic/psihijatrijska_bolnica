@@ -73,8 +73,8 @@
         <div class="main">
             <aside>
                     <a href="/glavna">
-                        <div class="nav-btn">
-                            <i class="fas fa-hospital"></i>Glavna
+                        <div class="nav-btn nav-hospital">
+                            <img src="/images/hospital-building.png" alt="building">
                         </div>
                     </a>
                     @auth
@@ -95,20 +95,19 @@
                     @if (Auth::user()->role==2)
                     <a href="/kartoniStranica">
                         <div class="nav-btn">
-                            <!-- <img src="/images/medical-record.png" alt="slika">Kartoni -->
-                            Kartoni
+                            <img src="/images/medical-report.png" alt="report">
                         </div>  
                     </a>          
                     @endif
                     @if (Auth::user()->role==1 or Auth::user()->role==2)
                     <a href="/bolesti">
                         <div class="nav-btn">
-                            <i class="fas fa-pills"></i>Spisak bolesti
+                            <img src="/images/medical-notes.png" alt="medical-notes"> 
                         </div> 
                     </a>
                     <a href="/lekovi">
                         <div class="nav-btn">
-                            <i class="fas fa-pills"></i>Spisak lekova
+                        <img src="/images/medical-pills.png" alt="pills">
                         </div>    
                     </a>        
                     @endif
