@@ -4,61 +4,70 @@
 
 <div class="mainContent">
     <div class="contentOptions">
-        
-        @auth
-        @if (Auth::user()->role==2)
-        <div class="optionsItems">
-            <a href="/kartoniStranica">
-                <div class="nav-btn">
-                    <i class="fas fa-id-card-alt"></i>Kartoni
-                </div>  
-            </a>
-        </div>          
-        @endif
-        @if (Auth::user()->role==3)
-        <div class="optionsItems">
-            <a href="/admin">
-                <div class="nav-btn">
-                    <i class="fas fa-user-md"></i>Spisak korisnika
-                </div>
-            </a>
+        <div class="contentItems">
+            @auth
+            @if (Auth::user()->role==2)
+            <div class="optionsItems">
+                <a href="/kartoniStranica">
+                    <div class="nav-btn">
+                        <!-- <img src="/images/medical-record.png" alt="slika">Kartoni -->
+                    </div>  
+                </a>
+            </div>          
+            @endif
+            @if (Auth::user()->role==3)
+            <div class="optionsItems">
+                <a href="/admin">
+                    <div class="nav-btn">
+                        <i class="fas fa-user-md"></i>Spisak korisnika
+                    </div>
+                </a>
+            </div>
+            @endif
+            @if (Auth::user()->role==1)
+            <div class="optionsItems">
+                <a href="/osoblje">
+                    <div class="nav-btn">
+                        <i class="fas fa-user-nurse"></i>Svi Pacijenti
+                    </div>
+                </a>
+            </div>
+            @endif
+            @if (Auth::user()->role==1 or Auth::user()->role==2)
+            <div class="optionsItems">
+                <a href="/bolesti">
+                    <div class="nav-btn">
+                        <i class="fas fa-book-medical"></i>Spisak bolesti
+                    </div> 
+                </a>
+            </div>
+            <div class="optionsItems">
+                <a href="/lekovi">
+                    <div class="nav-btn">
+                        <i class="fas fa-capsules"></i>Spisak lekova
+                    </div>    
+                </a>
+            </div>        
+            @endif  
+            @endauth
         </div>
-        @endif
-        @if (Auth::user()->role==1)
-        <div class="optionsItems">
-            <a href="/osoblje">
-                <div class="nav-btn">
-                    <i class="fas fa-user-nurse"></i>Svi Pacijenti
-                </div>
-            </a>
-        </div>
-        @endif
-        @if (Auth::user()->role==1 or Auth::user()->role==2)
-        <div class="optionsItems">
-            <a href="/bolesti">
-                <div class="nav-btn">
-                    <i class="fas fa-pills"></i>Spisak bolesti
-                </div> 
-            </a>
-        </div>
-        <div class="optionsItems">
-            <a href="/lekovi">
-                <div class="nav-btn">
-                    <i class="fas fa-pills"></i>Spisak lekova
-                </div>    
-            </a>
-        </div>        
-        @endif  
-        @endauth
-    </div>
-    <div class="weather">
+        <div class="weather">
         <div class="weatherItems">
             <div class="margin_20">
                 <div id="vreme"></div>
                 <script src="/js/app.js"></script>
             </div>
         </div>
+        </div>
     </div>
+    <!-- <div class="weather">
+        <div class="weatherItems">
+            <div class="margin_20">
+                <div id="vreme"></div>
+                <script src="/js/app.js"></script>
+            </div>
+        </div>
+    </div> -->
 </div>
 
 

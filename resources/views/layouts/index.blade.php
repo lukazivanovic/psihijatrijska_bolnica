@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>psi_bolnica</title>
+    
+
 
     {{-- Bootstrap --}}
 
@@ -17,6 +19,7 @@
     <link rel="stylesheet" href="{{ url('/css/reactKarton.css') }}">
     <link rel="stylesheet" href="{{ url('/css/detalji.css') }}">
     <link rel="stylesheet" href="{{ url('/css/all.min.css') }}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
     {{-- JS --}}
 
@@ -78,7 +81,7 @@
                     @if (Auth::user()->role==3)
                     <a href="/admin">
                         <div class="nav-btn">
-                            <i class="fas fa-user-md"></i>Spisak korisnika
+                            <i class="fas fa-notes-medical"></i>Spisak korisnika
                         </div>
                     </a>
                     @endif
@@ -92,7 +95,8 @@
                     @if (Auth::user()->role==2)
                     <a href="/kartoniStranica">
                         <div class="nav-btn">
-                            <i class="fas fa-id-card-alt"></i>Kartoni
+                            <!-- <img src="/images/medical-record.png" alt="slika">Kartoni -->
+                            Kartoni
                         </div>  
                     </a>          
                     @endif
