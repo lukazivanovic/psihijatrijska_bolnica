@@ -122,22 +122,24 @@ class API extends Component
         const {zone,datum,time,name,temp,pressure,humidity}=this.state;
         return(
                     <div className="reactApi">
-                        <select  id="selectorGrad" onChange={this.setFetch}>
-                            <option value="Europe/Belgrade/rs">Beograd</option>
-                            <option value="Europe/Paris/fr">Paris</option>
-                            <option value="Europe/London/uk">London</option>
-                            <option value="Asia/Tokyo/jp">Tokio</option>
-                        </select>
-                    <div>
+                        <p>{ name }</p>
+                        <span>
+                            <p>Izaberi grad</p>
+                            <select  id="selectorGrad" onChange={this.setFetch}>
+                                <option value="Europe/Belgrade/rs">Beograd</option>
+                                <option value="Europe/Paris/fr">Paris</option>
+                                <option value="Europe/London/uk">London</option>
+                                <option value="Asia/Tokyo/jp">Tokio</option>
+                            </select>
+                        </span>
+                        
+                    <div className="reactDate">
                         Zona: <p>{ zone }</p>
                         Datum: <p>{ datum }</p>
                         Vreme: <p>{ time }</p>
-                        div*2
-                        
                     </div>
 
-                    <div>
-                        Grad: <p>{ name }</p>
+                    <div className="reactWeather">
                         Temperatura: <p>{ temp } C</p> 
                         Pritisak: <p>{ pressure }</p>
                         Vlaznost vazduha: <p>{ humidity } %</p>
