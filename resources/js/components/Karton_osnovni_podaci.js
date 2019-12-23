@@ -90,7 +90,8 @@ export default class Karton_osnovni_podaci extends Component
         sessionStorage.setItem('lekar_id',this.props.data.lekar);
         if(document.querySelector('#showVisit').className=="showVisit disapear")
         {
-            location.reload()
+            // location.reload()
+            this.callLaravel();
         }
     }
 

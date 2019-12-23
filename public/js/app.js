@@ -51784,7 +51784,8 @@ function (_Component) {
       sessionStorage.setItem('lekar_id', this.props.data.lekar);
 
       if (document.querySelector('#showVisit').className == "showVisit disapear") {
-        location.reload();
+        // location.reload()
+        this.callLaravel();
       }
     }
   }, {
@@ -51992,6 +51993,13 @@ function (_Component) {
       }
 
       return listaPacijenta;
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      if (this.state.br_kartona === "") {
+        location.reload();
+      }
     }
   }, {
     key: "render",

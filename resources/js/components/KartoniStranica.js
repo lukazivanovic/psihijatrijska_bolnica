@@ -88,6 +88,14 @@ class KartoniStranica extends Component
         return listaPacijenta;
     }
 
+    componentDidUpdate()
+    {
+        if(this.state.br_kartona==="")
+        {
+            location.reload();
+        }
+    }
+
     render()
     {
         if(Object.keys(this.state.baza).length===0)
