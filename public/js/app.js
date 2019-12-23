@@ -51281,7 +51281,16 @@ function (_Component) {
           humidity = _this$state.humidity;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactApi"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Izaberi grad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "reactCity"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "class": "city"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/city.png",
+        alt: "city"
+      }), "  ", name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "selectCity"
+      }, "Izaberi grad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         id: "selectorGrad",
         onChange: this.setFetch
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -51294,7 +51303,22 @@ function (_Component) {
         value: "Asia/Tokyo/jp"
       }, "Tokio"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactDate"
-      }, "Zona: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, zone), "Datum: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, datum), "Vreme: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, time)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "dateItems"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/time-zone.png",
+        alt: "time-zone"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, zone)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "dateItems"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/calendar.png",
+        alt: "calendar"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, datum)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        "class": "dateItems"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/clock.png",
+        alt: "clock"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, time))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactWeather"
       }, "Temperatura: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, temp, " C"), "Pritisak: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, pressure), "Vlaznost vazduha: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, humidity, " %")));
     }

@@ -121,30 +121,37 @@ class API extends Component
         //destructuring
         const {zone,datum,time,name,temp,pressure,humidity}=this.state;
         return(
-                    <div className="reactApi">
-                        <p>{ name }</p>
-                        <span>
-                            <p>Izaberi grad</p>
-                            <select  id="selectorGrad" onChange={this.setFetch}>
-                                <option value="Europe/Belgrade/rs">Beograd</option>
-                                <option value="Europe/Paris/fr">Paris</option>
-                                <option value="Europe/London/uk">London</option>
-                                <option value="Asia/Tokyo/jp">Tokio</option>
-                            </select>
-                        </span>
-                        
-                    <div className="reactDate">
-                        Zona: <p>{ zone }</p>
-                        Datum: <p>{ datum }</p>
-                        Vreme: <p>{ time }</p>
+                <div className="reactApi">
+                    <div className="reactCity">
+                        <p class="city"><img src="/images/city.png" alt="city"></img>  { name }</p>
+                        <p className="selectCity">Izaberi grad</p>
+                        <select  id="selectorGrad" onChange={this.setFetch}>
+                            <option value="Europe/Belgrade/rs">Beograd</option>
+                            <option value="Europe/Paris/fr">Paris</option>
+                            <option value="Europe/London/uk">London</option>
+                            <option value="Asia/Tokyo/jp">Tokio</option>
+                        </select>
                     </div>
-
+                    <div className="reactDate">
+                        <div class="dateItems">
+                            <img src="/images/time-zone.png" alt="time-zone"></img>
+                            <span>{ zone }</span>
+                        </div>
+                        <div class="dateItems">
+                            <img src="/images/calendar.png" alt="calendar"></img>
+                            <span>{ datum }</span>
+                        </div>
+                        <div class="dateItems">
+                            <img src="/images/clock.png" alt="clock"></img>
+                            <span>{ time }</span>
+                        </div>
+                    </div>
                     <div className="reactWeather">
                         Temperatura: <p>{ temp } C</p> 
                         Pritisak: <p>{ pressure }</p>
                         Vlaznost vazduha: <p>{ humidity } %</p>
                     </div>
-            </div>
+                </div>
         );
     }
 }

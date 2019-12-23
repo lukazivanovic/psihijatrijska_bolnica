@@ -21,7 +21,7 @@
                 <a href="/admin">
                     <div class="nav-btn btn-icons">
                         <p class="records">Spisak korisnika</p>
-                        <i class="fas fa-user-md"></i>
+                        <img src="/images/medical-doctor.png" alt="doctor">
                     </div>
                 </a>
             </div>
@@ -30,7 +30,8 @@
             <div class="optionsItems">
                 <a href="/osoblje">
                     <div class="nav-btn btn-icons">
-                        <i class="fas fa-user-nurse"></i>Svi Pacijenti
+                        <p class="records">Svi Pacijenti</p>
+                        <img src="/images/patient.png" alt="patient">
                     </div>
                 </a>
             </div>
@@ -56,12 +57,15 @@
             @endauth
         </div>
         <div class="weather">
-        <div class="weatherItems">
-            <div class="margin_20">
-                <div id="vreme"></div>
-                <script src="/js/app.js"></script>
+            <div class="weatherItems">
+                <div class="margin_20">
+                    <div id="vreme"></div>
+                    <script src="/js/app.js"></script>
+                </div>
             </div>
         </div>
+        <div class="info">
+            <div class="infoItems">1</div>
         </div>
     </div>
     <!-- <div class="weather">

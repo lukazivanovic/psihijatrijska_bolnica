@@ -81,14 +81,14 @@
                     @if (Auth::user()->role==3)
                     <a href="/admin">
                         <div class="nav-btn">
-                            <i class="fas fa-notes-medical"></i>Spisak korisnika
+                            <img src="/images/medical-doctor.png" alt="doctor"> Spisak korisnika
                         </div>
                     </a>
                     @endif
                     @if (Auth::user()->role==1)
                     <a href="/osoblje">
                         <div class="nav-btn">
-                            <i class="fas fa-user-nurse"></i>Svi Pacijenti
+                            <img src="/images/patient.png" alt="patient">
                         </div>
                     </a>
                     @endif
