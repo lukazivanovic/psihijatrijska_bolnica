@@ -88,9 +88,8 @@ export default class Karton_osnovni_podaci extends Component
         document.querySelector('#showVisit').classList.toggle('disapear');
         sessionStorage.setItem('pacijent_id',this.props.data.id);
         sessionStorage.setItem('lekar_id',this.props.data.lekar);
-        if(document.querySelector('#showVisit').className=="disapear")
+        if(document.querySelector('#showVisit').className=="showVisit disapear")
         {
-            console.log('test');
             location.reload()
         }
     }

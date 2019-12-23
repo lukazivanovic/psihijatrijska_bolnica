@@ -51783,8 +51783,7 @@ function (_Component) {
       sessionStorage.setItem('pacijent_id', this.props.data.id);
       sessionStorage.setItem('lekar_id', this.props.data.lekar);
 
-      if (document.querySelector('#showVisit').className == "disapear") {
-        console.log('test');
+      if (document.querySelector('#showVisit').className == "showVisit disapear") {
         location.reload();
       }
     }
