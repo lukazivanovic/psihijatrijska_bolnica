@@ -276,6 +276,23 @@ font-weight: bold;
     padding: 15px;
     font-size: 20px;
 }
+.reactWeather
+{
+    display: flex;
+    flex-direction: column;
+}
+.temperature
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.temperature span
+{
+    padding: 15px;
+    font-size: 20px;
+}
+.
 #selectorGrad
 {
     cursor:pointer;
@@ -291,12 +308,32 @@ font-weight: bold;
 {
     display: flex;
     flex-direction: row;
+    padding: 5px;
 }
 .infoItems
 {
+    display: flex;
+    justify-content: space-between;
     width: 980px;
     height: 150px;
-    background: #AEDADD;
+    background: var(--bojaCetiri);
+}
+.infoContainer
+{
+    display: flex;
+    margin: 10px;
+}
+.hospitalInfo
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.infoItems div span
+{
+    padding: 15px;
+    font-size: 20px;
+    color: var(--bojaJedan);
 }
 
 

@@ -51165,14 +51165,12 @@ function (_Component) {
       pressure: null,
       humidity: null,
       weatherInterval: null,
-      fetTime: "Europe/Belgrade",
-      fetWet: "Belgrade,rs"
+      region: "Europe",
+      city: "Belgrade"
     };
     _this.pozoviTime = _this.pozoviTime.bind(_assertThisInitialized(_this));
-    _this.continueCallTime = _this.continueCallTime.bind(_assertThisInitialized(_this));
     _this.pozoviWeather = _this.pozoviWeather.bind(_assertThisInitialized(_this));
-    _this.continiueCallWeather = _this.continiueCallWeather.bind(_assertThisInitialized(_this));
-    _this.setFetch = _this.setFetch.bind(_assertThisInitialized(_this));
+    _this.rukujSelektorom = _this.rukujSelektorom.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -51181,10 +51179,7 @@ function (_Component) {
     value: function pozoviTime() {
       var _this2 = this;
 
-      var opcije = {
-        "method": "GET"
-      };
-      fetch("http://worldtimeapi.org/api/timezone/" + this.state.fetTime, opcije).then(function (rsp) {
+      fetch("http://worldtimeapi.org/api/timezone/" + this.state.region + "/" + this.state.city).then(function (rsp) {
         return rsp.json();
       }).then(function (response) {
         // console.log(response);
@@ -51199,22 +51194,11 @@ function (_Component) {
       });
     }
   }, {
-    key: "continueCallTime",
-    value: function continueCallTime() {
-      var that = this;
-      that.setState({
-        timeInterval: setInterval(that.pozoviTime, 5000)
-      });
-    }
-  }, {
     key: "pozoviWeather",
     value: function pozoviWeather() {
       var _this3 = this;
 
-      var opcije = {
-        "method": "GET"
-      };
-      fetch("http://api.openweathermap.org/data/2.5/weather?q=" + this.state.fetWet + "&APPID=17f779dd77988c24551bd27df2f061ae", opcije).then(function (rsp) {
+      fetch("http://api.openweathermap.org/data/2.5/weather?q=" + this.state.city + "&APPID=b214a5363d0244cc7a18d2586dc0314c").then(function (rsp) {
         return rsp.json();
       }).then(function (response) {
         // console.log(response);
@@ -51229,43 +51213,76 @@ function (_Component) {
       });
     }
   }, {
-    key: "continiueCallWeather",
-    value: function continiueCallWeather() {
-      var that = this;
-      that.setState({
-        weatherInterval: setInterval(that.pozoviWeather, 5000)
-      });
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this4 = this;
+
       this.pozoviTime();
-      this.continueCallTime();
       this.pozoviWeather();
-      this.continiueCallWeather();
+      this.timer = setInterval(function () {
+        _this4.pozoviTime();
+
+        _this4.pozoviWeather();
+      }, 20000);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.city !== this.state.city) {
+        console.log(this.state, prevState);
+        this.pozoviTime();
+        this.pozoviWeather();
+      }
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      var that = this;
-      clearInterval(that.state.timeInterval);
-      clearInterval(that.state.weatherInterval);
+      clearInterval(this.timer);
     }
   }, {
-    key: "setFetch",
-    value: function setFetch() {
-      var that = this;
-      clearInterval(that.state.timeInterval);
-      clearInterval(that.state.weatherInterval);
-      var nizOdSelektora = document.querySelector('#selectorGrad').value.split('/');
-      that.setState({
-        fetTime: nizOdSelektora[0] + "/" + nizOdSelektora[1],
-        fetWet: nizOdSelektora[1] + "," + nizOdSelektora[2]
+    key: "rukujSelektorom",
+    value: function rukujSelektorom(event) {
+      var city = event.target.value;
+      var region = city === "Tokyo" ? "Asia" : "Europe";
+      this.setState({
+        region: region,
+        city: city
       });
-      that.pozoviTime();
-      that.continueCallTime();
-      that.pozoviWeather();
-      that.continiueCallWeather();
+    }
+  }, {
+    key: "promeniSliku",
+    value: function promeniSliku(city) {
+      switch (city) {
+        case "Belgrade":
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/images/city.png",
+            alt: "city"
+          });
+
+        case "Paris":
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/images/paris.png",
+            alt: "city"
+          });
+
+        case "Tokyo":
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/images/tokyo.png",
+            alt: "city"
+          });
+
+        case "London":
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/images/London.png",
+            alt: "city"
+          });
+
+        default:
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: "/images/city.png",
+            alt: "city"
+          });
+      }
     }
   }, {
     key: "render",
@@ -51284,43 +51301,55 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactCity"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        "class": "city"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "/images/city.png",
-        alt: "city"
-      }), "  ", name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "city"
+      }, this.promeniSliku(this.state.city), " ", name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "selectCity"
       }, "Izaberi grad"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         id: "selectorGrad",
-        onChange: this.setFetch
+        onChange: this.rukujSelektorom
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Europe/Belgrade/rs"
+        value: "Belgrade"
       }, "Beograd"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Europe/Paris/fr"
+        value: "Paris"
       }, "Paris"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Europe/London/uk"
+        value: "London"
       }, "London"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Asia/Tokyo/jp"
+        value: "Tokyo"
       }, "Tokio"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactDate"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "dateItems"
+        className: "dateItems"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/images/time-zone.png",
         alt: "time-zone"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, zone)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "dateItems"
+        className: "dateItems"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/images/calendar.png",
         alt: "calendar"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, datum)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "dateItems"
+        className: "dateItems"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/images/clock.png",
         alt: "clock"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, time))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "reactWeather"
-      }, "Temperatura: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, temp, " C"), "Pritisak: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, pressure), "Vlaznost vazduha: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, humidity, " %")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "temperature"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/thermometer.png",
+        alt: "temperature"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, temp, " C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "temperature"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/pressure.png",
+        alt: "pressure"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, pressure, " mB")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "temperature"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "/images/humidity.png",
+        alt: "humidity"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, humidity, " %"))));
     }
   }]);
 
