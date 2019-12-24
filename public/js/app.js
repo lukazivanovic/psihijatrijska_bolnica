@@ -52212,7 +52212,12 @@ function (_Component) {
     _classCallCheck(this, Visit);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
+    _this.state = {
+      active: true
+    };
     _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    _this.ukloni = _this.ukloni.bind(_assertThisInitialized(_this));
+    _this.ponisti = _this.ponisti.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -52220,26 +52225,61 @@ function (_Component) {
     key: "increaseCount",
     value: function increaseCount() {
       this.props.increaseCount();
+      this.setState({
+        active: false
+      });
+    }
+  }, {
+    key: "ukloni",
+    value: function ukloni(event) {
+      event.target.parentElement.remove();
+    }
+  }, {
+    key: "ponisti",
+    value: function ponisti(event) {
+      event.target.value = "";
     }
   }, {
     key: "render",
     value: function render() {
+      if (this.state.active) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "upis"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "r_sifra_bolesti",
+          onFocus: this.ponisti
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          className: "r_sifra_leka",
+          onFocus: this.ponisti
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          className: "r_kolicina_leka",
+          onFocus: this.ponisti
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "noviUnosDugme",
+          onClick: this.increaseCount
+        }, "Novi unos"));
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "upis"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "sifra_bolesti"
+        className: "r_sifra_bolesti",
+        onFocus: this.ponisti
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        className: "sifra_leka"
+        className: "r_sifra_leka",
+        onFocus: this.ponisti
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
-        className: "kolicina_leka"
+        className: "r_kolicina_leka",
+        onFocus: this.ponisti
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "noviUnosDugme",
-        onClick: this.increaseCount
-      }, "Novi unos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "obrisi"
+        className: "obrisi",
+        onClick: this.ukloni
       }, "X"));
     }
   }]);
