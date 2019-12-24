@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Treatmant from './Treatmant';
+import Error from './Error';
 
 
 export default class Visit extends Component
@@ -121,11 +122,10 @@ export default class Visit extends Component
                     .then(txt=>{
                         this.odgovor+=txt+" ";
                         console.log(this.odgovor);
-                        alert(this.odgovor);
+                        this.setState({odgovor:this.odgovor});
                     });
             }
             
-            this.setState({odgovor:this.odgovor});
         }
     }
 
@@ -136,6 +136,8 @@ export default class Visit extends Component
         {
             treatments.push(<Treatmant key={i} increaseCount={this.increaseCount}></Treatmant>);
         }
+
+        let errorsPr=this.state.errors.map((e,i)=><Error error={e} key={'error'+i}></Error>)
 
         return(
             <div className="r_visit_form">
@@ -165,6 +167,9 @@ export default class Visit extends Component
                     </div>
         
                 </div>
+                <div>{errorsPr}</div>
+                <div className='flexRow'>{ this.state.odgovor }</div>
+                
             </div>
         )
     }
