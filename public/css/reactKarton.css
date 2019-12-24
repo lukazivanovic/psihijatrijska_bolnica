@@ -113,3 +113,8 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+
+.r_visit_form
+{
+    background-color: var(--bojaA);
+}
