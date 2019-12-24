@@ -3,7 +3,7 @@
 @section('content')
     @csrf
 
-    <div id="showVisit" class="showVisit disapear">
+    {{-- <div id="showVisit" class="showVisit disapear">
         <div class="flexRowRight"><button id="disapearVisit">X</button></div>
 
         <div class="vueFormaVisit">
@@ -40,7 +40,7 @@
     
     <script src="{{ asset('/js/vueVisit2.js') }}" defer></script>
     
-    </div>
+    </div> --}}
 
     
     <div id="kartoniStranica"></div>
