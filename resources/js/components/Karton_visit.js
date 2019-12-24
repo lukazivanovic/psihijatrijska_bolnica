@@ -88,20 +88,7 @@ export default class Karton_visit extends Component
         if(this.state.show_div && !this.state.show_edit)
         {
             return(
-                <div className="">
-                    <div className="r_visit" onClick={this.otkrijDetalje}>
-                        <div className="flexRow"> 
-                            <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                            <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
-                            <div> Lekar: {this.props.data.id_lekar} </div>
-                        </div>
-        
-                        <div>
-                            <span className="r_naslov">Dijagnoza: </span> {this.props.data.dijagnoza.slice(0,32)}
-                            <span className="r_naslov">    Terapija: </span> {this.props.data.terapija.slice(0,32)}
-                        </div>
-                            {treatmants}
-                    </div>
+                <div className="r_visit_screen">
 
                     <div className="oneVisit r_oneVisit" >
                         <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
@@ -131,22 +118,7 @@ export default class Karton_visit extends Component
         if(this.state.show_div && this.state.show_edit)
         {
             return(
-                <div className="">
-
-               
-                <div className="r_visit" onClick={this.otkrijDetalje}>
-                    <div className="flexRow"> 
-                        <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                        <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
-                        <div> Lekar: {this.props.data.id_lekar} </div>
-                    </div>
-       
-                    <div>
-                        <span className="r_naslov">Dijagnoza: </span> {this.props.data.dijagnoza.slice(0,32)}
-                        <span className="r_naslov">    Terapija: </span> {this.props.data.terapija.slice(0,32)}
-                    </div>
-                        {treatmants}
-                </div>
+                <div className="r_visit_screen">
                     
                 <div className="oneVisit r_oneVisit">
                     <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
@@ -157,7 +129,7 @@ export default class Karton_visit extends Component
                     </div>
     
                     <div>
-                        {/* <h4 className="r_naslov">Dijagnoza: </h4> */}
+                        
                         
                         <label>
                             Dijagnoza:
@@ -165,7 +137,7 @@ export default class Karton_visit extends Component
                         </label>
                     </div>
                     <div>
-                        {/* <h4 className="r_naslov">Terapija: </h4> */}
+                        
                         <label>
                             Terapija:
                             <textarea defaultValue={this.props.data.terapija} ref={this.terapijaArea} onChange={this.setTerapija}/>

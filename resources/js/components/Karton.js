@@ -45,9 +45,7 @@ export default class Karton extends Component
                 {/* <button onClick={this.prikaziKarton}>Nazad</button> */}
                 <Karton_osnovni_podaci data={this.props.data.osnovni} prikaziKarton={this.prikaziKarton} callLaravel={this.callLaravel}/>
                 <p>Pretraga: <input type="text" ref={this.filterKarton} onChange={this.upisiFilter} /></p>
-                <Scroll>
                     {svePosete}
-                </Scroll>
             </div>
         )
     }

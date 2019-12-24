@@ -143,37 +143,40 @@ export default class Visit extends Component
         let errorsPr=this.state.errors.map((e,i)=><Error error={e} key={'error'+i}></Error>)
 
         return(
-            <div className="r_visit_form">
-                <div className="flexRowRight">
-                    <button onClick={this.showNewVisit}>X</button>
-                </div>
-
-                <div className="vueFormaVisit">
-                    <div className="donje">
-                        <div className="flexRow">
-                            <label>
-                                <select id="r_tipPosete">
-                                    <option value="1">Prva Poseta</option>
-                                    <option value="0">Kontrolna Poseta</option>
-                                </select>
-                            </label> 
-                        </div>
-                    
-                    <label >Dijagnoza <textarea id="r_dijagnoza" cols="30" rows="10" ></textarea></label>
-                    <label >Terapija <textarea id="r_terapija" cols="30" rows="10" ></textarea></label>
-        
-                        <div className="parentUpis">
-                                   {treatments} 
-                        </div>
-        
-                    <button className="submit" onClick={this.submit}>Posalji u bazu</button>
+            <div className="r_visit_screen">
+                <div className="r_visit_form">
+                    <div className="flexRowRight">
+                        <button onClick={this.showNewVisit}>X</button>
                     </div>
-        
+
+                    <div className="vueFormaVisit">
+                        <div className="donje">
+                            <div className="flexRow">
+                                <label>
+                                    <select id="r_tipPosete">
+                                        <option value="1">Prva Poseta</option>
+                                        <option value="0">Kontrolna Poseta</option>
+                                    </select>
+                                </label> 
+                            </div>
+                        
+                        <label >Dijagnoza <textarea id="r_dijagnoza" cols="30" rows="10" ></textarea></label>
+                        <label >Terapija <textarea id="r_terapija" cols="30" rows="10" ></textarea></label>
+            
+                            <div className="parentUpis">
+                                    {treatments} 
+                            </div>
+            
+                        <button className="submit" onClick={this.submit}>Posalji u bazu</button>
+                        </div>
+            
+                    </div>
+                    <div>{errorsPr}</div>
+                    <div className='flexRow'>{ this.state.odgovor }</div>
+                    
                 </div>
-                <div>{errorsPr}</div>
-                <div className='flexRow'>{ this.state.odgovor }</div>
-                
             </div>
+            
         )
     }
         

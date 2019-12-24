@@ -51467,7 +51467,7 @@ function (_Component) {
         type: "text",
         ref: this.filterKarton,
         onChange: this.upisiFilter
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Scroll__WEBPACK_IMPORTED_MODULE_1__["default"], null, svePosete));
+      })), svePosete);
     }
   }]);
 
@@ -51623,17 +51623,8 @@ function (_Component) {
 
       if (this.state.show_div && !this.state.show_edit) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: ""
+          className: "r_visit_screen"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "r_visit",
-          onClick: this.otkrijDetalje
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "flexRow"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "r_naslov"
-        }, "Dijagnoza: "), " ", this.props.data.dijagnoza.slice(0, 32), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "r_naslov"
-        }, "    Terapija: "), " ", this.props.data.terapija.slice(0, 32)), treatmants), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "oneVisit r_oneVisit"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowRight"
@@ -51652,17 +51643,8 @@ function (_Component) {
 
       if (this.state.show_div && this.state.show_edit) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: ""
+          className: "r_visit_screen"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "r_visit",
-          onClick: this.otkrijDetalje
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "flexRow"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "r_naslov"
-        }, "Dijagnoza: "), " ", this.props.data.dijagnoza.slice(0, 32), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "r_naslov"
-        }, "    Terapija: "), " ", this.props.data.terapija.slice(0, 32)), treatmants), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "oneVisit r_oneVisit"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowRight"
@@ -52642,6 +52624,8 @@ function (_Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "r_visit_screen"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_visit_form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRowRight"
@@ -52674,7 +52658,7 @@ function (_Component) {
         onClick: this.submit
       }, "Posalji u bazu"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow"
-      }, this.state.odgovor));
+      }, this.state.odgovor)));
     }
   }, {
     key: "verifikuj",
