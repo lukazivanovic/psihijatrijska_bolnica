@@ -52124,11 +52124,10 @@ function (_Component) {
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      //treba promeniti
-      if (this.state.br_kartona === "") {
-        location.reload();
-      }
+    value: function componentDidUpdate() {// if(this.state.br_kartona==="")
+      // {
+      //     location.reload();
+      // }
     }
   }, {
     key: "render",

@@ -90,11 +90,11 @@ class KartoniStranica extends Component
 
     componentDidUpdate()
     {
-        //treba promeniti
-        if(this.state.br_kartona==="")
-        {
-            location.reload();
-        }
+        
+        // if(this.state.br_kartona==="")
+        // {
+        //     location.reload();
+        // }
     }
 
     render()
