@@ -52306,6 +52306,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Treatmant */ "./resources/js/components/Treatmant.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -52346,6 +52354,7 @@ function (_Component) {
     };
     _this.callLarvel = _this.callLarvel.bind(_assertThisInitialized(_this));
     _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    _this.submit = _this.submit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -52363,6 +52372,103 @@ function (_Component) {
       this.setState({
         count: c
       });
+    }
+  }, {
+    key: "submit",
+    value: function submit() {
+      this.pacijent_id = this.props.id;
+      this.lekar_id = this.props.lekar; //moraju da se resetuju nizovi
+
+      this.niz_send = [];
+      this.errors = [];
+      this.odgovor = "";
+      this.dijagnoza = document.querySelector('#r_dijagnoza').value;
+      this.terapija = document.querySelector('#r_terapija').value;
+      this.tip_pos = document.querySelector('#r_tipPosete').value; //pravimo novi niz_send niz
+
+      var date = new Date();
+      var datum_posete = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+      var niz_sifra_bolesti = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
+        return c.value;
+      });
+
+      var niz_sifra_leka = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
+        return c.value;
+      });
+
+      var niz_kolicina_leka = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
+        return c.value;
+      });
+
+      var counter = niz_sifra_bolesti.length;
+
+      for (var i = 0; i < counter; i++) {
+        var pom = {};
+        pom.datum = datum_posete;
+        pom.id_pacijent = this.pacijent_id;
+        pom.id_lekar = this.lekar_id;
+        pom.sifra_bolesti = niz_sifra_bolesti[i];
+        pom.sifra_leka = niz_sifra_leka[i];
+        pom.lek_prepisana_kol = niz_kolicina_leka[i];
+        pom.dijagnoza = this.dijagnoza;
+        pom.terapija = this.terapija;
+        pom.prva_poseta = this.tip_pos;
+        this.niz_send.push(pom);
+      } // this.errors=verifikuj(this.niz_send,this.check_codes,this.codes);
+
+
+      if (this.errors.length == 0) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = this.niz_send[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var dod = _step.value;
+            var niz = {
+              datum: dod.datum,
+              id_pacijent: dod.id_pacijent,
+              id_lekar: dod.id_lekar,
+              sifra_bolesti: dod.sifra_bolesti,
+              sifra_leka: dod.sifra_leka,
+              lek_prepisana_kol: dod.lek_prepisana_kol,
+              dijagnoza: dod.dijagnoza,
+              terapija: dod.terapija,
+              prva_poseta: dod.prva_poseta
+            };
+            console.log('poslat niz', niz);
+            var opcije = {
+              method: "POST",
+              body: JSON.stringify(niz),
+              headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'Content-Type': 'application/json' //BITNO!!!
+
+              }
+            };
+            fetch('/lekar/storeVisit', opcije).then(function (resp) {
+              return resp.json();
+            }).then(function (txt) {
+              // this.odgovor+=txt+" ";
+              console.log(txt);
+            });
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      }
     }
   }, {
     key: "render",
@@ -52386,22 +52492,25 @@ function (_Component) {
         className: "donje"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "r_tipPosete"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "Prva Poseta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
       }, "Kontrolna Poseta")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Dijagnoza ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        id: "dijagnoza",
+        id: "r_dijagnoza",
         cols: "30",
         rows: "10"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Terapija ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        id: "terapija",
+        id: "r_terapija",
         cols: "30",
         rows: "10"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parentUpis"
       }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit"
+        className: "submit",
+        onClick: this.submit
       }, "Posalji u bazu"))));
     }
   }]);

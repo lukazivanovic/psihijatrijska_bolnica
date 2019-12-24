@@ -19,6 +19,7 @@ export default class Visit extends Component
 
         this.callLarvel=this.callLarvel.bind(this);
         this.increaseCount=this.increaseCount.bind(this);
+        this.submit=this.submit.bind(this);
     }
 
     callLarvel()
@@ -32,6 +33,85 @@ export default class Visit extends Component
         let c=this.state.count;
         c++;
         this.setState({count:c});
+    }
+
+    submit()
+    {
+        this.pacijent_id=this.props.id;
+        this.lekar_id=this.props.lekar;
+        //moraju da se resetuju nizovi
+        this.niz_send=[];
+        this.errors=[];
+        this.odgovor="";
+
+        this.dijagnoza=document.querySelector('#r_dijagnoza').value;
+        this.terapija=document.querySelector('#r_terapija').value;
+        this.tip_pos=document.querySelector('#r_tipPosete').value;
+
+        //pravimo novi niz_send niz
+        let date=new Date();
+        let datum_posete=""+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
+
+        let niz_sifra_bolesti=[...document.querySelectorAll('.r_sifra_bolesti')].map(c=>c.value);
+        let niz_sifra_leka=[...document.querySelectorAll('.r_sifra_leka')].map(c=>c.value);
+        let niz_kolicina_leka=[...document.querySelectorAll('.r_kolicina_leka')].map(c=>c.value);
+
+        let counter=niz_sifra_bolesti.length;
+
+        for(let i=0; i<counter; i++)
+        {
+            let pom={};
+            pom.datum=datum_posete;
+            pom.id_pacijent=this.pacijent_id;
+            pom.id_lekar=this.lekar_id;
+            pom.sifra_bolesti=niz_sifra_bolesti[i];
+            pom.sifra_leka=niz_sifra_leka[i];
+            pom.lek_prepisana_kol=niz_kolicina_leka[i];
+            pom.dijagnoza=this.dijagnoza;
+            pom.terapija=this.terapija;
+            pom.prva_poseta=this.tip_pos;
+            this.niz_send.push(pom);
+        }
+
+
+        // this.errors=verifikuj(this.niz_send,this.check_codes,this.codes);
+
+        if(this.errors.length==0)
+        {
+            for(let dod of this.niz_send)
+            {
+                let niz=
+                {
+                    datum:dod.datum,
+                    id_pacijent:dod.id_pacijent,
+                    id_lekar:dod.id_lekar,
+                    sifra_bolesti:dod.sifra_bolesti,
+                    sifra_leka:dod.sifra_leka,
+                    lek_prepisana_kol:dod.lek_prepisana_kol,
+                    dijagnoza:dod.dijagnoza,
+                    terapija:dod.terapija,
+                    prva_poseta:dod.prva_poseta,
+                }
+                console.log('poslat niz', niz); 
+
+                let opcije={
+                    method: "POST",
+                    body: JSON.stringify(niz),
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'Content-Type': 'application/json'   //BITNO!!!
+                    }
+                }
+                
+                fetch('/lekar/storeVisit',opcije)
+                    .then(resp=>resp.json())
+                    .then(txt=>{
+                        // this.odgovor+=txt+" ";
+                        console.log(txt);
+                    });
+            }
+                
+        }
     }
 
     render()
@@ -52,21 +132,21 @@ export default class Visit extends Component
                     <div className="donje">
                         <div className="flexRow">
                             <label>
-                                <select >
+                                <select id="r_tipPosete">
                                     <option value="1">Prva Poseta</option>
                                     <option value="0">Kontrolna Poseta</option>
                                 </select>
                             </label> 
                         </div>
                     
-                    <label >Dijagnoza <textarea id="dijagnoza" cols="30" rows="10" ></textarea></label>
-                    <label >Terapija <textarea id="terapija" cols="30" rows="10" ></textarea></label>
+                    <label >Dijagnoza <textarea id="r_dijagnoza" cols="30" rows="10" ></textarea></label>
+                    <label >Terapija <textarea id="r_terapija" cols="30" rows="10" ></textarea></label>
         
                         <div className="parentUpis">
                                    {treatments} 
                         </div>
         
-                    <button className="submit" >Posalji u bazu</button>
+                    <button className="submit" onClick={this.submit}>Posalji u bazu</button>
                     </div>
         
                 </div>
