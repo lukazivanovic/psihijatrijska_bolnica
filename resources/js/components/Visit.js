@@ -14,12 +14,15 @@ export default class Visit extends Component
                 sb:null,
                 sl:null,
                 kl:0,
-            }
+            },
+            check:null,
+            check_codes:false,
         }
 
         this.callLarvel=this.callLarvel.bind(this);
         this.increaseCount=this.increaseCount.bind(this);
         this.submit=this.submit.bind(this);
+        this.getCodes=this.getCodes.bind(this);
     }
 
     callLarvel()
@@ -74,7 +77,7 @@ export default class Visit extends Component
         }
 
 
-        // this.errors=verifikuj(this.niz_send,this.check_codes,this.codes);
+        this.errors=verifikuj(this.niz_send,this.state.check_codes,this.state.codes);
 
         if(this.errors.length==0)
         {
@@ -154,4 +157,61 @@ export default class Visit extends Component
         )
     }
         
+
+    verifikuj(niz,check,codes)
+    {
+        let errors=[];
+
+        if(niz[0].datum==="" || niz[0].datum===null) errors.push('Datum nije upisan!');
+        if(niz[0].id_pacijent==="" || niz[0].id_pacijent===null) errors.push('ID pacijenta nije upisan!');
+        if(niz[0].id_lekar==="" || niz[0].id_lekar===null) errors.push('ID lekara nije upisan!');
+        if(niz[0].dijagnoza==="" || niz[0].dijagnoza===null) errors.push('Dijagnoza nije upisana!');
+        
+        for(let pom of niz)
+        {
+            if((pom.sifra_bolesti==="") && (pom.sifra_leka==="") && (pom.lek_prepisana_kol===""))
+            {
+            
+            }
+            else
+            {
+                if(pom.sifra_bolesti==="" || pom.sifra_bolesti===null) errors.push('Sifra bolesti nije upisana!');
+                if(pom.sifra_leka==="" || pom.sifra_leka===null) errors.push('Sifra leka nije upisana!');
+                if(pom.lek_prepisana_kola==="" || pom.lek_prepisana_kol===null) errors.push('Lek prepisana kolicina nije upisana!');
+                if(isNaN(pom.lek_prepisana_kol)) errors.push('Prepisana kolicina leka mora biti broj!');  
+                if(pom.lek_prepisana_kol<=0) errors.push('Prepisana kolicina leka mora biti veca od nule!');
+
+                if(check)
+                {
+                    if(!codes.bolesti.some(obj=>obj.sifra_bolest===pom.sifra_bolesti)) errors.push('Sifra bolesti ne postoji u bazi!');
+                    if(!codes.lekovi.some(obj=>obj.sifra_lek===pom.sifra_leka)) errors.push('Sifra leka ne postoji u bazi!');
+                }
+            }
+        }
+
+        return errors;
+    }
+
+    getCodes()
+    {
+        let opcije={
+            "method": "GET",
+        }
+
+        fetch("/lekar/getCodes", opcije)
+        .then(r=>r.json())
+        .then(r=>{
+            this.setState(
+                {
+                    check_codes:true,
+                    codes:r,
+                }
+            );
+        }) 
+    }
+
+    componentDidMount()
+    {
+        this.getCodes();
+    }
 }

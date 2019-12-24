@@ -52350,11 +52350,14 @@ function (_Component) {
         sb: null,
         sl: null,
         kl: 0
-      }
+      },
+      check: null,
+      check_codes: false
     };
     _this.callLarvel = _this.callLarvel.bind(_assertThisInitialized(_this));
     _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
     _this.submit = _this.submit.bind(_assertThisInitialized(_this));
+    _this.getCodes = _this.getCodes.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -52415,8 +52418,9 @@ function (_Component) {
         pom.terapija = this.terapija;
         pom.prva_poseta = this.tip_pos;
         this.niz_send.push(pom);
-      } // this.errors=verifikuj(this.niz_send,this.check_codes,this.codes);
+      }
 
+      this.errors = verifikuj(this.niz_send, this.state.check_codes, this.state.codes);
 
       if (this.errors.length == 0) {
         var _iteratorNormalCompletion = true;
@@ -52512,6 +52516,82 @@ function (_Component) {
         className: "submit",
         onClick: this.submit
       }, "Posalji u bazu"))));
+    }
+  }, {
+    key: "verifikuj",
+    value: function verifikuj(niz, check, codes) {
+      var errors = [];
+      if (niz[0].datum === "" || niz[0].datum === null) errors.push('Datum nije upisan!');
+      if (niz[0].id_pacijent === "" || niz[0].id_pacijent === null) errors.push('ID pacijenta nije upisan!');
+      if (niz[0].id_lekar === "" || niz[0].id_lekar === null) errors.push('ID lekara nije upisan!');
+      if (niz[0].dijagnoza === "" || niz[0].dijagnoza === null) errors.push('Dijagnoza nije upisana!');
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        var _loop = function _loop() {
+          var pom = _step2.value;
+
+          if (pom.sifra_bolesti === "" && pom.sifra_leka === "" && pom.lek_prepisana_kol === "") {} else {
+            if (pom.sifra_bolesti === "" || pom.sifra_bolesti === null) errors.push('Sifra bolesti nije upisana!');
+            if (pom.sifra_leka === "" || pom.sifra_leka === null) errors.push('Sifra leka nije upisana!');
+            if (pom.lek_prepisana_kola === "" || pom.lek_prepisana_kol === null) errors.push('Lek prepisana kolicina nije upisana!');
+            if (isNaN(pom.lek_prepisana_kol)) errors.push('Prepisana kolicina leka mora biti broj!');
+            if (pom.lek_prepisana_kol <= 0) errors.push('Prepisana kolicina leka mora biti veca od nule!');
+
+            if (check) {
+              if (!codes.bolesti.some(function (obj) {
+                return obj.sifra_bolest === pom.sifra_bolesti;
+              })) errors.push('Sifra bolesti ne postoji u bazi!');
+              if (!codes.lekovi.some(function (obj) {
+                return obj.sifra_lek === pom.sifra_leka;
+              })) errors.push('Sifra leka ne postoji u bazi!');
+            }
+          }
+        };
+
+        for (var _iterator2 = niz[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          _loop();
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+            _iterator2["return"]();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+
+      return errors;
+    }
+  }, {
+    key: "getCodes",
+    value: function getCodes() {
+      var _this2 = this;
+
+      var opcije = {
+        "method": "GET"
+      };
+      fetch("/lekar/getCodes", opcije).then(function (r) {
+        return r.json();
+      }).then(function (r) {
+        _this2.setState({
+          check_codes: true,
+          codes: r
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getCodes();
     }
   }]);
 
