@@ -77,7 +77,7 @@ Vue.component('unos',
                             zadnji.klId='kl'+this.count;
                             //sledeca tri reda sluze da se zadrzi unos iz predhodnog reda, kada se upise novi red
                             //predpostavka: posto predhodni red menja dugme, vue ga rerenderuje koristeci data.redovi; posto se dalje red ne menja, 
-                            //vue ga ne rereneruje, i ostaje zapisano ono sto je korisnik izmenio, iako se to ne reflektuje u data
+                            //vue ga ne rerenderuje, i ostaje zapisano ono sto je korisnik izmenio, iako se to ne reflektuje u data
                             this.redovi[this.count-1].sb=zadnji.sb;
                             this.redovi[this.count-1].sl=zadnji.sl;
                             this.redovi[this.count-1].kl=zadnji.kl;

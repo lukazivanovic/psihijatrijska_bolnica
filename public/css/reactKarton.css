@@ -83,12 +83,30 @@
 .r_treatmant
 {
     background-color: var(--bojaA);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px auto 5px;
+    flex-wrap: nowrap;
 }
 
+.r_space_beetwen
+{
+    justify-content: space-between; 
+}
+
+/* obrati paznju na color */
 .r_naslov
 {
-    color: var(--bojaC);
+    color: red;
     margin: 2px auto 10px;
+}
+
+.r_naslov_c
+{
+    color: red;
+    margin: 2px auto 10px;
+    text-align: center;
 }
 
 .r_oneVisit
@@ -156,3 +174,13 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+/* obrati paznji na color */
+.r_error
+{
+    background-color: var(--bojaC);
+    width: 100%;
+    color:black;
+    text-align: center;
+}
+

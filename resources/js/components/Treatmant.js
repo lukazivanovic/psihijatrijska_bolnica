@@ -40,25 +40,16 @@ export default class Visit extends Component
 
     render()
     {
-        if(this.state.active)
-        {
-            return(
-            
-                <div className="upis">
-                    <label>Sifra bolesti: <input type="text" className='r_sifra_bolesti' defaultValue={this.props.sb} onFocus={this.ponisti}/></label>
-                    <label>Sifra leka: <input type="text" className='r_sifra_leka' defaultValue={this.props.sl} onFocus={this.ponisti}/></label>
-                    <label>Kolicina leka: <input type="number" className='r_kolicina_leka' defaultValue={this.props.kl} onFocus={this.ponisti}/></label>
-                    <button className="noviUnosDugme" onClick={this.increaseCount}>Novi unos</button>
-                </div>
-            )
-        }
+       let button=(this.state.active)?
+            <button className="noviUnosDugme" onClick={this.increaseCount}>Novi unos</button>:
+            <button className="obrisi" onClick={this.ukloni}>X</button>;
+        
         return(
-            
             <div className="upis">
                 <label>Sifra bolesti: <input type="text" className='r_sifra_bolesti' onFocus={this.ponisti}/></label>
                 <label>Sifra leka: <input type="text" className='r_sifra_leka' onFocus={this.ponisti}/></label>
                 <label>Kolicina leka: <input type="number" className='r_kolicina_leka' onFocus={this.ponisti}/></label>
-                <button className="obrisi" onClick={this.ukloni}>X</button>
+                {button}
             </div>
         )
     }

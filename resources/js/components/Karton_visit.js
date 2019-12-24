@@ -11,6 +11,7 @@ export default class Karton_visit extends Component
             show_edit:false,
             dijagnoza:this.props.data.dijagnoza,
             terapija:this.props.data.terapija,
+            odgovor:null,
         }
 
         this.otkrijDetalje=this.otkrijDetalje.bind(this);
@@ -49,6 +50,11 @@ export default class Karton_visit extends Component
         this.props.callLaravel();
     }
 
+    // setOdgovor(txt)
+    // {
+    //     this.setState({odgovor:txt});
+    // }
+
     sendData()
     {
         let niz={
@@ -56,7 +62,7 @@ export default class Karton_visit extends Component
             tracers:this.props.id,
             dijagnoza:this.state.dijagnoza || this.props.data.dijagnoza,
             terapija:this.state.terapija || this.props.data.terapija,
-            json:true, //da kazemo serveru da vrati json odogovor
+            json:true, //da kazemo serveru da vrati json odgovor
         }
 
         let opcije={
@@ -74,9 +80,9 @@ export default class Karton_visit extends Component
             .then(resp=>resp.json())
             .then(txt=>
                 {
-                  alert(txt);  
-                  this.izmeni();
-                  this.callLaravel();
+                    this.setState({odgovor:txt}); 
+                    this.izmeni();
+                    this.callLaravel();
                 });
     }
 
@@ -100,15 +106,17 @@ export default class Karton_visit extends Component
                         </div>
         
                         <div>
-                            <h4 className="r_naslov">Dijagnoza: </h4>
+                            <h4 className="r_naslov_c">Dijagnoza: </h4>
                             {this.props.data.dijagnoza}
                         </div>
                         <div>
-                            <h4 className="r_naslov">Terapija: </h4>
+                            <h4 className="r_naslov_c">Terapija: </h4>
                             {this.props.data.terapija}
                         </div>
-                        <button onClick={this.izmeni}>Edit</button>
+                        <div className="flexRowRight"><button onClick={this.izmeni}>Edit</button></div>
+                        
                             {treatmants}
+                        <div className="r_error">{this.state.odgovor}</div>
                     </div>
                     
                 </div>
@@ -146,6 +154,7 @@ export default class Karton_visit extends Component
                     </div>
                     <button onClick={this.izmeni}>Odustani</button>
                     <button onClick={this.sendData}>Posalji</button>
+                    <div className="r_error">{this.state.odgovor}</div>
                         {treatmants}
                 </div>
             </div>
@@ -155,17 +164,16 @@ export default class Karton_visit extends Component
         }
         return(
             <div className="r_visit" onClick={this.otkrijDetalje}>
-                <div className="flexRow"> 
+                <div className="flexRowES"> 
                     <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
                     <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
                     <div> Lekar: {this.props.data.id_lekar} </div>
                 </div>
-   
-                <div>
-                    <span className="r_naslov">Dijagnoza: </span> {this.props.data.dijagnoza.slice(0,32)}
-                    <span className="r_naslov">    Terapija: </span> {this.props.data.terapija.slice(0,32)}
-                </div>
-                    {treatmants}
+                
+                <div className="flexRow"><div><span className="r_naslov">Dijagnoza: </span> {this.props.data.dijagnoza.slice(0,96)}</div></div>
+                <div className="flexRow"><div><span className="r_naslov">Terapija: </span> {this.props.data.terapija.slice(0,96)}</div></div>
+                
+                {treatmants}
             </div>
         )
     }

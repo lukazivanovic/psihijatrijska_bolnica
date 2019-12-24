@@ -172,7 +172,7 @@ export default class Visit extends Component
             
                     </div>
                     <div>{errorsPr}</div>
-                    <div className='flexRow'>{ this.state.odgovor }</div>
+                    <div className='flexRow r_error'>{ this.state.odgovor }</div>
                     
                 </div>
             </div>
