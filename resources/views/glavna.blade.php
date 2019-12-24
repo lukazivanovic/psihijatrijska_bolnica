@@ -12,12 +12,12 @@
                     <div class="nav-btn btn-icons btn-icons">
                         <p class="records">Kartoni</p>
                         <img src="/images/medical-report.png" alt="report">
-                    </div>  
+                    </div>
                 </a>
-            </div>          
+            </div>
             @endif
             @if (Auth::user()->role==3)
-            <div class="optionsItems">
+            <div class="optionsItems optionKorisnik">
                 <a href="/admin">
                     <div class="nav-btn btn-icons">
                         <p class="records">Spisak korisnika</p>
@@ -42,7 +42,7 @@
                     <div class="nav-btn btn-icons">
                         <p class="records">Knjiga bolesti</p>
                         <img src="/images/medical-notes.png" alt="medical-notes">
-                    </div> 
+                    </div>
                 </a>
             </div>
             <div class="optionsItems">
@@ -50,15 +50,15 @@
                     <div class="nav-btn btn-icons">
                         <p class="records">Spisak lekova</p>
                         <img src="/images/medical-pills.png" alt="pills">
-                    </div>    
+                    </div>
                 </a>
-            </div>        
-            @endif  
+            </div>
+            @endif
             @endauth
         </div>
         <div class="weather">
             <div class="weatherItems">
-                <div class="margin_20">
+                <div class="marginWeather">
                     <div id="vreme"></div>
                     <script src="/js/app.js"></script>
                 </div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

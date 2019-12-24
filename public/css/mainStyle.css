@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:200,300,400,500,600,700,800,900&display=swap&subset=latin-ext');
 
+
 :root
 {
     --bojaJedan:#6E7DA2;
@@ -89,19 +90,19 @@ ol,ul,li
 
 .logo
 {
-    margin: 0px 21px;
+    display: flex;
+    justify-content: center;
+    width: 150px;
 }
 
 .logo img
 {
-    margin: 8px auto 8px auto;
-    height: 90%;
-    width: auto;
+    width: 90px;
 }
 
 .divider
 {
-    width: 400px;
+    width: 250px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -229,6 +230,11 @@ font-weight: bold;
     border: thin solid var(--bojaTri);
     background-color: var(--bojaCetiri);
 }
+.optionKorisnik
+{
+    width: 980px;
+    margin: 0;
+}
 .weather{
     display: flex;
     flex-direction: row;
@@ -312,16 +318,15 @@ font-weight: bold;
 }
 .infoItems
 {
-    display: flex;
-    justify-content: space-between;
     width: 980px;
-    height: 150px;
     background: var(--bojaCetiri);
 }
 .infoContainer
 {
     display: flex;
+    justify-content: space-between;
     margin: 10px;
+    padding: 5px;
 }
 .hospitalInfo
 {
@@ -373,10 +378,12 @@ font-weight: bold;
 table
 {
     width: 1040px;
-    border: 1px solid var(--bojaC);
     margin: 20px auto 20px;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
+    text-align: center;
+    font-size: 19px;
+    color: var(--bojaJedan);
     max-width: 1400px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
@@ -388,8 +395,7 @@ table:last-of-type
 
 tr
 {
-    background-color:  var(--bojaB);
-    border-bottom: 1px solid var(--bojaD);
+    background-color:  var(--bojaCetiri);
 }
 
 tr:nth-child(2n)
@@ -399,12 +405,12 @@ tr:nth-child(2n)
 
 th
 {
-    color: white;
+    color: var(--bojaTri);
     background-color: var(--bojaA);
     padding: 15px 15px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px var(--bojaCetiri);
 }
 
 td
@@ -691,8 +697,16 @@ textarea
 
 .margin_20
 {
+    display: flex;
+    margin: 20px auto 20px;
+    width: 1040px;
+    justify-content: flex-end;
+}
+.marginWeather
+{
     margin: 20px;
 }
+
 
 .modelsWraper
 {
@@ -768,12 +782,15 @@ input
     min-width: 240px;
     max-width: 400px;
     width: 100%;
-    border: 1px solid #9A0606;
+    border: thin solid var(--bojaJedan);
+    border-radius: 5px;
+    background-image: url('public/img/search.png');
     padding: 2px;
     text-align: center;
     font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 1em;
     font-weight: 400;
+    
 }
 
 .linkA a
@@ -1026,22 +1043,43 @@ aside ul
     margin: 0 auto;
     margin-bottom: 50px;
     margin-top: 5px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 20px;
 }
-.nav-hospital:first-of-type
+.nav-aside{
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+.nav-aside:first-of-type
 {
     margin-top: 90px;
 }
-.nav-btn:hover{
-    background: var(--bojaC);
-
-}
+/* .nav-btn:hover{
+    background-color: var(--bojaCetiri);
+} */
 .nav-btn i{
     margin: 0 10px;
+}
+.nav-aside img
+{
+    width: 50px;
+}
+.nav-aside img:hover
+{
+    width: 65px;
 }
 .btn-icons
 {
@@ -1051,6 +1089,11 @@ aside ul
     display: flex;
     align-items: center;
 }
+.btn-icons:hover
+{
+    background-color: var(--bojaTri);
+}
+
 .records
 {
     font-size: 35px;
