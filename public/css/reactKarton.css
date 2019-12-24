@@ -83,12 +83,30 @@
 .r_treatmant
 {
     background-color: var(--bojaA);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0px auto 5px;
+    flex-wrap: nowrap;
 }
 
+.r_space_beetwen
+{
+    justify-content: space-between; 
+}
+
+/* obrati paznju na color */
 .r_naslov
 {
-    color: var(--bojaC);
+    color: red;
     margin: 2px auto 10px;
+}
+
+.r_naslov_c
+{
+    color: red;
+    margin: 2px auto 10px;
+    text-align: center;
 }
 
 .r_oneVisit
@@ -113,3 +131,56 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+
+.r_visit_form
+{
+    background-color: var(--bojaB);
+    position: absolute; 
+    top:10%;
+    left:20%;
+    border: 3px solid var(--bojaD);
+    width:940px;
+    height: 580px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.r_visit_form::-webkit-scrollbar
+{
+    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
+    sa elementom koji ima scrolbar */
+    /* background-color: green; */
+    width: 15px;
+}
+
+.r_visit_form::-webkit-scrollbar-thumb
+{
+    border-radius: 6px;
+    background-color: var(--bojaC);
+}
+
+.r_visit_form::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px;
+    background-color: white;
+}
+
+.r_visit_screen
+{
+    position: absolute;
+    top: 0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* obrati paznji na color */
+.r_error
+{
+    background-color: var(--bojaC);
+    width: 100%;
+    color:black;
+    text-align: center;
+}
+

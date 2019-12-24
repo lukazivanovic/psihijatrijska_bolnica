@@ -72,7 +72,7 @@ export default class Visit_treatmant extends Component
             .then(resp=>resp.json())
             .then(txt=>
                 {
-                  alert(txt);  
+                  alert(txt);
                   this.izmeni();
                   this.callLaravel();
                 }).catch(err => {
@@ -85,13 +85,13 @@ export default class Visit_treatmant extends Component
         if(this.props.show_div && !this.state.show_edit_treatment)
         {
             return(
-              <div className="r_treatmant">
-                    <div className="flexRowES">
+              <div className="r_treatmant r_space_beetwen">
+                    
                         <div>Ime Bolesti: {this.props.data.name_bolest}</div>
                         <div>Ime Leka: {this.props.data.name_lek}</div>
                         <div>Kolicina: {this.props.data.lek_prepisana_kol}</div>
                         <button onClick={this.izmeni}>Edit</button>
-                    </div>
+                    
                 </div>  
             )   
         }
@@ -99,8 +99,8 @@ export default class Visit_treatmant extends Component
         if(this.props.show_div && this.state.show_edit_treatment)
         {
             return(
-              <div className="r_treatmant">
-                    <div className="flexRowES">
+              <div className="r_treatmant r_space_beetwen">
+                    
                         <label>
                             Sifra Bolesti: <input type="text" defaultValue={this.props.data.sifra_bolest} ref={this.sb} onChange={this.setSB}/>
                         </label>
@@ -114,18 +114,18 @@ export default class Visit_treatmant extends Component
                         
                         <button onClick={this.izmeni}>Odustani</button>
                         <button onClick={this.sendData}>Posalji</button>
-                    </div>
+                    
                 </div>  
             )   
         }
 
         return(
             <div className="r_treatmant">
-                <div className="flexRowES">
+                
                     <div>Ime Bolesti: {this.props.data.name_bolest}</div>
                     <div>Lek: {this.props.data.name_lek}</div>
                     <div>Kolicina: {this.props.data.lek_prepisana_kol}</div>
-                </div>
+                
             </div>
         )
     }

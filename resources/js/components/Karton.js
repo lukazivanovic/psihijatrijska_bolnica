@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Scroll from './Scroll';
 import Karton_osnovni_podaci from './Karton_osnovni_podaci.js';
 import Karton_Visit from './Karton_Visit';
 
@@ -44,10 +43,8 @@ export default class Karton extends Component
             <div className="r_karton">
                 {/* <button onClick={this.prikaziKarton}>Nazad</button> */}
                 <Karton_osnovni_podaci data={this.props.data.osnovni} prikaziKarton={this.prikaziKarton} callLaravel={this.callLaravel}/>
-                <p>Pretraga: <input type="text" ref={this.filterKarton} onChange={this.upisiFilter} /></p>
-                <Scroll>
+                <div className="flexRow"><input type="text" ref={this.filterKarton} onChange={this.upisiFilter} placeholder="Pretraga"/></div>
                     {svePosete}
-                </Scroll>
             </div>
         )
     }

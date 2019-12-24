@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Visit from './Visit';
 
 export default class Karton_osnovni_podaci extends Component
 {
@@ -9,6 +10,8 @@ export default class Karton_osnovni_podaci extends Component
             forma:false,
             istorija_bolesti:this.props.data.istorija_bolesti,
             alergija_lek:this.props.data.alergija_lek,
+            visit:false,
+            odgovor:null,
         }
         this.otvoriDugme=this.otvoriDugme.bind(this);
         this.nazad=this.nazad.bind(this);
@@ -59,7 +62,7 @@ export default class Karton_osnovni_podaci extends Component
             istorija_bolesti:this.state.istorija_bolesti || this.props.data.istorija_bolesti,
             alergija_lek:this.state.alergija_lek || this.props.data.alergija_lek,
             id:this.props.data.id,
-            json:true, //da kazemo serveru da vrati json odogovor
+            json:true, //da kazemo serveru da vrati json odgovor
         }
 
         let opcije={
@@ -77,7 +80,7 @@ export default class Karton_osnovni_podaci extends Component
             .then(resp=>resp.json())
             .then(txt=>
                 {
-                  alert(txt);  
+                  this.setState({odgovor:txt}); 
                   this.otvoriFormu();
                   this.callLaravel();
                 });
@@ -85,12 +88,13 @@ export default class Karton_osnovni_podaci extends Component
 
     showNewVisit()
     {
-        document.querySelector('#showVisit').classList.toggle('disapear');
-        sessionStorage.setItem('pacijent_id',this.props.data.id);
-        sessionStorage.setItem('lekar_id',this.props.data.lekar);
-        if(document.querySelector('#showVisit').className=="showVisit disapear")
+        this.setState({visit:!this.state.visit});
+    }
+
+    componentDidUpdate()
+    {
+        if(this.state.visit==false)
         {
-            // location.reload()
             this.callLaravel();
         }
     }
@@ -101,40 +105,54 @@ export default class Karton_osnovni_podaci extends Component
         {
             return(
                 <div className="formaReact">
-                    <label>
-                        Istorija bolesti:
-                            <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState}/>
-                    </label>
+                        <label>
+                            Istorija bolesti:
+                                <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState}/>
+                        </label>
 
-                    <label>
-                        Alergija lek:
-                            <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState}/>
-                    </label>
+                        <label>
+                            Alergija lek:
+                                <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState}/>
+                        </label>
 
-                    <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
-                    <button className='linkDugme' onClick={this.sendData}>Posalji</button>
+                        <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
+                        <button className='linkDugme' onClick={this.sendData}>Posalji</button>
+
+                        <div className="r_error">{this.state.odgovor}</div>
+                </div>  
+            )
+        }
+
+        if(this.state.visit)
+        {
+            return(
+                <div>
+                             <Visit id={this.props.data.id} lekar={this.props.data.lekar} 
+                            callLaravel={this.callLaravel} showNewVisit={this.showNewVisit}></Visit>      
                 </div>
+                    
             )
         }
 
         return(
             <div className="karton">
-                <div className="pacijent-info">
-                    <h1>{  this.props.data.ime } {  this.props.data.prezime }</h1>
-                    <h3>Id Kartona: K-{ this.props.data.id}</h3>
-                    <div className="dodaj-posetu">
-                        <button className='linkDugme' onClick={this.showNewVisit}>Poseta Meni</button>
-                        <button className='linkDugme' onClick={this.otvoriFormu}>Izmeni Karton</button>
-                        <button onClick={this.nazad}>Nazad</button>
-                    </div>
+                    <div className="pacijent-info">
+                        <h1>{  this.props.data.ime } {  this.props.data.prezime }</h1>
+                        <h3>Id Kartona: K-{ this.props.data.id}</h3>
+                        <div className="dodaj-posetu">
+                            <button className='linkDugme' onClick={this.showNewVisit}>Poseta Meni</button>
+                            <button className='linkDugme' onClick={this.otvoriFormu}>Izmeni Karton</button>
+                            <button onClick={this.nazad}>Nazad</button>
+                        </div>
+                     </div>   
                     
-                </div>
-                <div className="karton-info">
-                    <p>Datum Rodjenja: { pf.dateToSerbianFormat(this.props.data.dat_rodjenja) }</p>
-                    <p>Pol: { this.props.data.pol}</p>
-                    <p>Istorija Bolesti: {this.props.data.istorija_bolesti}</p>
-                    <p>Alergija na lekove: {this.props.data.alergija_lek}</p>
-                </div>
+                    <div className="karton-info">
+                        <p>Datum Rodjenja: { pf.dateToSerbianFormat(this.props.data.dat_rodjenja) }</p>
+                        <p>Pol: { this.props.data.pol}</p>
+                        <p>Istorija Bolesti: {this.props.data.istorija_bolesti}</p>
+                        <p>Alergija na lekove: {this.props.data.alergija_lek}</p>
+                    </div>
+                    <div className="r_error">{this.state.odgovor}</div>
             </div>
         )
     }

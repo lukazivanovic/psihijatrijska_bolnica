@@ -88,14 +88,6 @@ class KartoniStranica extends Component
         return listaPacijenta;
     }
 
-    componentDidUpdate()
-    {
-        if(this.state.br_kartona==="")
-        {
-            location.reload();
-        }
-    }
-
     render()
     {
         if(Object.keys(this.state.baza).length===0)
@@ -128,7 +120,7 @@ class KartoniStranica extends Component
                 <div>
                     <h1>Kartoni</h1>
                     {/* <p>Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} /></p> */}
-                    <p>Pretraga: <input type="text" ref={this.filterPacijenti} onChange={this.upisiFilter}/></p>
+                    <div className="flexRow"><input type="text" ref={this.filterPacijenti} onChange={this.upisiFilter} placeholder="Pretraga"/></div>
                     
                     <Scroll>
                         {pacijenti}
