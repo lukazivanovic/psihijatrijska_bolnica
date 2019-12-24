@@ -17,12 +17,15 @@ export default class Visit extends Component
             },
             check:null,
             check_codes:false,
+            errors:[],
+            odgovor:null,
         }
 
         this.callLarvel=this.callLarvel.bind(this);
         this.increaseCount=this.increaseCount.bind(this);
         this.submit=this.submit.bind(this);
         this.getCodes=this.getCodes.bind(this);
+        this.showNewVisit=this.showNewVisit.bind(this);
     }
 
     callLarvel()
@@ -36,6 +39,11 @@ export default class Visit extends Component
         let c=this.state.count;
         c++;
         this.setState({count:c});
+    }
+
+    showNewVisit()
+    {
+        this.props.showNewVisit();
     }
 
     submit()
@@ -77,7 +85,9 @@ export default class Visit extends Component
         }
 
 
-        this.errors=verifikuj(this.niz_send,this.state.check_codes,this.state.codes);
+        this.errors=this.verifikuj(this.niz_send,this.state.check_codes,this.state.codes);
+        console.log('errors',this.errors);
+        this.setState({errors:this.errors});
 
         if(this.errors.length==0)
         {
@@ -109,11 +119,13 @@ export default class Visit extends Component
                 fetch('/lekar/storeVisit',opcije)
                     .then(resp=>resp.json())
                     .then(txt=>{
-                        // this.odgovor+=txt+" ";
-                        console.log(txt);
+                        this.odgovor+=txt+" ";
+                        console.log(this.odgovor);
+                        alert(this.odgovor);
                     });
             }
-                
+            
+            this.setState({odgovor:this.odgovor});
         }
     }
 
@@ -128,7 +140,7 @@ export default class Visit extends Component
         return(
             <div className="r_visit_form">
                 <div className="flexRowRight">
-                    <button>X</button>
+                    <button onClick={this.showNewVisit}>X</button>
                 </div>
 
                 <div className="vueFormaVisit">

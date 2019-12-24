@@ -117,4 +117,31 @@
 .r_visit_form
 {
     background-color: var(--bojaB);
+    position: absolute; 
+    top:20%;
+    left:20%;
+    border: 3px solid var(--bojaD);
+    width:940px;
+    height: 580px;
+    overflow: auto;
+}
+
+.r_visit_form::-webkit-scrollbar
+{
+    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
+    sa elementom koji ima scrolbar */
+    /* background-color: green; */
+    width: 15px;
+}
+
+.r_visit_form::-webkit-scrollbar-thumb
+{
+    border-radius: 6px;
+    background-color: var(--bojaC);
+}
+
+.r_visit_form::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px;
+    background-color: white;
 }
