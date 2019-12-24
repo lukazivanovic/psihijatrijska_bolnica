@@ -13,12 +13,14 @@ export default class Visit extends Component
         this.increaseCount=this.increaseCount.bind(this);
         this.ukloni=this.ukloni.bind(this);
         this.ponisti=this.ponisti.bind(this);
+        this.zadnjiUpis=this.zadnjiUpis.bind(this);
     }
 
     increaseCount()
     {
         this.props.increaseCount();
         this.setState({active:false});
+        this.zadnjiUpis();
     }
 
     ukloni(event)
@@ -31,6 +33,11 @@ export default class Visit extends Component
         event.target.value="";
     }
 
+    zadnjiUpis()
+    {
+        this.props.zadnjiUpis();
+    }
+
     render()
     {
         if(this.state.active)
@@ -38,9 +45,9 @@ export default class Visit extends Component
             return(
             
                 <div className="upis">
-                    <label>Sifra bolesti: <input type="text" className='r_sifra_bolesti' onFocus={this.ponisti}/></label>
-                    <label>Sifra leka: <input type="text" className='r_sifra_leka' onFocus={this.ponisti}/></label>
-                    <label>Kolicina leka: <input type="number" className='r_kolicina_leka' onFocus={this.ponisti}/></label>
+                    <label>Sifra bolesti: <input type="text" className='r_sifra_bolesti' defaultValue={this.props.sb} onFocus={this.ponisti}/></label>
+                    <label>Sifra leka: <input type="text" className='r_sifra_leka' defaultValue={this.props.sl} onFocus={this.ponisti}/></label>
+                    <label>Kolicina leka: <input type="number" className='r_kolicina_leka' defaultValue={this.props.kl} onFocus={this.ponisti}/></label>
                     <button className="noviUnosDugme" onClick={this.increaseCount}>Novi unos</button>
                 </div>
             )

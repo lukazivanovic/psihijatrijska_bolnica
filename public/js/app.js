@@ -52332,6 +52332,7 @@ function (_Component) {
     _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
     _this.ukloni = _this.ukloni.bind(_assertThisInitialized(_this));
     _this.ponisti = _this.ponisti.bind(_assertThisInitialized(_this));
+    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -52342,6 +52343,7 @@ function (_Component) {
       this.setState({
         active: false
       });
+      this.zadnjiUpis();
     }
   }, {
     key: "ukloni",
@@ -52354,6 +52356,11 @@ function (_Component) {
       event.target.value = "";
     }
   }, {
+    key: "zadnjiUpis",
+    value: function zadnjiUpis() {
+      this.props.zadnjiUpis();
+    }
+  }, {
     key: "render",
     value: function render() {
       if (this.state.active) {
@@ -52362,14 +52369,17 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "r_sifra_bolesti",
+          defaultValue: this.props.sb,
           onFocus: this.ponisti
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           className: "r_sifra_leka",
+          defaultValue: this.props.sl,
           onFocus: this.ponisti
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "number",
           className: "r_kolicina_leka",
+          defaultValue: this.props.kl,
           onFocus: this.ponisti
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "noviUnosDugme",
@@ -52477,6 +52487,7 @@ function (_Component) {
     _this.submit = _this.submit.bind(_assertThisInitialized(_this));
     _this.getCodes = _this.getCodes.bind(_assertThisInitialized(_this));
     _this.showNewVisit = _this.showNewVisit.bind(_assertThisInitialized(_this));
+    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -52510,11 +52521,11 @@ function (_Component) {
 
       this.niz_send = [];
       this.errors = [];
-      this.odgovor = "";
+      this.odgovor = ""; //pravimo novi niz_send niz
+
       this.dijagnoza = document.querySelector('#r_dijagnoza').value;
       this.terapija = document.querySelector('#r_terapija').value;
-      this.tip_pos = document.querySelector('#r_tipPosete').value; //pravimo novi niz_send niz
-
+      this.tip_pos = document.querySelector('#r_tipPosete').value;
       var date = new Date();
       var datum_posete = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
@@ -52616,7 +52627,11 @@ function (_Component) {
       for (var i = 0; i <= this.state.count; i++) {
         treatments.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: i,
-          increaseCount: this.increaseCount
+          increaseCount: this.increaseCount,
+          zadnjiUpis: this.zadnjiUpis,
+          sb: this.state.last_input.sb,
+          sl: this.state.last_input.sl,
+          kl: this.state.last_input.kl
         }));
       }
 
@@ -52720,10 +52735,7 @@ function (_Component) {
     value: function getCodes() {
       var _this3 = this;
 
-      var opcije = {
-        "method": "GET"
-      };
-      fetch("/lekar/getCodes", opcije).then(function (r) {
+      fetch("/lekar/getCodes").then(function (r) {
         return r.json();
       }).then(function (r) {
         _this3.setState({
@@ -52736,6 +52748,29 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.getCodes();
+    }
+  }, {
+    key: "zadnjiUpis",
+    value: function zadnjiUpis() {
+      var sb = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      var sl = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      var kl = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      this.setState({
+        last_input: {
+          sb: sb,
+          sl: sl,
+          kl: kl
+        }
+      });
     }
   }]);
 

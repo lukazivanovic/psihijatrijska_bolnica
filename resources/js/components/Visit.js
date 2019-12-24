@@ -27,6 +27,7 @@ export default class Visit extends Component
         this.submit=this.submit.bind(this);
         this.getCodes=this.getCodes.bind(this);
         this.showNewVisit=this.showNewVisit.bind(this);
+        this.zadnjiUpis=this.zadnjiUpis.bind(this);
     }
 
     callLarvel()
@@ -56,11 +57,12 @@ export default class Visit extends Component
         this.errors=[];
         this.odgovor="";
 
+        //pravimo novi niz_send niz
         this.dijagnoza=document.querySelector('#r_dijagnoza').value;
         this.terapija=document.querySelector('#r_terapija').value;
         this.tip_pos=document.querySelector('#r_tipPosete').value;
 
-        //pravimo novi niz_send niz
+        
         let date=new Date();
         let datum_posete=""+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+(date.getDate());
 
@@ -134,7 +136,8 @@ export default class Visit extends Component
         let treatments=[];
         for(let i=0; i<=this.state.count; i++)
         {
-            treatments.push(<Treatmant key={i} increaseCount={this.increaseCount}></Treatmant>);
+            treatments.push(<Treatmant key={i} increaseCount={this.increaseCount} zadnjiUpis={this.zadnjiUpis}
+            sb={this.state.last_input.sb} sl={this.state.last_input.sl} kl={this.state.last_input.kl}></Treatmant>);
         }
 
         let errorsPr=this.state.errors.map((e,i)=><Error error={e} key={'error'+i}></Error>)
@@ -211,11 +214,7 @@ export default class Visit extends Component
 
     getCodes()
     {
-        let opcije={
-            "method": "GET",
-        }
-
-        fetch("/lekar/getCodes", opcije)
+        fetch("/lekar/getCodes")
         .then(r=>r.json())
         .then(r=>{
             this.setState(
@@ -230,5 +229,21 @@ export default class Visit extends Component
     componentDidMount()
     {
         this.getCodes();
+    }
+
+    zadnjiUpis()
+    {
+        let sb=[...document.querySelectorAll('.r_sifra_bolesti')].map(c=>c.value).reverse()[0];
+        let sl=[...document.querySelectorAll('.r_sifra_leka')].map(c=>c.value).reverse()[0];
+        let kl=[...document.querySelectorAll('.r_kolicina_leka')].map(c=>c.value).reverse()[0];
+
+        this.setState({
+            last_input:
+            {
+                sb:sb,
+                sl:sl,
+                kl:kl,
+            }
+        });
     }
 }
