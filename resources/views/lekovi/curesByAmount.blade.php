@@ -14,8 +14,8 @@
         @endauth
 
         @if (Auth::user()->role==1)
-            <button class='linkDugme' data-link='/lekovi/create'>Dodaj</button>
-            <button class='linkDugme' data-link='/lekovi'>lk</button>
+            <button class='linkDugme' data-link='/lekovi/create'>Dodaj novi medikament</button>
+            <button class='linkDugme' data-link='/lekovi'>Izlistaj po nazivu</button>
 
         @endif
         

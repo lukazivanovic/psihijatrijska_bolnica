@@ -1,12 +1,13 @@
 @extends('layouts.index')
 
 @section('content')
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
     @php
         // var_dump($pacijent);
     @endphp
 
-        <button class='linkDugme' data-link='/osoblje'>Nazad</button>
+        <button class='linkDugme' data-link='/osoblje'>Povratak na listu</button>
 
         <form action="/osoblje/update" method="POST">
             @csrf
