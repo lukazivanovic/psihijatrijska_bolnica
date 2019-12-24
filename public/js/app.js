@@ -51658,6 +51658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Karton_osnovni_podaci; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Visit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Visit */ "./resources/js/components/Visit.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51675,6 +51676,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -51794,7 +51796,13 @@ function (_Component) {
       if (this.state.forma) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "formaReact"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Istorija bolesti:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "flexRow"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          id: this.props.data.id,
+          lekar: this.props.data.lekar,
+          callLaravel: this.callLaravel
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Istorija bolesti:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.istorija_bolesti,
           ref: this.istorija,
           onChange: this.istorijaState
@@ -51814,6 +51822,12 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "karton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        id: this.props.data.id,
+        lekar: this.props.data.lekar,
+        callLaravel: this.callLaravel
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pacijent-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.data.ime, " ", this.props.data.prezime), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Id Kartona: K-", this.props.data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dodaj-posetu"
@@ -52152,6 +52166,89 @@ var Scroll = function Scroll(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Scroll);
+
+/***/ }),
+
+/***/ "./resources/js/components/Visit.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Visit.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visit; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Visit =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Visit, _Component);
+
+  function Visit(props) {
+    _classCallCheck(this, Visit);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
+  }
+
+  _createClass(Visit, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "r_visit_form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRowRight"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "vueFormaVisit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "donje"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Prva Poseta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "Kontrolna Poseta")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Dijagnoza ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "dijagnoza",
+        cols: "30",
+        rows: "10"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Terapija ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "terapija",
+        cols: "30",
+        rows: "10"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "parentUpis"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "submit"
+      }, "Posalji u bazu"))));
+    }
+  }]);
+
+  return Visit;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
 
 /***/ }),
 

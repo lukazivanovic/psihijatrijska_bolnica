@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Visit from './Visit';
 
 export default class Karton_osnovni_podaci extends Component
 {
@@ -100,7 +101,12 @@ export default class Karton_osnovni_podaci extends Component
         if(this.state.forma)
         {
             return(
+                
                 <div className="formaReact">
+                    <div className="flexRow">
+                        <Visit id={this.props.data.id} lekar={this.props.data.lekar} callLaravel={this.callLaravel}></Visit>
+                    </div>
+                    
                     <label>
                         Istorija bolesti:
                             <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState}/>
@@ -119,6 +125,9 @@ export default class Karton_osnovni_podaci extends Component
 
         return(
             <div className="karton">
+                 <div className="flexRow">
+                        <Visit id={this.props.data.id} lekar={this.props.data.lekar} callLaravel={this.callLaravel}></Visit>
+                    </div>
                 <div className="pacijent-info">
                     <h1>{  this.props.data.ime } {  this.props.data.prezime }</h1>
                     <h3>Id Kartona: K-{ this.props.data.id}</h3>
