@@ -35,8 +35,9 @@ export default class Visit extends Component
                         </div>
         
                     <button className="submit" >Posalji u bazu</button>
-                </div>
+                    </div>
         
+                </div>
             </div>
         )
     }
