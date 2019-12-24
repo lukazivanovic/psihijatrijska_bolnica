@@ -51794,15 +51794,15 @@ function (_Component) {
     key: "render",
     value: function render() {
       if (this.state.forma) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "formaReact"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRow"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
           id: this.props.data.id,
           lekar: this.props.data.lekar,
           callLaravel: this.callLaravel
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Istorija bolesti:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "formaReact"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Istorija bolesti:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.istorija_bolesti,
           ref: this.istorija,
           onChange: this.istorijaState
@@ -51816,18 +51816,18 @@ function (_Component) {
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme",
           onClick: this.sendData
-        }, "Posalji"));
+        }, "Posalji")));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "karton"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
         id: this.props.data.id,
         lekar: this.props.data.lekar,
         callLaravel: this.callLaravel
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "karton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pacijent-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.data.ime, " ", this.props.data.prezime), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Id Kartona: K-", this.props.data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dodaj-posetu"
@@ -51841,7 +51841,7 @@ function (_Component) {
         onClick: this.nazad
       }, "Nazad"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "karton-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Datum Rodjenja: ", pf.dateToSerbianFormat(this.props.data.dat_rodjenja)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pol: ", this.props.data.pol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti: ", this.props.data.istorija_bolesti), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija na lekove: ", this.props.data.alergija_lek)));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Datum Rodjenja: ", pf.dateToSerbianFormat(this.props.data.dat_rodjenja)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pol: ", this.props.data.pol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti: ", this.props.data.istorija_bolesti), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija na lekove: ", this.props.data.alergija_lek))));
     }
   }]);
 
@@ -52169,10 +52169,10 @@ var Scroll = function Scroll(props) {
 
 /***/ }),
 
-/***/ "./resources/js/components/Visit.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Visit.js ***!
-  \******************************************/
+/***/ "./resources/js/components/Treatmant.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Treatmant.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -52191,9 +52191,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -52207,14 +52207,135 @@ function (_Component) {
   _inherits(Visit, _Component);
 
   function Visit(props) {
+    var _this;
+
     _classCallCheck(this, Visit);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
+    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Visit, [{
+    key: "increaseCount",
+    value: function increaseCount() {
+      this.props.increaseCount();
+    }
+  }, {
     key: "render",
     value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upis"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "sifra_bolesti"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "sifra_leka"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        className: "kolicina_leka"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "noviUnosDugme",
+        onClick: this.increaseCount
+      }, "Novi unos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "obrisi"
+      }, "X"));
+    }
+  }]);
+
+  return Visit;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Visit.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Visit.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visit; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Treatmant */ "./resources/js/components/Treatmant.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Visit =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Visit, _Component);
+
+  function Visit(props) {
+    var _this;
+
+    _classCallCheck(this, Visit);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
+    _this.state = {
+      count: 0,
+      last_input: {
+        sb: null,
+        sl: null,
+        kl: 0
+      }
+    };
+    _this.callLarvel = _this.callLarvel.bind(_assertThisInitialized(_this));
+    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Visit, [{
+    key: "callLarvel",
+    value: function callLarvel() {
+      this.props.callLarvel();
+    }
+  }, {
+    key: "increaseCount",
+    value: function increaseCount() {
+      console.log('povecaj1');
+      var c = this.state.count;
+      c++;
+      this.setState({
+        count: c
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var treatments = [];
+
+      for (var i = 0; i <= this.state.count; i++) {
+        treatments.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: i,
+          increaseCount: this.increaseCount
+        }));
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_visit_form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -52239,7 +52360,7 @@ function (_Component) {
         rows: "10"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parentUpis"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit"
       }, "Posalji u bazu"))));
     }
