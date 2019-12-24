@@ -51201,9 +51201,8 @@ function (_Component) {
   }, {
     key: "continueCallTime",
     value: function continueCallTime() {
-      var that = this;
-      that.setState({
-        timeInterval: setInterval(that.pozoviTime, 5000)
+      this.setState({
+        timeInterval: setInterval(this.pozoviTime, 5000)
       });
     }
   }, {
@@ -51231,9 +51230,8 @@ function (_Component) {
   }, {
     key: "continiueCallWeather",
     value: function continiueCallWeather() {
-      var that = this;
-      that.setState({
-        weatherInterval: setInterval(that.pozoviWeather, 5000)
+      this.setState({
+        weatherInterval: setInterval(this.pozoviWeather, 1000 * 30 * 60)
       });
     }
   }, {
@@ -51247,25 +51245,29 @@ function (_Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      var that = this;
-      clearInterval(that.state.timeInterval);
-      clearInterval(that.state.weatherInterval);
+      clearInterval(this.state.timeInterval);
+      clearInterval(this.state.weatherInterval);
     }
   }, {
     key: "setFetch",
-    value: function setFetch() {
-      var that = this;
-      clearInterval(that.state.timeInterval);
-      clearInterval(that.state.weatherInterval);
-      var nizOdSelektora = document.querySelector('#selectorGrad').value.split('/');
-      that.setState({
+    value: function setFetch(event) {
+      var nizOdSelektora = event.target.value.split('/');
+      this.setState({
         fetTime: nizOdSelektora[0] + "/" + nizOdSelektora[1],
         fetWet: nizOdSelektora[1] + "," + nizOdSelektora[2]
       });
-      that.pozoviTime();
-      that.continueCallTime();
-      that.pozoviWeather();
-      that.continiueCallWeather();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.fetWet !== this.state.fetWet) {
+        clearInterval(this.state.timeInterval);
+        clearInterval(this.state.weatherInterval);
+        this.pozoviTime();
+        this.pozoviWeather();
+        this.continueCallTime();
+        this.continiueCallWeather();
+      }
     }
   }, {
     key: "render",
