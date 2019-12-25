@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:200,300,400,500,600,700,800,900&display=swap&subset=latin-ext');
 
+
 :root
 {
     --bojaJedan:#6E7DA2;
@@ -89,41 +90,42 @@ ol,ul,li
 
 .logo
 {
-    margin: 0px 21px;
+    display: flex;
+    justify-content: center;
+    width: 150px;
 }
 
 .logo img
 {
-    margin: 8px auto 8px auto;
-    height: 90%;
-    width: auto;
+    width: 90px;
 }
 
 .divider
 {
-    width: 400px;
+    width: 250px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 80px;
-    border-left: thin solid white;
+    border-left: thin solid var(--bojaTri);
 }
 
 a:link 
 {
-color: white;
+color: var(--bojaDva);
 }
 
 /* visited link */
 a:visited 
 {
-color: white;
+color:var(--bojaTri);
 }
 
 /* mouse over link */
 a:hover 
 {
-color: var(--bojaC);
+color: var(--bojaDva);
+text-shadow: 1px 1px var(--bojaJedan);
 font-weight: bold;
 }
 
@@ -137,10 +139,8 @@ font-weight: bold;
 .login
 {
     margin: 20px;
-    font-family: 'Bree Serif', serif;
     font-weight: normal;
-    font-size: 20px;
-    text-shadow: 1px 1px black;
+    font-size: 30px;
 }
 
 .top-right {
@@ -203,18 +203,26 @@ font-weight: bold;
 .mainContent
 {
     display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 .contentOptions
 {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
-    width: 800px;
-    margin: 20px;
+    width: auto;
+    margin: 50px;
+}
+.contentItems
+{
+    display: flex;
+    flex-direction: row;
 }
 .optionsItems
 {
-    width: 350px;
+    width: 300px;
     height: 150px;
     margin: 20px;
     padding: 5px;
@@ -222,20 +230,118 @@ font-weight: bold;
     border: thin solid var(--bojaTri);
     background-color: var(--bojaCetiri);
 }
+.optionKorisnik
+{
+    width: 980px;
+    margin: 0;
+}
 .weather{
     display: flex;
     flex-direction: row;
-    width: 800px;
-    margin: 20px;
+    justify-content: center;
 }
 .weatherItems
 {   
-    width: 750px;
+    width: 980px;
     padding: 5px;
     margin: 20px;
     border: thin solid var(--bojaTri);
     background-color: var(--bojaCetiri);
 }
+.reactApi
+{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    color: var(--bojaJedan);
+}
+.city
+{
+    font-size: 50px;
+}
+.selectCity
+{
+    font-size: 35px;
+}
+.reactDate
+{
+    display: flex;
+    flex-direction: column;
+}
+.dateItems
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.dateItems span
+{
+    padding: 15px;
+    font-size: 20px;
+}
+.reactWeather
+{
+    display: flex;
+    flex-direction: column;
+}
+.temperature
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.temperature span
+{
+    padding: 15px;
+    font-size: 20px;
+}
+.
+select/* #selectorGrad */
+{
+    cursor:pointer;
+    color: #6e7da2;
+    width: 60%;
+    height: 40px;
+    box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.3);
+    border-radius: .5em;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 20px;
+}
+.info
+{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.infoItems
+{
+    width: 980px;
+    background: var(--bojaCetiri);
+}
+.infoContainer
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 5px;
+}
+.hospitalInfo
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.infoItems div span
+{
+    padding: 15px;
+    font-size: 20px;
+    color: var(--bojaJedan);
+}
+
+
 
 .karton
 {
@@ -272,10 +378,12 @@ font-weight: bold;
 table
 {
     width: 1040px;
-    border: 1px solid var(--bojaC);
     margin: 20px auto 20px;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
+    text-align: center;
+    font-size: 19px;
+    color: var(--bojaJedan);
     max-width: 1400px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
@@ -287,8 +395,7 @@ table:last-of-type
 
 tr
 {
-    background-color:  var(--bojaB);
-    border-bottom: 1px solid var(--bojaD);
+    background-color:  var(--bojaCetiri);
 }
 
 tr:nth-child(2n)
@@ -298,12 +405,12 @@ tr:nth-child(2n)
 
 th
 {
-    color: white;
+    color: var(--bojaTri);
     background-color: var(--bojaA);
     padding: 15px 15px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px var(--bojaCetiri);
 }
 
 td
@@ -590,8 +697,16 @@ textarea
 
 .margin_20
 {
+    display: flex;
+    margin: 20px auto 20px;
+    width: 1040px;
+    justify-content: flex-end;
+}
+.marginWeather
+{
     margin: 20px;
 }
+
 
 .modelsWraper
 {
@@ -667,12 +782,15 @@ input
     min-width: 240px;
     max-width: 400px;
     width: 100%;
-    border: 1px solid #9A0606;
+    border: thin solid var(--bojaJedan);
+    border-radius: 5px;
+    background-image: url('public/img/search.png');
     padding: 2px;
     text-align: center;
     font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 1em;
     font-weight: 400;
+    
 }
 
 .linkA a
@@ -684,7 +802,7 @@ input
 .linkA a:link 
 {
 /* color: var(--main-color); */
-color:white;
+color:var(--bojaDva);
 font-weight: bold;
 }
 
@@ -692,14 +810,14 @@ font-weight: bold;
 .linkA a:visited 
 {
 /* color: var(--main-color); */
-color: white;
+color:var(--bojaDva);
 font-weight: bold;
 }
 
 /* mouse over link */
 .linkA a:hover 
 {
-color: var(--bojaC);
+color: var(--bojaDva);
 font-weight: bold;
 }
 
@@ -905,7 +1023,7 @@ aside
 {
    background-color:var(--bojaDva);
    padding: 5px;
-   flex:0 0 220px;
+   flex:0 0 150px;
 }
 
 aside label
@@ -920,24 +1038,66 @@ aside ul
 }
 
 .nav-btn{
-    height: 40px;
-    width: 100%;
-    border-top: solid thin white;
-    border-bottom: solid thin white;
+    height: 70px;
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 50px;
     margin-top: 5px;
+    border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     cursor: pointer;
     font-size: 20px;
-    color: white;
 }
-.nav-btn:hover{
-    background: var(--bojaD);
-
+.nav-aside{
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
 }
+.nav-aside:first-of-type
+{
+    margin-top: 90px;
+}
+/* .nav-btn:hover{
+    background-color: var(--bojaCetiri);
+} */
 .nav-btn i{
     margin: 0 10px;
+}
+.nav-aside img
+{
+    width: 50px;
+}
+.nav-aside img:hover
+{
+    width: 65px;
+}
+.btn-icons
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.btn-icons:hover
+{
+    background-color: var(--bojaTri);
+}
+
+.records
+{
+    font-size: 35px;
+    color: var(--bojaJedan);
 }
 
 .grid-weather
