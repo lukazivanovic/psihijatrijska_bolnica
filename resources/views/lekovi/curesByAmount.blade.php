@@ -22,8 +22,8 @@
 
         <table>
             <tr>
-                <th>Šifra</th>
-                <th>Naziv</th>
+                <th>Šifra medikamenta</th>
+                <th>Naziv medikamenta</th>
                 <th>Količina</th>
                 @if (Auth::user()->role==1)
                     <th>Izmeni</th>

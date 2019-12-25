@@ -9,10 +9,15 @@
         @csrf
         
         
-        Šifra medikamenta<input type="text" name="sifra" value="" requred>
-        Naziv medikamenta<input type="text" name="ime" value="" requred>
-        
-        Količina <input type="number" name="kolicina" value="" requred>
+        <div>
+            Šifra medikamenta<input type="text" name="sifra" value="" requred>
+        </div>
+        <div>
+            Naziv medikamenta<input type="text" name="ime" value="" requred>
+        </div>
+        <div>
+            Količina <input type="number" name="kolicina" value="" requred>
+        </div>
        
         <input id='dugme' type="submit" value="Unesi">
 
