@@ -299,7 +299,7 @@ font-weight: bold;
     font-size: 20px;
 }
 .
-#selectorGrad
+select/* #selectorGrad */
 {
     cursor:pointer;
     color: #6e7da2;
