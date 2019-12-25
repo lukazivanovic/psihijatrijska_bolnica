@@ -51,7 +51,8 @@ class API extends Component
 
     continueCallTime()
     {
-        this.setState({timeInterval:setInterval(this.pozoviTime,5000)});
+        let that=this;
+        that.setState({timeInterval:setInterval(that.pozoviTime,5000)});
     }
 
     pozoviWeather()
@@ -79,7 +80,8 @@ class API extends Component
 
     continiueCallWeather()
         {
-            this.setState({weatherInterval:setInterval(this.pozoviWeather,1000*30*60)});
+            let that=this;
+            that.setState({weatherInterval:setInterval(that.pozoviWeather,5000)});
         }
 
 
@@ -93,28 +95,25 @@ class API extends Component
 
     componentWillUnmount()
     {
-        clearInterval(this.state.timeInterval);
-        clearInterval(this.state.weatherInterval);
+        let that=this;
+        clearInterval(that.state.timeInterval);
+        clearInterval(that.state.weatherInterval);
     }
 
-    setFetch(event)
+    setFetch()
     {
-        let nizOdSelektora=event.target.value.split('/');
-        this.setState({
+        let that=this;
+        clearInterval(that.state.timeInterval);
+        clearInterval(that.state.weatherInterval);
+        let nizOdSelektora=document.querySelector('#selectorGrad').value.split('/');
+        that.setState({
             fetTime:nizOdSelektora[0]+"/"+nizOdSelektora[1],
             fetWet:nizOdSelektora[1]+","+nizOdSelektora[2],
         });
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.fetWet !== this.state.fetWet) {
-            clearInterval(this.state.timeInterval);
-            clearInterval(this.state.weatherInterval);
-            this.pozoviTime();
-            this.pozoviWeather();
-            this.continueCallTime();
-            this.continiueCallWeather();
-        }
+        that.pozoviTime();
+        that.continueCallTime();
+        that.pozoviWeather();
+        that.continiueCallWeather();
     }
 
     render()
