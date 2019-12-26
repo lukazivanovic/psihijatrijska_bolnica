@@ -52158,14 +52158,17 @@ function (_Component) {
             upisiIDstate: _this3.upisiIDstate
           });
         });
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Kartoni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "flexRow"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "kartoniNaslov"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Kartoni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
+          className: "kartonInput",
           ref: this.filterPacijenti,
           onChange: this.upisiFilter,
           placeholder: "Pretraga"
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Scroll__WEBPACK_IMPORTED_MODULE_3__["default"], null, pacijenti));
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "kartoniInfo"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Broj kartona"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Prezime"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Datum ro\u0111enja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lekar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Scroll__WEBPACK_IMPORTED_MODULE_3__["default"], null, pacijenti));
       }
 
       if (this.state.br_kartona != null || this.state.br_kartona != "") {
@@ -52254,7 +52257,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_pacijent",
         onClick: this.prikaziKarton
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Br. Kart: K-", this.props.id, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime: ", this.props.ime, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Prezime: ", this.props.prezime, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Datum Rodj: ", this.props.datumRodjenja), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lekar: ", this.props.lekarIme, " "));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "K-", this.props.id, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.ime, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.prezime, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.datumRodjenja), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.lekarIme, " "));
     }
   }]);
 
