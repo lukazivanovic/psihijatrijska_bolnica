@@ -4,8 +4,8 @@
 
 @auth
     <div class="margin_20">
-        <label for="filter">Pretraga: 
-            <input type="text" id="filter" class='filter'>
+        <label for="filter">
+            <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
         </label>
     </div>
 @endauth
