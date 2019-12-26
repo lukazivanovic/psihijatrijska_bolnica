@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:200,300,400,500,600,700,800,900&display=swap&subset=latin-ext');
+
+:root
+{
+    --bojaJedan:#6E7DA2;
+    --bojaDva:#DB996C;
+    --bojaTri:#FCF8F3;
+    --bojaCetiri:#AEDADD;
+    --bojaA:#6E7DA2;
+    --bojaB:#DB996C;
+    --bojaC:#FCF8F3;
+    --bojaD:#AEDADD;
+}
+
+/* mouse over link */
+a:hover 
+{
+/* color: var(--bojaC);
+font-weight: bold; */
+}
+
+/* selected link */
+a:active 
+{
+/* color: var(--bojaC);
+font-weight: bold; */
+}
+
+
+.main
+{
+
+}
+
+.mainContent
+{
+    /* display: flex; */
+}
+.contentOptions
+{
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 20px; */
+}
+.optionsItems
+{
+
+}
+
+.karton
+{
+
+}
+
+.karton .pacijent-info h1
+{
+
+}
+
+.karton .karton-info p
+{
+    /* margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400; */
+}
+
+.patient-list
+{
+    margin: 50px;
+}
+
+table
+{
+    /* width: 1040px;
+    border: 1px solid var(--bojaC);
+    margin: 20px auto 20px;
+    border-collapse: collapse;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    max-width: 1400px;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1); */
+}
+
+table:last-of-type
+{
+    /* margin-bottom: 100px; */
+}
+
+tr
+{
+    /* background-color:  var(--bojaB);
+    border-bottom: 1px solid var(--bojaD); */
+}
+
+tr:nth-child(2n)
+{
+
+}
+
+th
+{
+    /* color: white;
+    background-color: var(--bojaA);
+    padding: 15px 15px;
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 1px 1px black; */
+}
+
+td
+{
+    /* padding: 3px 5px; */
+    
+}
+
+table tr td
+{
+    /* font-weight: normal;
+    text-align: center; */
+}
+
+table a:link
+{
+
+}
+
+table a:visited
+{
+
+}
+
+table a:hover
+{
+
+}
+
+table a:active
+{
+
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    /* margin: 0px auto 20px auto;
+    padding: 5px; */
+}
+
+.pacijent-info
+{
+    /* margin-left: 30px;
+    text-align: left; */
+}
+
+.karton-info
+{
+    /* text-align: left; */
+}
+
+.izmeni-karton
+{
+    /* margin-top: 80px; */
+}
+
+.tabela-karton
+{
+    /* margin-top: 50px; */
+}
+
+.tabela-karton caption
+{
+    /* font-size: 40px; */
+}
+
+
+form *
+{
+    /* padding: 2px;
+    margin: 3px; */
+}
+
+.forma *
+{
+    /* padding: 2px;
+    margin: 3px; */
+}
+
+button,#dugme
+{
+
+}
+
+#dugme
+{
+    /* padding: 20px 30px;
+    max-width: 400px; */
+}
+
+#dugme2
+{
+    /* padding: 10px 15px; */
+}
+
+
+button:hover
+{
+    
+}
+
+#dugme:hover
+{
+
+}
+
+#dugme2:hover
+{
+
+}
+
+.linkDugme
+{
+    /* margin-right: 0px; */
+}
+
+.hidden
+{
+    /* visibility: hidden; */
+}
+
+
+.flexRow
+{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0px auto 5px;
+    flex-wrap: wrap; */
+}
+
+.flexColumn
+{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+}
+
+
+.margin_5
+{
+    /* margin: 5px; */
+}
+
+.margin_20
+{
+    /* margin: 20px; */
+}
+
+
+.top-right a
+{
+    /* padding-left: 10px; */
+}
+
+input
+{
+
+}
+
+
+
+

@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
     @php
         // var_dump($listaPacijenata);

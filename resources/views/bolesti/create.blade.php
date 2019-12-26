@@ -1,17 +1,18 @@
 @extends('layouts.index')
 
 @section('content')
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
-<button class='linkDugme' data-link='/bolesti'>Nazad</button>
+<button class='linkDugme' data-link='/bolesti'>Povratak na listu</button>
 
 <form action="/bolesti/store" method="POST">
         @csrf
         
         
-        Sifra <input type="text" name="sifra" value="" requred>
-        Naziv <input type="text" name="ime" value="" requred>
+        Šifra oboljenja<input type="text" name="sifra" value="" requred>
+        Naziv oboljenja<input type="text" name="ime" value="" requred>
        
-        <input id='dugme' type="submit" value="Posalji">
+        <input id='dugme' type="submit" value="Unesi">
 
 
     </form>

@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
         @php
             // var_dump($cures);
         @endphp
@@ -12,15 +13,15 @@
             </div>
         @endauth
         @if (Auth::user()->role==1)
-            <button class='linkDugme' data-link='/lekovi/create'>Dodaj</button>
-            <button class='linkDugme' data-link='/lekovi/curesByAmount'>Količina</button>
+            <button class='linkDugme' data-link='/lekovi/create'>Dodaj novi medikament</button>
+            <button class='linkDugme' data-link='/lekovi/curesByAmount'>Izlistaj po količini</button>
         @endif
         
 
         <table>
             <tr>
-                <th>Šifra</th>
-                <th>Naziv</th>
+                <th>Šifra medikamenta</th>
+                <th>Naziv medikamenta</th>
                 <th>Količina</th>
                 @if (Auth::user()->role==1)
                     <th>Izmeni</th>

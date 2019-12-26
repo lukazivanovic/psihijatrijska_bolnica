@@ -2,18 +2,24 @@
 
 @section('content')
 
-<button class='linkDugme' data-link='/lekovi'>Nazad</button>
+<button class='linkDugme' data-link='/lekovi'>Povratak na listu</button>
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
 <form action="/lekovi/store" method="POST">
         @csrf
         
         
-        Sifra <input type="text" name="sifra" value="" requred>
-        Naziv <input type="text" name="ime" value="" requred>
-        
-        Kolicina <input type="number" name="kolicina" value="" requred>
+        <div>
+            Šifra medikamenta<input type="text" name="sifra" value="" requred>
+        </div>
+        <div>
+            Naziv medikamenta<input type="text" name="ime" value="" requred>
+        </div>
+        <div>
+            Količina <input type="number" name="kolicina" value="" requred>
+        </div>
        
-        <input id='dugme' type="submit" value="Posalji">
+        <input id='dugme' type="submit" value="Unesi">
 
 
     </form>
