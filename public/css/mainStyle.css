@@ -284,7 +284,7 @@ font-weight: bold;
 .dateItems span
 {
     padding: 15px;
-    font-size: 20px;
+    font-size: 23px;
 }
 .reactWeather
 {
@@ -300,7 +300,7 @@ font-weight: bold;
 .temperature span
 {
     padding: 15px;
-    font-size: 20px;
+    font-size: 23px;
 }
 select/* #selectorGrad */
 {
@@ -352,16 +352,23 @@ select/* #selectorGrad */
   }
   
 
+#kartoniStranica
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
 
 .karton
 {
-    display: grid;
-    grid-template-columns: 520px 520px;
-    border: 1px solid var(--bojaC);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px;
+    flex-wrap: wrap;
     background: var(--bojaA);
-    color: white;
-    /* text-shadow: 2px 1px #778899; */
-
+    color: var(--bojaTri);
 }
 
 .karton .pacijent-info h1
@@ -387,14 +394,12 @@ select/* #selectorGrad */
 
 table
 {
-    width: 1040px;
+    width: 100%;
     margin: 20px auto 20px;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
     text-align: center;
-    font-size: 19px;
     color: var(--bojaJedan);
-    max-width: 1400px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
 
@@ -418,7 +423,7 @@ th
     color: var(--bojaTri);
     background-color: var(--bojaA);
     padding: 15px 15px;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     text-shadow: 1px var(--bojaCetiri);
 }
@@ -430,7 +435,7 @@ td
 
 table tr td
 {
-    font-weight: normal;
+    font-weight: 500;
 }
 
 table a:link
@@ -461,21 +466,70 @@ h1,h2,h3,h4,h5,h6
     padding: 5px;
 }
 
-.pacijent-info
+.pacijentInfo
 {
-    margin-left: 30px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.pacijentKarton
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+}
+.infoId
+{
+    font-size: 20px;
+}
+.infoIme 
+{
+    font-size: 35px;
+}
+.ostalo 
+{
+    font-size: 18px;
+}
+.istorijaBolesti
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.opisIstorija
+{
+    height: 150px;
+    overflow: auto;
+}
+.nazad
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
-.karton-info
+.dodaj-posetu
 {
-    text-align: left;
+    margin-left: 20px;
+    padding-top: 10px;
 }
-
-/* .dodaj-posetu
+.poseteInfo
 {
-    margin-top: 80px;
-} */
+    display: grid;
+    grid-template-columns: repeat(8,minmax(50px,300px));
+    align-items: center;
+    height: 50px;
+    min-width: 500px;  
+    margin: 20px 0 10px;
+    padding: 3px;
+    border-radius: 3px;
+    background-color: var(--bojaJedan);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--bojaTri);
+}
 
 .izmeni-karton
 {
@@ -657,7 +711,8 @@ button:hover
 .flexRow
 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
     justify-content: center;
     margin: 0px auto 5px;
     flex-wrap: wrap;
@@ -708,9 +763,12 @@ textarea
 .margin_20
 {
     display: flex;
-    margin: 20px auto 20px;
-    width: 1040px;
-    justify-content: flex-end;
+    flex-direction: column;
+}
+.bolestiNaslov
+{
+    display: contents;
+    color: var(--bojaA);
 }
 .marginWeather
 {
@@ -770,7 +828,7 @@ textarea
 
 label
 {
-    padding: 5px;
+    /* padding: 5px; */
     min-width: 250px;
 }
 
@@ -1018,17 +1076,38 @@ p
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: var(--bojaJedan);
 }
 .kartoniInfo
 {
     display: grid;
-    min-width: 500px;
     grid-template-columns: repeat(5,minmax(50px,300px));
-    margin: 5px auto;
-    background-color: var(--bojaJedan);
+    align-items: center;
+    height: 50px;
+    min-width: 500px;  
+    margin: 20px 0 10px;
     padding: 3px;
     border-radius: 3px;
+    background-color: var(--bojaJedan);
     text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--bojaTri);
+}
+.kartonInput
+{
+    min-width: 240px;
+    max-width: 400px;
+    width: 100%;
+    border: thin solid var(--bojaJedan);
+    border-radius: 5px;
+    background-image: url(/images/search.png);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    background-position: 5px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 35px;
 }
 
 
