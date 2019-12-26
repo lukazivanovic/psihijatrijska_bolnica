@@ -9,7 +9,7 @@ try {
             document.querySelector('#filter').value=storedWord;
             searchTable();
         }
-        document.querySelector('#filter').addEventListener('change',function(e)
+        document.querySelector('#filter').addEventListener('keyup',function(e)
         {
             searchTable();
         })
@@ -25,34 +25,6 @@ function searchTable()
     sessionStorage.setItem('filterTabela',word);
 
     pf.filterWordTable(word,'disapear');
-
-    // let trNiz=[...document.querySelectorAll('tr')];
-    // for(let tr of trNiz)
-    // {
-    //     let array=[...tr.childNodes];
-    //     let c1=false; let c2=false;
-    //     array.map(function(c)
-    //     {
-    //         if(c.tagName=='TD')
-    //         {
-    //             c1=true;
-    //         }
-
-    //         if(typeof(c.innerHTML)==='string' && c.innerHTML.toLowerCase().includes(word))
-    //         {
-    //             c2=true;
-    //         }
-    //     })
-        
-    //     if(c1 && c2)
-    //     {
-    //         tr.classList.remove('disapear');
-    //     }
-    //     else if(c1 && !c2)
-    //     {
-    //         tr.classList.add('disapear');
-    //     }
-    // }
 }
 
 //dugme za brisanje
@@ -278,17 +250,3 @@ try {
     console.log(error);
 }
 
-//
-try {
-    if(document.querySelector('#disapearVisit'));
-    {
-        
-        document.querySelector('#disapearVisit').addEventListener('click',function()
-        {
-           document.querySelector('#showVisit').classList.add('disapear'); 
-        })
-        
-    }
-} catch (error) {
-    console.log(error);
-}

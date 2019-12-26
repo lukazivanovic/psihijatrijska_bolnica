@@ -151,6 +151,7 @@ let pf={
     filterWordTable(word,disapearClass)
     {
         //disapearClass=display:none;
+        //it removes td with button in i from consideration
         if(typeof(word)!=='string') throw new Error('Word must be string');
 
         let trArray=[...document.querySelectorAll('tr')];
@@ -158,7 +159,7 @@ let pf={
 
         for(let tr of trArray)
         {
-            ([...tr.childNodes].some(c=>c.tagName==='TH' || (typeof(c.innerHTML)==='string' && c.innerHTML.toLowerCase().includes(word))))? 
+            ([...tr.childNodes].some(c=>c.tagName==='TH' || (typeof(c.innerHTML)==='string' && !c.innerHTML.includes('button') && c.innerHTML.toLowerCase().includes(word))))? 
             tr.classList.remove(disapearClass): tr.classList.add(disapearClass);
         }
     },
