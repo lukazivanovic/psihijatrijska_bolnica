@@ -93,6 +93,7 @@
     justify-content: space-evenly;
     margin: 0px auto 5px;
     flex-wrap: nowrap;
+    min-width: 700px;
 }
 
 .r_space_beetwen

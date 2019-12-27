@@ -172,8 +172,7 @@ font-weight: bold;
     right: 0;
     left: 150px;
     bottom: 0;
-    margin-top: 20px;
-    padding: 20px;
+    padding: 40px 20px 20px 20px;
 }
 
 /* .glavna::after
@@ -343,14 +342,7 @@ select/* #selectorGrad */
     font-size: 20px;
     color: var(--bojaJedan);
 }
-@media only screen and (max-width: 1200px) {
-    .contentOptions {
-        width: 100%;
-        
-    }
-    
-  }
-  
+
 
 #kartoniStranica
 {
@@ -501,6 +493,24 @@ h1,h2,h3,h4,h5,h6
 {
     height: 150px;
     overflow: auto;
+}
+.opisIstorija::-webkit-scrollbar
+{
+    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
+    sa elementom koji ima scrolbar */
+    /* background-color: green; */
+    width: 8px;
+}
+
+.opisIstorija::-webkit-scrollbar-thumb
+{
+    background-color: var(--bojaB);
+}
+
+.opisIstorija::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 4px;
+    background-color: white;
 }
 .nazad
 {
@@ -1272,3 +1282,11 @@ aside ul
     border: 2px solid var(--bojaC);
 }
 
+@media only screen and (max-width: 1200px) {
+    .contentOptions {
+        width: 100%;
+        
+    }
+    
+  }
+  

@@ -40,7 +40,7 @@ export default class Karton extends Component {
                 <div className="flexRow">
                     <h1>Prethodne posete</h1>
                     <div className="poseteKarton">
-                        <input type="text" ref={this.filterKarton} onChange={this.upisiFilter} placeholder="Pretraži..." />
+                        <input type="text" className="kartonInput" ref={this.filterKarton} onChange={this.upisiFilter} placeholder="Pretraži..." />
                         <div className="poseteInfo">
                             <div>Datum</div>
                             <div>Tip posete</div>
