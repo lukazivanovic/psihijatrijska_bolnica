@@ -52819,8 +52819,8 @@ function (_Component) {
       }
 
       if (this.state.br_kartona == null || this.state.br_kartona == "") {
-        var listaPacijenta = this.preperePatientList();
-        console.log(listaPacijenta);
+        var listaPacijenta = this.preperePatientList(); // console.log(listaPacijenta);
+
         var pacijenti = listaPacijenta.filter(function (pacijent) {
           return pacijent.lekar_id === _this3.state.baza.auth;
         }).filter(function (pacijent) {

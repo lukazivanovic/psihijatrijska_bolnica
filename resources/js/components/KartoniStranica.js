@@ -89,7 +89,7 @@ class KartoniStranica extends Component {
 
         if (this.state.br_kartona == null || this.state.br_kartona == "") {
             let listaPacijenta = this.preperePatientList();
-            console.log(listaPacijenta);
+            // console.log(listaPacijenta);
 
             let pacijenti = listaPacijenta
                 .filter(pacijent => pacijent.lekar_id === this.state.baza.auth)
