@@ -9,12 +9,14 @@
 
 .flexRowES
 {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0px auto 5px;
     flex-wrap: wrap;
-    min-width: 700px;
+    min-width: 700px; */
+    display: grid;
+    grid-template-columns: repeat(8,minmax(50px,300px));
 }
 
 .screen

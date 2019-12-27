@@ -1,52 +1,45 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Karton_visit_treatmant from './Karton_visit_treatmant';
 
-export default class Karton_visit extends Component
-{
-    constructor(props)
-    {
+export default class Karton_visit extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            show_div:false,
-            show_edit:false,
-            dijagnoza:this.props.data.dijagnoza,
-            terapija:this.props.data.terapija,
-            odgovor:null,
+        this.state = {
+            show_div: false,
+            show_edit: false,
+            dijagnoza: this.props.data.dijagnoza,
+            terapija: this.props.data.terapija,
+            odgovor: null,
         }
 
-        this.otkrijDetalje=this.otkrijDetalje.bind(this);
-        this.izmeni=this.izmeni.bind(this);
-        this.dijagnozaArea=React.createRef();
-        this.setDijagnoza=this.setDijagnoza.bind(this);
-        this.terapijaArea=React.createRef();
-        this.setTerapija=this.setTerapija.bind(this);
-        this.sendData=this.sendData.bind(this);
-        this.callLaravel=this.callLaravel.bind(this);
+        this.otkrijDetalje = this.otkrijDetalje.bind(this);
+        this.izmeni = this.izmeni.bind(this);
+        this.dijagnozaArea = React.createRef();
+        this.setDijagnoza = this.setDijagnoza.bind(this);
+        this.terapijaArea = React.createRef();
+        this.setTerapija = this.setTerapija.bind(this);
+        this.sendData = this.sendData.bind(this);
+        this.callLaravel = this.callLaravel.bind(this);
 
     }
 
-    otkrijDetalje()
-    {
-        this.setState({show_div:!this.state.show_div});
+    otkrijDetalje() {
+        this.setState({ show_div: !this.state.show_div });
     }
 
-    izmeni()
-    {
-        this.setState({show_edit:!this.state.show_edit});
+    izmeni() {
+        this.setState({ show_edit: !this.state.show_edit });
     }
 
-    setDijagnoza()
-    {
-        this.setState({dijagnoza:this.dijagnozaArea.current.value});
+    setDijagnoza() {
+        this.setState({ dijagnoza: this.dijagnozaArea.current.value });
     }
 
-    setTerapija()
-    {
-        this.setState({terapija:this.terapijaArea.current.value});
+    setTerapija() {
+        this.setState({ terapija: this.terapijaArea.current.value });
     }
 
-    callLaravel()
-    {
+    callLaravel() {
         this.props.callLaravel();
     }
 
@@ -55,17 +48,16 @@ export default class Karton_visit extends Component
     //     this.setState({odgovor:txt});
     // }
 
-    sendData()
-    {
-        let niz={
-            prva_poseta:this.props.data.prva_poseta,
-            tracers:this.props.id,
-            dijagnoza:this.state.dijagnoza || this.props.data.dijagnoza,
-            terapija:this.state.terapija || this.props.data.terapija,
-            json:true, //da kazemo serveru da vrati json odgovor
+    sendData() {
+        let niz = {
+            prva_poseta: this.props.data.prva_poseta,
+            tracers: this.props.id,
+            dijagnoza: this.state.dijagnoza || this.props.data.dijagnoza,
+            terapija: this.state.terapija || this.props.data.terapija,
+            json: true, //da kazemo serveru da vrati json odgovor
         }
 
-        let opcije={
+        let opcije = {
             method: "POST",
             body: JSON.stringify(niz),
             headers: {
@@ -75,36 +67,33 @@ export default class Karton_visit extends Component
         }
 
         // console.log('niz',niz,'token', document.querySelector('input[name="_token"]').value);
-        
-        fetch('/lekar/updateVisit',opcije)
-            .then(resp=>resp.json())
-            .then(txt=>
-                {
-                    this.setState({odgovor:txt}); 
-                    this.izmeni();
-                    this.callLaravel();
-                });
+
+        fetch('/lekar/updateVisit', opcije)
+            .then(resp => resp.json())
+            .then(txt => {
+                this.setState({ odgovor: txt });
+                this.izmeni();
+                this.callLaravel();
+            });
     }
 
-    render()
-    {
-        let treatmants=this.props.data.lekovi.map(lek=><Karton_visit_treatmant key={lek.ind_tracer} id={lek.ind_tracer} 
-            data={lek} show_div={this.state.show_div} callLaravel={this.callLaravel}/>)
+    render() {
+        let treatmants = this.props.data.lekovi.map(lek => <Karton_visit_treatmant key={lek.ind_tracer} id={lek.ind_tracer}
+            data={lek} show_div={this.state.show_div} callLaravel={this.callLaravel} />)
 
-        if(this.state.show_div && !this.state.show_edit)
-        {
-            return(
+        if (this.state.show_div && !this.state.show_edit) {
+            return (
                 <div className="r_visit_screen">
 
                     <div className="oneVisit">
                         <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
-                        
-                        <div className="flexRowES"> 
+
+                        <div className="flexRowES">
                             <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                            <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
+                            <div> Tip: {(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
                             <div> Lekar: {this.props.data.id_lekar} </div>
                         </div>
-        
+
                         <div>
                             <h4 className="r_naslov_c">Dijagnoza: </h4>
                             {this.props.data.dijagnoza}
@@ -114,68 +103,69 @@ export default class Karton_visit extends Component
                             {this.props.data.terapija}
                         </div>
                         <div className="flexRowRight"><button onClick={this.izmeni}>Edit</button></div>
-                        
-                            {treatmants}
+
+                        {treatmants}
                         <div className="r_error">{this.state.odgovor}</div>
                     </div>
-                    
+
                 </div>
-                
+
             )
         }
-        if(this.state.show_div && this.state.show_edit)
-        {
-            return(
+        if (this.state.show_div && this.state.show_edit) {
+            return (
                 <div className="r_visit_screen">
-                    
-                <div className="oneVisit r_oneVisit">
-                    <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
-                    <div className="flexRowES"> 
-                        <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                        <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
-                        <div> Lekar: {this.props.data.id_lekar} </div>
-                    </div>
-    
-                    <div>
-                        
-                        
-                        <label>
-                            <p>Dijagnoza:</p>
-                            
-                            <textarea defaultValue={this.props.data.dijagnoza} ref={this.dijagnozaArea} onChange={this.setDijagnoza}/>
-                        </label>
-                    </div>
-                    <div>
-                        
-                        <label>
-                            <p>Terapija:</p>
-                            
-                            <textarea defaultValue={this.props.data.terapija} ref={this.terapijaArea} onChange={this.setTerapija}/>
-                        </label>
-        
-                    </div>
-                    <button onClick={this.izmeni}>Odustani</button>
-                    <button onClick={this.sendData}>Posalji</button>
-                    <div className="r_error">{this.state.odgovor}</div>
+
+                    <div className="oneVisit r_oneVisit">
+                        <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
+                        <div className="flexRowES">
+                            <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
+                            <div> Tip: {(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
+                            <div> Lekarrrrrrrrrrr: {this.props.data.id_lekar} </div>
+                        </div>
+
+                        <div>
+
+
+                            <label>
+                                <p>Dijagnoza:</p>
+
+                                <textarea defaultValue={this.props.data.dijagnoza} ref={this.dijagnozaArea} onChange={this.setDijagnoza} />
+                            </label>
+                        </div>
+                        <div>
+
+                            <label>
+                                <p>Terapija:</p>
+
+                                <textarea defaultValue={this.props.data.terapija} ref={this.terapijaArea} onChange={this.setTerapija} />
+                            </label>
+
+                        </div>
+                        <button onClick={this.izmeni}>Odustani</button>
+                        <button onClick={this.sendData}>Posalji</button>
+                        <div className="r_error">{this.state.odgovor}</div>
                         {treatmants}
+                    </div>
                 </div>
-            </div>
-                
-                
+
+
             )
         }
-        return(
+        return (
             <div className="r_visit" onClick={this.otkrijDetalje}>
-                <div className="flexRowES"> 
+                <div className="flexRowES">
                     <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                    <div> Tip: {(this.props.data.prva_poseta)? "Prva poseta":"Kontrolna poseta"} </div>
+                    <div> Tip: {(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
                     <div> Lekar: {this.props.data.id_lekar} </div>
+                    <div className="r_naslov">Dijagnoza: {this.props.data.dijagnoza.slice(0, 96)}</div>
+                    <div className="r_naslov">Terapija: {this.props.data.terapija.slice(0, 96)}</div>
+                    {treatmants}
                 </div>
-                
-                <div className="flexRow"><div><span className="r_naslov">Dijagnoza: </span> {this.props.data.dijagnoza.slice(0,96)}</div></div>
-                <div className="flexRow"><div><span className="r_naslov">Terapija: </span> {this.props.data.terapija.slice(0,96)}</div></div>
-                
-                {treatmants}
+
+
+
+
             </div>
         )
     }
