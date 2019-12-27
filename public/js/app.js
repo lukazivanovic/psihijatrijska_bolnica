@@ -51520,12 +51520,17 @@ function (_Component) {
         callLaravel: this.callLaravel
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Prethodne posete"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "poseteKarton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
+        className: "kartonInput",
         ref: this.filterKarton,
         onChange: this.upisiFilter,
-        placeholder: "Pretraga"
-      })), svePosete);
+        placeholder: "Pretra\u017Ei..."
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "poseteInfo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Datum"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Tip posete"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lekar"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Dijagnoza"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Terapija"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime bolesti"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lek"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina")))), svePosete);
     }
   }]);
 
@@ -51949,8 +51954,20 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "karton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pacijent-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.data.ime, " ", this.props.data.prezime), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Id Kartona: K-", this.props.data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pacijentInfo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pacijentKarton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "infoId"
+      }, "Id Kartona: K-", this.props.data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "infoIme"
+      }, this.props.data.ime, " ", this.props.data.prezime), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Datum Rodjenja: ", pf.dateToSerbianFormat(this.props.data.dat_rodjenja)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Pol: ", this.props.data.pol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Alergija na lekove: ", this.props.data.alergija_lek)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dodaj-posetu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "linkDugme",
@@ -51958,11 +51975,15 @@ function (_Component) {
       }, "Poseta Meni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "linkDugme",
         onClick: this.otvoriFormu
-      }, "Izmeni Karton"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Izmeni Karton"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "istorijaBolesti"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "opisIstorija"
+      }, this.props.data.istorija_bolesti), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nazad"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.nazad
       }, "Nazad"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "karton-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Datum Rodjenja: ", pf.dateToSerbianFormat(this.props.data.dat_rodjenja)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Pol: ", this.props.data.pol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti: ", this.props.data.istorija_bolesti), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija na lekove: ", this.props.data.alergija_lek)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_error"
       }, this.state.odgovor));
     }
@@ -52165,7 +52186,7 @@ function (_Component) {
           className: "kartonInput",
           ref: this.filterPacijenti,
           onChange: this.upisiFilter,
-          placeholder: "Pretraga"
+          placeholder: "Pretra\u017Ei..."
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "kartoniInfo"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Broj kartona"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Prezime"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Datum ro\u0111enja"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lekar")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Scroll__WEBPACK_IMPORTED_MODULE_3__["default"], null, pacijenti));
@@ -52181,7 +52202,8 @@ function (_Component) {
         } else {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Kartoni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Upisi broj Kartona: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
             type: "text",
-            onChange: this.upisiBrojKartona
+            onChange: this.upisiBrojKartona,
+            placeholder: ""
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ne postoji karton: ", this.state.br_kartona));
         }
       }
@@ -52966,8 +52988,8 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\hospitalPlus\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\hospitalPlus\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

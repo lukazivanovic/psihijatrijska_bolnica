@@ -107,7 +107,7 @@ class KartoniStranica extends Component {
                     {/* <p>Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} /></p> */}
                     <div className="kartoniNaslov">
                         <h1>Kartoni</h1>
-                        <input type="text" className="kartonInput" ref={this.filterPacijenti} onChange={this.upisiFilter} placeholder="Pretraga" />
+                        <input type="text" className="kartonInput" ref={this.filterPacijenti} onChange={this.upisiFilter} placeholder="Pretraži..." />
                     </div>
                     <div className="kartoniInfo">
                         <div>Broj kartona</div>
@@ -139,7 +139,7 @@ class KartoniStranica extends Component {
                 return (
                     <div>
                         <h1>Kartoni</h1>
-                        <p>Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} /></p>
+                        <p>Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} placeholder="" /></p>
                         <div>Ne postoji karton: {this.state.br_kartona}</div>
                     </div>
                 )
