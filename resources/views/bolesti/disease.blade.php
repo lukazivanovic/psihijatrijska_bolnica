@@ -8,7 +8,7 @@
         @auth
             <div class="margin_20">
                 <div class="bolestiNaslov">
-                    <h1>Knjiga oboljenja</h1>
+                    <h1>Oboljenja</h1>
                 </div>
 
                 <label class="osobFilter" for="filter">
@@ -37,7 +37,7 @@
                 <td>{{ $disease->sifra_bolest }}</td>
                 <td>{{ $disease->ime_bolest }}</td>
                 @if (Auth::user()->role==1)
-                    <td><button class='linkDugmeIzmeni' data-link='/bolesti/edit/{{ $disease->id }}'style="background-image: url('/images/pencil.png')"></button></td>
+                    <td><button class='linkDugme linkDugmeIzmeni' data-link='/bolesti/edit/{{ $disease->id }}'style="background-image: url('/images/pencil.png')"></button></td>
                     <!-- <td><button class='obrisi' data-link='/bolesti/destroy/{{ $disease->id }}'>Obrisi</button></td> -->
                 @endif
             </tr>

@@ -10,7 +10,7 @@
         <div class="margin_20">
 
             <div class="bolestiNaslov">
-                <h1>Svi pacijenti</h1>
+                <h1>Pacijenti</h1>
             </div>
 
             <label for="filter">

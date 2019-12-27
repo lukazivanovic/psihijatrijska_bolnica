@@ -30,7 +30,7 @@
             <div class="optionsItems">
                 <a href="/osoblje">
                     <div class="nav-btn btn-icons">
-                        <p class="records">Svi Pacijenti</p>
+                        <p class="records">Pacijenti</p>
                         <img src="/images/patient.png" alt="patient">
                     </div>
                 </a>
@@ -40,7 +40,7 @@
             <div class="optionsItems">
                 <a href="/bolesti">
                     <div class="nav-btn btn-icons">
-                        <p class="records">Knjiga bolesti</p>
+                        <p class="records">Oboljenja</p>
                         <img src="/images/medical-notes.png" alt="medical-notes">
                     </div>
                 </a>
@@ -48,7 +48,7 @@
             <div class="optionsItems">
                 <a href="/lekovi">
                     <div class="nav-btn btn-icons">
-                        <p class="records">Spisak lekova</p>
+                        <p class="records">Medikamenti</p>
                         <img src="/images/medical-pills.png" alt="pills">
                     </div>
                 </a>

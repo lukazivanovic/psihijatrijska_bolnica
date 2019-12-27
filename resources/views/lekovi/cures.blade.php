@@ -9,7 +9,7 @@
             <div class="margin_20">
                 
                 <div class="bolestiNaslov">
-                    <h1>Spisak medikamenata</h1>
+                    <h1>Medikamenti</h1>
                 </div>
 
                 <label for="filter">
