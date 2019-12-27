@@ -27,7 +27,6 @@ a:active
 font-weight: bold; */
 }
 
-
 .main
 {
 
@@ -76,13 +75,13 @@ font-weight: bold; */
 
 table
 {
-    /* width: 1040px;
+    width: auto;
     border: 1px solid var(--bojaC);
-    margin: 20px auto 20px;
+    margin: 20px 5%;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
     max-width: 1400px;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1); */
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
 
 table:last-of-type
@@ -188,9 +187,38 @@ form *
     margin: 3px; */
 }
 
+form, .forma {
+    background-color: var(--bojaA);
+    border: 1px solid var(--bojaC);
+    margin: 20px 5%;
+    padding: 20px;
+    max-width: 1280px;
+    
+}
+
+/* .okvir1 {
+    display: flex;
+    border: 1px solid black;
+}
+.okvir11 {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.okvir12 {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    margin: 10px;
+} */
+
 button,#dugme
 {
-
+    width: auto;
+    box-shadow: none;
 }
 
 #dugme
@@ -222,7 +250,16 @@ button:hover
 
 .linkDugme
 {
-    /* margin-right: 0px; */
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.linkDugmeIzmeni
+{
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: 4px;
 }
 
 .hidden
@@ -255,7 +292,8 @@ button:hover
 
 .margin_20
 {
-    /* margin: 20px; */
+    margin: 20px 5%;
+    width: auto;
 }
 
 
@@ -264,10 +302,17 @@ button:hover
     /* padding-left: 10px; */
 }
 
-input
+.osobFilter
 {
-
+    padding: 0px;
+    margin-bottom: 5px;
 }
+
+input {
+    border: 1px solid var(--bojaD);
+    border-radius: 8px;
+}
+
 
 
 

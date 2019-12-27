@@ -7,6 +7,11 @@
         @endphp
         @auth
             <div class="margin_20">
+                
+                <div class="bolestiNaslov">
+                    <h1>Spisak medikamenata</h1>
+                </div>
+
                 <label for="filter">
                     <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
                 </label>
