@@ -49,6 +49,13 @@ font-weight: bold; */
 
 }
 
+select/* #selectorGrad */
+{
+    
+    font-size: 1em;
+    font-weight: 400;
+}
+
 .karton
 {
 
@@ -142,39 +149,6 @@ table a:active
 
 }
 
-h1,h2,h3,h4,h5,h6
-{
-    /* margin: 0px auto 20px auto;
-    padding: 5px; */
-}
-
-.pacijent-info
-{
-    /* margin-left: 30px;
-    text-align: left; */
-}
-
-.karton-info
-{
-    /* text-align: left; */
-}
-
-.izmeni-karton
-{
-    /* margin-top: 80px; */
-}
-
-.tabela-karton
-{
-    /* margin-top: 50px; */
-}
-
-.tabela-karton caption
-{
-    /* font-size: 40px; */
-}
-
-
 form *
 {
     /* padding: 2px;
@@ -196,24 +170,31 @@ form, .forma {
     
 }
 
-/* .okvir1 {
+.okvir1 {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin: 0px;
+    height: 51px;
+
 }
 .okvir11 {
     display: flex;
     justify-content: flex-end;
     width: 20%;
-    border: 1px solid black;
-    margin: 10px;
+    /* border: 1px solid black; */
+    margin: 0px;
 }
 
 .okvir12 {
     display: flex;
     justify-content: flex-start;
     width: 80%;
-    margin: 10px;
-} */
+    margin: 0px;
+}
+
+.formaIzbor {
+    height: 35px;
+}
 
 button,#dugme
 {
@@ -314,9 +295,42 @@ button:hover
     margin-bottom: 5px;
 }
 
+label
+{
+    padding: 4px;
+    min-width: 0%;
+}
+
+#label1
+{
+    padding: 0px;
+    min-width: 0%;
+}
+
+#label2
+{
+    padding: 0px;
+    min-width: 0%;
+}
+
+#dateRodj
+{
+    min-width: 250px;
+    height: 35px;
+    margin: auto;
+}
+
+#dateRodj2
+{
+    min-width: 250px;
+    height: 35px;
+    margin: auto;
+}
+
 input {
     border: 1px solid var(--bojaD);
     border-radius: 8px;
+    max-width: 100%;
 }
 
 

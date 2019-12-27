@@ -11,53 +11,112 @@
 <div>
     <form action="/osoblje/store" method="POST">
         @csrf
-        <div>
-            Ime <input type="text" name="ime" value="" requred>
-        </div>
-        <div>
-            Prezime <input type="text" name="prezime" value="" requred>
-        </div>
-        <!-- ovo je duplo zato da bi menjalo izgled datuma na naski -->
-        <div>
-            <label for="dateRodj" id="label1">Datum rođenja <input type="date" name="dat_rodjenja" value="" id="dateRodj" requred></label>
-            <label for="dateRodj2" id="label2" class="disapear">Datum rođenja <input type="text" id="dateRodj2"></label>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="ime">Ime</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="ime" value="" requred>
+            </div>
         </div>
 
-        <div>
-            JMBG <input type="number" name="jmbg" value="" requred>
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="prezime">Prezime</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="prezime" value="" requred>
+            </div>
+        </div>
+        
+        <!-- ovo je duplo zato da bi menjalo izgled datuma na formi -->
+        <!-- DEO SA DATUMOM OSTAVITI KAKO JE KREIRAN ZBOG SAKRIVANJA NEPOTREBNOG -->
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="">Datum rođenja</label>
+            </div>
+            <div class="okvir12">
+                    <label for="dateRodj" id="label1"><input type="date" name="dat_rodjenja" value="" id="dateRodj" requred>
+                    </label>
+                    <label for="dateRodj2" id="label2" class="disapear"><input type="text" id="dateRodj2">
+                    </label>
+            </div>
+        </div>
+        <!-- KRAJ DELA SA DATUMOM -->
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="jmbg">JMBG</label>
+            </div>
+            <div class="okvir12">
+                <input type="number" name="jmbg" value="" requred>
+            </div>
         </div>
 
-        <div>
-            Pol
-            <select name="pol" id="">
-                <option value="muski">muški</option>
-                <option value="zenski">ženski</option>
-                <option value="neopredeljen">neopredeljen</option>
-            </select>
-            <div>
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="pol">Pol</label>
+            </div>
+            <div class="okvir12">
+                <select class="formaIzbor" name="pol" id="">
+                    <option value="muski">muški</option>
+                    <option value="zenski">ženski</option>
+                    <option value="neopredeljen">neopredeljen</option>
+                </select>
+            </div>
+        </div>
 
-                <div>
-                    Adresa stanovanja
-                </div>
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="">Adresa stanovanja</label>
+            </div>
+            <div class="okvir12">
+            </div>
+        </div>
 
-                <div>
-                    Grad <input type="text" name="grad" value="" requred>
-                </div>
-                <div>
-                    Ulica <input type="text" name="ulica" value="" requred>
-                </div>
-                <div>
-                    Broj <input type="text" name="broj" value="" requred>
-                </div>
-                Glavni doktor
-                <select name="lekar" id="">
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="grad">Grad</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="grad" value="" requred>
+            </div>
+        </div>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="ulica">Ulica</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="ulica" value="" requred>
+            </div>
+        </div>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="broj">Broj</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="broj" value="" requred>
+            </div>
+        </div>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="lekar">Glavni doktor</label>
+            </div>
+            <div class="okvir12">
+            <select class="formaIzbor" name="lekar" id="">
                     @foreach ($doctorList as $doctor)
                     <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                     @endforeach
                 </select>
-
-                <!-- Mozda treba dodati i neki kontakt u tabelu sa pacijentom. Pitati Vilusa.  -->
-                <input id='dugme' type="submit" value="Unesi">
+            </div>
+        </div>
+        
+        <!-- Mozda treba dodati i neki kontakt u tabelu sa pacijentom. Pitati Vilusa.  -->
+        <input id='dugme' type="submit" value="Unesi">
 
 
     </form>
