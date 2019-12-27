@@ -115,17 +115,6 @@
     text-align: center;
 }
 
-.r_oneVisit
-{
-   
-}
-
-.r_oneVisit:hover
-{
-    box-shadow: 2px 10px 20px rgba(0,0,0,0.5);
-    /* cursor: pointer; */
-}
-
 .prazan
 {
     position:relative;
@@ -145,8 +134,8 @@
     top:10%;
     left:20%;
     border: 3px solid var(--bojaD);
-    width:940px;
-    height: 580px;
+    width:980px;
+    height: 680px;
     overflow-y: auto;
     overflow-x: hidden;
 }

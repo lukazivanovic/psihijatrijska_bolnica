@@ -50,6 +50,7 @@
     </div>
 </div>
 
+<script src="{{ asset('/js/vue.min.js') }}"defer></script>
 <script src="{{ asset('/js/vueVisit.js') }}" defer></script>
 
 @endsection

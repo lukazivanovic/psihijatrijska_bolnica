@@ -30,11 +30,11 @@
     {{-- Vue --}}
 
     {{-- -develpment version --}}
-    <script src="{{ asset('/js/vue.js') }}" defer></script>
+    {{-- <script src="{{ asset('/js/vue.js') }}" defer></script> --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script> --}}
 
     {{-- prodaction version --}}
-    {{-- <script src="{{ asset('/js/vue.min.js') }}" defer></script> --}}
+    {{-- <script src="{{ asset('/js/vue.min.js') }}"defer></script> --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0" defer></script> --}}
 
     {{-- React --}}

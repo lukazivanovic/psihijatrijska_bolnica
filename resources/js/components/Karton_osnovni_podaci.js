@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Visit from './Visit';
+import Create_visit from './Create_visit';
 
 export default class Karton_osnovni_podaci extends Component {
     constructor(props) {
@@ -91,17 +91,20 @@ export default class Karton_osnovni_podaci extends Component {
             return (
                 <div className="formaReact">
                     <label>
-                        Istorija bolesti:
-                                <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState} />
+                        <p>Istorija bolesti:</p>
+                        <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState} />
                     </label>
 
                     <label>
-                        Alergija lek:
-                                <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState} />
+                        <p>Alergija lek:</p>
+                        <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState} />
                     </label>
 
-                    <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
-                    <button className='linkDugme' onClick={this.sendData}>Posalji</button>
+                    <p>
+                        <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
+                        <button className='linkDugme' onClick={this.sendData}>Posalji</button>
+                    </p>
+                    
 
                     <div className="r_error">{this.state.odgovor}</div>
                 </div>
@@ -111,8 +114,8 @@ export default class Karton_osnovni_podaci extends Component {
         if (this.state.visit) {
             return (
                 <div>
-                    <Visit id={this.props.data.id} lekar={this.props.data.lekar}
-                        callLaravel={this.callLaravel} showNewVisit={this.showNewVisit}></Visit>
+                    <Create_visit id={this.props.data.id} lekar={this.props.data.lekar}
+                        callLaravel={this.callLaravel} showNewVisit={this.showNewVisit}></Create_visit>
                 </div>
 
             )

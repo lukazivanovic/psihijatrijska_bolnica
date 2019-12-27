@@ -3,28 +3,14 @@
 try {
     if(document.querySelector('#filter')!=null)
     {
-        let storedWord=sessionStorage.getItem('filterTabela');
-        if(storedWord!=null)
-        {
-            document.querySelector('#filter').value=storedWord;
-            searchTable();
-        }
         document.querySelector('#filter').addEventListener('keyup',function(e)
         {
-            searchTable();
+            pf.filterWordTable(document.querySelector('#filter').value.toLowerCase(),'disapear');
         })
     }
     
 } catch (error) {
-    console.log("filter tabela ili session storage "+error);
-}
-
-function searchTable()
-{
-    let word=document.querySelector('#filter').value.toLowerCase();
-    sessionStorage.setItem('filterTabela',word);
-
-    pf.filterWordTable(word,'disapear');
+    console.log("filter tabela "+error);
 }
 
 //dugme za brisanje
@@ -119,7 +105,7 @@ catch (error)
 }
 
 
-//menjanje datuma u imputu
+//menjanje datuma u inputu
 try {
 
     if(document.querySelector('#label1')!=null && document.querySelector('#label2')!=null && document.querySelector('#dateRodjEditChart')!=null && document.querySelector('#dateRodj2EditChart')!=null)

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Visit_treatmant from './Visit_treatmant';
+import Karton_visit_treatmant from './Karton_visit_treatmant';
 
 export default class Karton_visit extends Component
 {
@@ -88,7 +88,7 @@ export default class Karton_visit extends Component
 
     render()
     {
-        let treatmants=this.props.data.lekovi.map(lek=><Visit_treatmant key={lek.ind_tracer} id={lek.ind_tracer} 
+        let treatmants=this.props.data.lekovi.map(lek=><Karton_visit_treatmant key={lek.ind_tracer} id={lek.ind_tracer} 
             data={lek} show_div={this.state.show_div} callLaravel={this.callLaravel}/>)
 
         if(this.state.show_div && !this.state.show_edit)
@@ -96,7 +96,7 @@ export default class Karton_visit extends Component
             return(
                 <div className="r_visit_screen">
 
-                    <div className="oneVisit r_oneVisit" >
+                    <div className="oneVisit">
                         <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
                         
                         <div className="flexRowES"> 
@@ -140,14 +140,16 @@ export default class Karton_visit extends Component
                         
                         
                         <label>
-                            Dijagnoza:
+                            <p>Dijagnoza:</p>
+                            
                             <textarea defaultValue={this.props.data.dijagnoza} ref={this.dijagnozaArea} onChange={this.setDijagnoza}/>
                         </label>
                     </div>
                     <div>
                         
                         <label>
-                            Terapija:
+                            <p>Terapija:</p>
+                            
                             <textarea defaultValue={this.props.data.terapija} ref={this.terapijaArea} onChange={this.setTerapija}/>
                         </label>
         

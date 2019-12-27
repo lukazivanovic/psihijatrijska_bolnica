@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import Treatmant from './Treatmant';
+import Create_visit_treatmant from './Create_visit_treatmant';
 import Error from './Error';
 
 
-export default class Visit extends Component
+export default class Create_visit extends Component
 {
     constructor(props)
     {
@@ -136,8 +136,8 @@ export default class Visit extends Component
         let treatments=[];
         for(let i=0; i<=this.state.count; i++)
         {
-            treatments.push(<Treatmant key={i} increaseCount={this.increaseCount} zadnjiUpis={this.zadnjiUpis}
-            sb={this.state.last_input.sb} sl={this.state.last_input.sl} kl={this.state.last_input.kl}></Treatmant>);
+            treatments.push(<Create_visit_treatmant key={i} increaseCount={this.increaseCount} zadnjiUpis={this.zadnjiUpis}
+            sb={this.state.last_input.sb} sl={this.state.last_input.sl} kl={this.state.last_input.kl}></Create_visit_treatmant>);
         }
 
         let errorsPr=this.state.errors.map((e,i)=><Error error={e} key={'error'+i}></Error>)
@@ -160,8 +160,15 @@ export default class Visit extends Component
                                 </label> 
                             </div>
                         
-                        <label >Dijagnoza <textarea id="r_dijagnoza" cols="30" rows="10" ></textarea></label>
-                        <label >Terapija <textarea id="r_terapija" cols="30" rows="10" ></textarea></label>
+                        <label >
+                            <p>Dijagnoza:</p>
+                             <textarea id="r_dijagnoza" cols="30" rows="10" ></textarea>
+                        </label>
+
+                        <label >
+                            <p>Terapija:</p>
+                             <textarea id="r_terapija" cols="30" rows="10" ></textarea>
+                        </label>
             
                             <div className="parentUpis">
                                     {treatments} 

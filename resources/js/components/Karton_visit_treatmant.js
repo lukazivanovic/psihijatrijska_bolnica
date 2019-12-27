@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-export default class Visit_treatmant extends Component
+export default class Karton_visit_treatmant extends Component
 {
     constructor(props)
     {

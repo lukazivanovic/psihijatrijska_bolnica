@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-export default class Visit extends Component
+export default class Create_visit_treatmant extends Component
 {
     constructor(props)
     {

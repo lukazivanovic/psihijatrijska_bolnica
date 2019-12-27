@@ -51364,6 +51364,486 @@ if (document.getElementById('vreme')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Create_visit.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/Create_visit.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create_visit; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Create_visit_treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create_visit_treatmant */ "./resources/js/components/Create_visit_treatmant.js");
+/* harmony import */ var _Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Error */ "./resources/js/components/Error.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Create_visit =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Create_visit, _Component);
+
+  function Create_visit(props) {
+    var _this;
+
+    _classCallCheck(this, Create_visit);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Create_visit).call(this, props));
+    _this.state = {
+      count: 0,
+      last_input: {
+        sb: null,
+        sl: null,
+        kl: 0
+      },
+      check: null,
+      check_codes: false,
+      errors: [],
+      odgovor: null
+    };
+    _this.callLarvel = _this.callLarvel.bind(_assertThisInitialized(_this));
+    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    _this.submit = _this.submit.bind(_assertThisInitialized(_this));
+    _this.getCodes = _this.getCodes.bind(_assertThisInitialized(_this));
+    _this.showNewVisit = _this.showNewVisit.bind(_assertThisInitialized(_this));
+    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Create_visit, [{
+    key: "callLarvel",
+    value: function callLarvel() {
+      this.props.callLarvel();
+    }
+  }, {
+    key: "increaseCount",
+    value: function increaseCount() {
+      console.log('povecaj1');
+      var c = this.state.count;
+      c++;
+      this.setState({
+        count: c
+      });
+    }
+  }, {
+    key: "showNewVisit",
+    value: function showNewVisit() {
+      this.props.showNewVisit();
+    }
+  }, {
+    key: "submit",
+    value: function submit() {
+      var _this2 = this;
+
+      this.pacijent_id = this.props.id;
+      this.lekar_id = this.props.lekar; //moraju da se resetuju nizovi
+
+      this.niz_send = [];
+      this.errors = [];
+      this.odgovor = ""; //pravimo novi niz_send niz
+
+      this.dijagnoza = document.querySelector('#r_dijagnoza').value;
+      this.terapija = document.querySelector('#r_terapija').value;
+      this.tip_pos = document.querySelector('#r_tipPosete').value;
+      var date = new Date();
+      var datum_posete = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+
+      var niz_sifra_bolesti = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
+        return c.value;
+      });
+
+      var niz_sifra_leka = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
+        return c.value;
+      });
+
+      var niz_kolicina_leka = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
+        return c.value;
+      });
+
+      var counter = niz_sifra_bolesti.length;
+
+      for (var i = 0; i < counter; i++) {
+        var pom = {};
+        pom.datum = datum_posete;
+        pom.id_pacijent = this.pacijent_id;
+        pom.id_lekar = this.lekar_id;
+        pom.sifra_bolesti = niz_sifra_bolesti[i];
+        pom.sifra_leka = niz_sifra_leka[i];
+        pom.lek_prepisana_kol = niz_kolicina_leka[i];
+        pom.dijagnoza = this.dijagnoza;
+        pom.terapija = this.terapija;
+        pom.prva_poseta = this.tip_pos;
+        this.niz_send.push(pom);
+      }
+
+      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes);
+      console.log('errors', this.errors);
+      this.setState({
+        errors: this.errors
+      });
+
+      if (this.errors.length == 0) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = this.niz_send[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var dod = _step.value;
+            var niz = {
+              datum: dod.datum,
+              id_pacijent: dod.id_pacijent,
+              id_lekar: dod.id_lekar,
+              sifra_bolesti: dod.sifra_bolesti,
+              sifra_leka: dod.sifra_leka,
+              lek_prepisana_kol: dod.lek_prepisana_kol,
+              dijagnoza: dod.dijagnoza,
+              terapija: dod.terapija,
+              prva_poseta: dod.prva_poseta
+            };
+            console.log('poslat niz', niz);
+            var opcije = {
+              method: "POST",
+              body: JSON.stringify(niz),
+              headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'Content-Type': 'application/json' //BITNO!!!
+
+              }
+            };
+            fetch('/lekar/storeVisit', opcije).then(function (resp) {
+              return resp.json();
+            }).then(function (txt) {
+              _this2.odgovor += txt + " ";
+              console.log(_this2.odgovor);
+
+              _this2.setState({
+                odgovor: _this2.odgovor
+              });
+            });
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var treatments = [];
+
+      for (var i = 0; i <= this.state.count; i++) {
+        treatments.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Create_visit_treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: i,
+          increaseCount: this.increaseCount,
+          zadnjiUpis: this.zadnjiUpis,
+          sb: this.state.last_input.sb,
+          sl: this.state.last_input.sl,
+          kl: this.state.last_input.kl
+        }));
+      }
+
+      var errorsPr = this.state.errors.map(function (e, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          error: e,
+          key: 'error' + i
+        });
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "r_visit_screen"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "r_visit_form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRowRight"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.showNewVisit
+      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "vueFormaVisit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "donje"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        id: "r_tipPosete"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Prva Poseta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "0"
+      }, "Kontrolna Poseta")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dijagnoza:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "r_dijagnoza",
+        cols: "30",
+        rows: "10"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Terapija:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        id: "r_terapija",
+        cols: "30",
+        rows: "10"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "parentUpis"
+      }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "submit",
+        onClick: this.submit
+      }, "Posalji u bazu"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRow r_error"
+      }, this.state.odgovor)));
+    }
+  }, {
+    key: "verifikuj",
+    value: function verifikuj(niz, check, codes) {
+      var errors = [];
+      if (niz[0].datum === "" || niz[0].datum === null) errors.push('Datum nije upisan!');
+      if (niz[0].id_pacijent === "" || niz[0].id_pacijent === null) errors.push('ID pacijenta nije upisan!');
+      if (niz[0].id_lekar === "" || niz[0].id_lekar === null) errors.push('ID lekara nije upisan!');
+      if (niz[0].dijagnoza === "" || niz[0].dijagnoza === null) errors.push('Dijagnoza nije upisana!');
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        var _loop = function _loop() {
+          var pom = _step2.value;
+
+          if (pom.sifra_bolesti === "" && pom.sifra_leka === "" && pom.lek_prepisana_kol === "") {} else {
+            if (pom.sifra_bolesti === "" || pom.sifra_bolesti === null) errors.push('Sifra bolesti nije upisana!');
+            if (pom.sifra_leka === "" || pom.sifra_leka === null) errors.push('Sifra leka nije upisana!');
+            if (pom.lek_prepisana_kola === "" || pom.lek_prepisana_kol === null) errors.push('Lek prepisana kolicina nije upisana!');
+            if (isNaN(pom.lek_prepisana_kol)) errors.push('Prepisana kolicina leka mora biti broj!');
+            if (pom.lek_prepisana_kol <= 0) errors.push('Prepisana kolicina leka mora biti veca od nule!');
+
+            if (check) {
+              if (!codes.bolesti.some(function (obj) {
+                return obj.sifra_bolest === pom.sifra_bolesti;
+              })) errors.push('Sifra bolesti ne postoji u bazi!');
+              if (!codes.lekovi.some(function (obj) {
+                return obj.sifra_lek === pom.sifra_leka;
+              })) errors.push('Sifra leka ne postoji u bazi!');
+            }
+          }
+        };
+
+        for (var _iterator2 = niz[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          _loop();
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+            _iterator2["return"]();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+
+      return errors;
+    }
+  }, {
+    key: "getCodes",
+    value: function getCodes() {
+      var _this3 = this;
+
+      fetch("/lekar/getCodes").then(function (r) {
+        return r.json();
+      }).then(function (r) {
+        _this3.setState({
+          check_codes: true,
+          codes: r
+        });
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getCodes();
+    }
+  }, {
+    key: "zadnjiUpis",
+    value: function zadnjiUpis() {
+      var sb = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      var sl = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      var kl = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
+        return c.value;
+      }).reverse()[0];
+
+      this.setState({
+        last_input: {
+          sb: sb,
+          sl: sl,
+          kl: kl
+        }
+      });
+    }
+  }]);
+
+  return Create_visit;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Create_visit_treatmant.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/Create_visit_treatmant.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Create_visit_treatmant; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Create_visit_treatmant =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Create_visit_treatmant, _Component);
+
+  function Create_visit_treatmant(props) {
+    var _this;
+
+    _classCallCheck(this, Create_visit_treatmant);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Create_visit_treatmant).call(this, props));
+    _this.state = {
+      active: true
+    };
+    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
+    _this.ukloni = _this.ukloni.bind(_assertThisInitialized(_this));
+    _this.ponisti = _this.ponisti.bind(_assertThisInitialized(_this));
+    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Create_visit_treatmant, [{
+    key: "increaseCount",
+    value: function increaseCount() {
+      this.props.increaseCount();
+      this.setState({
+        active: false
+      });
+      this.zadnjiUpis();
+    }
+  }, {
+    key: "ukloni",
+    value: function ukloni(event) {
+      event.target.parentElement.remove();
+    }
+  }, {
+    key: "ponisti",
+    value: function ponisti(event) {
+      event.target.value = "";
+    }
+  }, {
+    key: "zadnjiUpis",
+    value: function zadnjiUpis() {
+      this.props.zadnjiUpis();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "noviUnosDugme",
+        onClick: this.increaseCount
+      }, "Novi unos") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "obrisi",
+        onClick: this.ukloni
+      }, "X");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upis"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "r_sifra_bolesti",
+        onFocus: this.ponisti
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        className: "r_sifra_leka",
+        onFocus: this.ponisti
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "number",
+        className: "r_kolicina_leka",
+        onFocus: this.ponisti
+      })), button);
+    }
+  }]);
+
+  return Create_visit_treatmant;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Error.js":
 /*!******************************************!*\
   !*** ./resources/js/components/Error.js ***!
@@ -51553,7 +52033,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Karton_visit; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Visit_treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Visit_treatmant */ "./resources/js/components/Visit_treatmant.js");
+/* harmony import */ var _Karton_visit_treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Karton_visit_treatmant */ "./resources/js/components/Karton_visit_treatmant.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51682,7 +52162,7 @@ function (_Component) {
       var _this3 = this;
 
       var treatmants = this.props.data.lekovi.map(function (lek) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit_treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Karton_visit_treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: lek.ind_tracer,
           id: lek.ind_tracer,
           data: lek,
@@ -51695,7 +52175,7 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_visit_screen"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "oneVisit r_oneVisit"
+          className: "oneVisit"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowRight"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -51726,11 +52206,11 @@ function (_Component) {
           onClick: this.otkrijDetalje
         }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowES"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Dijagnoza:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dijagnoza:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.dijagnoza,
           ref: this.dijagnozaArea,
           onChange: this.setDijagnoza
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Terapija:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Terapija:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.terapija,
           ref: this.terapijaArea,
           onChange: this.setTerapija
@@ -51779,7 +52259,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Karton_osnovni_podaci; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Visit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Visit */ "./resources/js/components/Visit.js");
+/* harmony import */ var _Create_visit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create_visit */ "./resources/js/components/Create_visit.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51923,27 +52403,27 @@ function (_Component) {
       if (this.state.forma) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "formaReact"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Istorija bolesti:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija bolesti:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.istorija_bolesti,
           ref: this.istorija,
           onChange: this.istorijaState
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Alergija lek:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija lek:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.alergija_lek,
           ref: this.alergije,
           onChange: this.alergijaState
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme",
           onClick: this.otvoriFormu
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme",
           onClick: this.sendData
-        }, "Posalji"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Posalji")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
         }, this.state.odgovor));
       }
 
       if (this.state.visit) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Create_visit__WEBPACK_IMPORTED_MODULE_1__["default"], {
           id: this.props.data.id,
           lekar: this.props.data.lekar,
           callLaravel: this.callLaravel,
@@ -51990,6 +52470,183 @@ function (_Component) {
   }]);
 
   return Karton_osnovni_podaci;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Karton_visit_treatmant.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/Karton_visit_treatmant.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Karton_visit_treatmant; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+var Karton_visit_treatmant =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Karton_visit_treatmant, _Component);
+
+  function Karton_visit_treatmant(props) {
+    var _this;
+
+    _classCallCheck(this, Karton_visit_treatmant);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Karton_visit_treatmant).call(this, props));
+    _this.state = {
+      sifra_bolesti: _this.props.data.sifra_bolest,
+      sifra_leka: _this.props.data.sifra_lek,
+      lek_prepisana_kol: _this.props.data.lek_prepisana_kol,
+      show_edit_treatment: false
+    };
+    _this.callLaravel = _this.callLaravel.bind(_assertThisInitialized(_this));
+    _this.izmeni = _this.izmeni.bind(_assertThisInitialized(_this));
+    _this.sb = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    _this.sl = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    _this.kl = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    _this.setSB = _this.setSB.bind(_assertThisInitialized(_this));
+    _this.setSL = _this.setSL.bind(_assertThisInitialized(_this));
+    _this.setKL = _this.setKL.bind(_assertThisInitialized(_this));
+    _this.sendData = _this.sendData.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Karton_visit_treatmant, [{
+    key: "callLaravel",
+    value: function callLaravel() {
+      this.props.callLaravel();
+    }
+  }, {
+    key: "izmeni",
+    value: function izmeni() {
+      this.setState({
+        show_edit_treatment: !this.state.show_edit_treatment
+      });
+    }
+  }, {
+    key: "setSB",
+    value: function setSB() {
+      this.setState({
+        sifra_bolesti: this.sb.current.value
+      });
+    }
+  }, {
+    key: "setSL",
+    value: function setSL() {
+      this.setState({
+        sifra_leka: this.sl.current.value
+      });
+    }
+  }, {
+    key: "setKL",
+    value: function setKL() {
+      this.setState({
+        lek_prepisana_kol: this.kl.current.value
+      });
+    }
+  }, {
+    key: "sendData",
+    value: function sendData() {
+      var _this2 = this;
+
+      var niz = {
+        id: this.props.id,
+        sifra_bolesti: this.state.sifra_bolesti || this.props.data.sifra_bolest,
+        sifra_leka: this.state.sifra_leka || this.props.data.sifra_lek,
+        lek_prepisana_kol: this.state.lek_prepisana_kol || this.props.data.lek_prepisana_kol
+      };
+      var opcije = {
+        method: "POST",
+        body: JSON.stringify(niz),
+        headers: {
+          'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+          'Content-Type': 'application/json' //BITNO!!!
+
+        }
+      }; // console.log('niz',niz,'token', document.querySelector('input[name="_token"]').value);
+
+      fetch('/lekar/updateTreatmantReact', opcije).then(function (resp) {
+        return resp.json();
+      }).then(function (txt) {
+        alert(txt);
+
+        _this2.izmeni();
+
+        _this2.callLaravel();
+      })["catch"](function (err) {
+        console.log(err);
+      });
+      ;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.props.show_div && !this.state.show_edit_treatment) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "r_treatmant r_space_beetwen"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Leka: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.izmeni
+        }, "Edit"));
+      }
+
+      if (this.props.show_div && this.state.show_edit_treatment) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "r_treatmant r_space_beetwen"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra Bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          defaultValue: this.props.data.sifra_bolest,
+          ref: this.sb,
+          onChange: this.setSB
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra Leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          defaultValue: this.props.data.sifra_lek,
+          ref: this.sl,
+          onChange: this.setSL
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          defaultValue: this.props.data.lek_prepisana_kol,
+          ref: this.kl,
+          onChange: this.setKL
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.izmeni
+        }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.sendData
+        }, "Posalji"));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "r_treatmant"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lek: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol));
+    }
+  }]);
+
+  return Karton_visit_treatmant;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -52310,663 +52967,6 @@ var Scroll = function Scroll(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Scroll);
-
-/***/ }),
-
-/***/ "./resources/js/components/Treatmant.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Treatmant.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visit; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var Visit =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Visit, _Component);
-
-  function Visit(props) {
-    var _this;
-
-    _classCallCheck(this, Visit);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
-    _this.state = {
-      active: true
-    };
-    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
-    _this.ukloni = _this.ukloni.bind(_assertThisInitialized(_this));
-    _this.ponisti = _this.ponisti.bind(_assertThisInitialized(_this));
-    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Visit, [{
-    key: "increaseCount",
-    value: function increaseCount() {
-      this.props.increaseCount();
-      this.setState({
-        active: false
-      });
-      this.zadnjiUpis();
-    }
-  }, {
-    key: "ukloni",
-    value: function ukloni(event) {
-      event.target.parentElement.remove();
-    }
-  }, {
-    key: "ponisti",
-    value: function ponisti(event) {
-      event.target.value = "";
-    }
-  }, {
-    key: "zadnjiUpis",
-    value: function zadnjiUpis() {
-      this.props.zadnjiUpis();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "noviUnosDugme",
-        onClick: this.increaseCount
-      }, "Novi unos") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "obrisi",
-        onClick: this.ukloni
-      }, "X");
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "upis"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "r_sifra_bolesti",
-        onFocus: this.ponisti
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        className: "r_sifra_leka",
-        onFocus: this.ponisti
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "number",
-        className: "r_kolicina_leka",
-        onFocus: this.ponisti
-      })), button);
-    }
-  }]);
-
-  return Visit;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Visit.js":
-/*!******************************************!*\
-  !*** ./resources/js/components/Visit.js ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visit; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Treatmant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Treatmant */ "./resources/js/components/Treatmant.js");
-/* harmony import */ var _Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Error */ "./resources/js/components/Error.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-var Visit =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Visit, _Component);
-
-  function Visit(props) {
-    var _this;
-
-    _classCallCheck(this, Visit);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit).call(this, props));
-    _this.state = {
-      count: 0,
-      last_input: {
-        sb: null,
-        sl: null,
-        kl: 0
-      },
-      check: null,
-      check_codes: false,
-      errors: [],
-      odgovor: null
-    };
-    _this.callLarvel = _this.callLarvel.bind(_assertThisInitialized(_this));
-    _this.increaseCount = _this.increaseCount.bind(_assertThisInitialized(_this));
-    _this.submit = _this.submit.bind(_assertThisInitialized(_this));
-    _this.getCodes = _this.getCodes.bind(_assertThisInitialized(_this));
-    _this.showNewVisit = _this.showNewVisit.bind(_assertThisInitialized(_this));
-    _this.zadnjiUpis = _this.zadnjiUpis.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Visit, [{
-    key: "callLarvel",
-    value: function callLarvel() {
-      this.props.callLarvel();
-    }
-  }, {
-    key: "increaseCount",
-    value: function increaseCount() {
-      console.log('povecaj1');
-      var c = this.state.count;
-      c++;
-      this.setState({
-        count: c
-      });
-    }
-  }, {
-    key: "showNewVisit",
-    value: function showNewVisit() {
-      this.props.showNewVisit();
-    }
-  }, {
-    key: "submit",
-    value: function submit() {
-      var _this2 = this;
-
-      this.pacijent_id = this.props.id;
-      this.lekar_id = this.props.lekar; //moraju da se resetuju nizovi
-
-      this.niz_send = [];
-      this.errors = [];
-      this.odgovor = ""; //pravimo novi niz_send niz
-
-      this.dijagnoza = document.querySelector('#r_dijagnoza').value;
-      this.terapija = document.querySelector('#r_terapija').value;
-      this.tip_pos = document.querySelector('#r_tipPosete').value;
-      var date = new Date();
-      var datum_posete = "" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-
-      var niz_sifra_bolesti = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
-        return c.value;
-      });
-
-      var niz_sifra_leka = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
-        return c.value;
-      });
-
-      var niz_kolicina_leka = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
-        return c.value;
-      });
-
-      var counter = niz_sifra_bolesti.length;
-
-      for (var i = 0; i < counter; i++) {
-        var pom = {};
-        pom.datum = datum_posete;
-        pom.id_pacijent = this.pacijent_id;
-        pom.id_lekar = this.lekar_id;
-        pom.sifra_bolesti = niz_sifra_bolesti[i];
-        pom.sifra_leka = niz_sifra_leka[i];
-        pom.lek_prepisana_kol = niz_kolicina_leka[i];
-        pom.dijagnoza = this.dijagnoza;
-        pom.terapija = this.terapija;
-        pom.prva_poseta = this.tip_pos;
-        this.niz_send.push(pom);
-      }
-
-      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes);
-      console.log('errors', this.errors);
-      this.setState({
-        errors: this.errors
-      });
-
-      if (this.errors.length == 0) {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = this.niz_send[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var dod = _step.value;
-            var niz = {
-              datum: dod.datum,
-              id_pacijent: dod.id_pacijent,
-              id_lekar: dod.id_lekar,
-              sifra_bolesti: dod.sifra_bolesti,
-              sifra_leka: dod.sifra_leka,
-              lek_prepisana_kol: dod.lek_prepisana_kol,
-              dijagnoza: dod.dijagnoza,
-              terapija: dod.terapija,
-              prva_poseta: dod.prva_poseta
-            };
-            console.log('poslat niz', niz);
-            var opcije = {
-              method: "POST",
-              body: JSON.stringify(niz),
-              headers: {
-                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-                'Content-Type': 'application/json' //BITNO!!!
-
-              }
-            };
-            fetch('/lekar/storeVisit', opcije).then(function (resp) {
-              return resp.json();
-            }).then(function (txt) {
-              _this2.odgovor += txt + " ";
-              console.log(_this2.odgovor);
-
-              _this2.setState({
-                odgovor: _this2.odgovor
-              });
-            });
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-              _iterator["return"]();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
-        }
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var treatments = [];
-
-      for (var i = 0; i <= this.state.count; i++) {
-        treatments.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Treatmant__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: i,
-          increaseCount: this.increaseCount,
-          zadnjiUpis: this.zadnjiUpis,
-          sb: this.state.last_input.sb,
-          sl: this.state.last_input.sl,
-          kl: this.state.last_input.kl
-        }));
-      }
-
-      var errorsPr = this.state.errors.map(function (e, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          error: e,
-          key: 'error' + i
-        });
-      });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "r_visit_screen"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "r_visit_form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRowRight"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.showNewVisit
-      }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "vueFormaVisit"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "donje"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        id: "r_tipPosete"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "1"
-      }, "Prva Poseta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "0"
-      }, "Kontrolna Poseta")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Dijagnoza ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        id: "r_dijagnoza",
-        cols: "30",
-        rows: "10"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Terapija ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        id: "r_terapija",
-        cols: "30",
-        rows: "10"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "parentUpis"
-      }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit",
-        onClick: this.submit
-      }, "Posalji u bazu"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRow r_error"
-      }, this.state.odgovor)));
-    }
-  }, {
-    key: "verifikuj",
-    value: function verifikuj(niz, check, codes) {
-      var errors = [];
-      if (niz[0].datum === "" || niz[0].datum === null) errors.push('Datum nije upisan!');
-      if (niz[0].id_pacijent === "" || niz[0].id_pacijent === null) errors.push('ID pacijenta nije upisan!');
-      if (niz[0].id_lekar === "" || niz[0].id_lekar === null) errors.push('ID lekara nije upisan!');
-      if (niz[0].dijagnoza === "" || niz[0].dijagnoza === null) errors.push('Dijagnoza nije upisana!');
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        var _loop = function _loop() {
-          var pom = _step2.value;
-
-          if (pom.sifra_bolesti === "" && pom.sifra_leka === "" && pom.lek_prepisana_kol === "") {} else {
-            if (pom.sifra_bolesti === "" || pom.sifra_bolesti === null) errors.push('Sifra bolesti nije upisana!');
-            if (pom.sifra_leka === "" || pom.sifra_leka === null) errors.push('Sifra leka nije upisana!');
-            if (pom.lek_prepisana_kola === "" || pom.lek_prepisana_kol === null) errors.push('Lek prepisana kolicina nije upisana!');
-            if (isNaN(pom.lek_prepisana_kol)) errors.push('Prepisana kolicina leka mora biti broj!');
-            if (pom.lek_prepisana_kol <= 0) errors.push('Prepisana kolicina leka mora biti veca od nule!');
-
-            if (check) {
-              if (!codes.bolesti.some(function (obj) {
-                return obj.sifra_bolest === pom.sifra_bolesti;
-              })) errors.push('Sifra bolesti ne postoji u bazi!');
-              if (!codes.lekovi.some(function (obj) {
-                return obj.sifra_lek === pom.sifra_leka;
-              })) errors.push('Sifra leka ne postoji u bazi!');
-            }
-          }
-        };
-
-        for (var _iterator2 = niz[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          _loop();
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-            _iterator2["return"]();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
-      }
-
-      return errors;
-    }
-  }, {
-    key: "getCodes",
-    value: function getCodes() {
-      var _this3 = this;
-
-      fetch("/lekar/getCodes").then(function (r) {
-        return r.json();
-      }).then(function (r) {
-        _this3.setState({
-          check_codes: true,
-          codes: r
-        });
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.getCodes();
-    }
-  }, {
-    key: "zadnjiUpis",
-    value: function zadnjiUpis() {
-      var sb = _toConsumableArray(document.querySelectorAll('.r_sifra_bolesti')).map(function (c) {
-        return c.value;
-      }).reverse()[0];
-
-      var sl = _toConsumableArray(document.querySelectorAll('.r_sifra_leka')).map(function (c) {
-        return c.value;
-      }).reverse()[0];
-
-      var kl = _toConsumableArray(document.querySelectorAll('.r_kolicina_leka')).map(function (c) {
-        return c.value;
-      }).reverse()[0];
-
-      this.setState({
-        last_input: {
-          sb: sb,
-          sl: sl,
-          kl: kl
-        }
-      });
-    }
-  }]);
-
-  return Visit;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Visit_treatmant.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/Visit_treatmant.js ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Visit_treatmant; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-var Visit_treatmant =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Visit_treatmant, _Component);
-
-  function Visit_treatmant(props) {
-    var _this;
-
-    _classCallCheck(this, Visit_treatmant);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Visit_treatmant).call(this, props));
-    _this.state = {
-      sifra_bolesti: _this.props.data.sifra_bolest,
-      sifra_leka: _this.props.data.sifra_lek,
-      lek_prepisana_kol: _this.props.data.lek_prepisana_kol,
-      show_edit_treatment: false
-    };
-    _this.callLaravel = _this.callLaravel.bind(_assertThisInitialized(_this));
-    _this.izmeni = _this.izmeni.bind(_assertThisInitialized(_this));
-    _this.sb = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
-    _this.sl = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
-    _this.kl = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
-    _this.setSB = _this.setSB.bind(_assertThisInitialized(_this));
-    _this.setSL = _this.setSL.bind(_assertThisInitialized(_this));
-    _this.setKL = _this.setKL.bind(_assertThisInitialized(_this));
-    _this.sendData = _this.sendData.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Visit_treatmant, [{
-    key: "callLaravel",
-    value: function callLaravel() {
-      this.props.callLaravel();
-    }
-  }, {
-    key: "izmeni",
-    value: function izmeni() {
-      this.setState({
-        show_edit_treatment: !this.state.show_edit_treatment
-      });
-    }
-  }, {
-    key: "setSB",
-    value: function setSB() {
-      this.setState({
-        sifra_bolesti: this.sb.current.value
-      });
-    }
-  }, {
-    key: "setSL",
-    value: function setSL() {
-      this.setState({
-        sifra_leka: this.sl.current.value
-      });
-    }
-  }, {
-    key: "setKL",
-    value: function setKL() {
-      this.setState({
-        lek_prepisana_kol: this.kl.current.value
-      });
-    }
-  }, {
-    key: "sendData",
-    value: function sendData() {
-      var _this2 = this;
-
-      var niz = {
-        id: this.props.id,
-        sifra_bolesti: this.state.sifra_bolesti || this.props.data.sifra_bolest,
-        sifra_leka: this.state.sifra_leka || this.props.data.sifra_lek,
-        lek_prepisana_kol: this.state.lek_prepisana_kol || this.props.data.lek_prepisana_kol
-      };
-      var opcije = {
-        method: "POST",
-        body: JSON.stringify(niz),
-        headers: {
-          'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
-          'Content-Type': 'application/json' //BITNO!!!
-
-        }
-      }; // console.log('niz',niz,'token', document.querySelector('input[name="_token"]').value);
-
-      fetch('/lekar/updateTreatmantReact', opcije).then(function (resp) {
-        return resp.json();
-      }).then(function (txt) {
-        alert(txt);
-
-        _this2.izmeni();
-
-        _this2.callLaravel();
-      })["catch"](function (err) {
-        console.log(err);
-      });
-      ;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this.props.show_div && !this.state.show_edit_treatment) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "r_treatmant r_space_beetwen"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Leka: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.izmeni
-        }, "Edit"));
-      }
-
-      if (this.props.show_div && this.state.show_edit_treatment) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "r_treatmant r_space_beetwen"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra Bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
-          defaultValue: this.props.data.sifra_bolest,
-          ref: this.sb,
-          onChange: this.setSB
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra Leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "text",
-          defaultValue: this.props.data.sifra_lek,
-          ref: this.sl,
-          onChange: this.setSL
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          type: "number",
-          defaultValue: this.props.data.lek_prepisana_kol,
-          ref: this.kl,
-          onChange: this.setKL
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.izmeni
-        }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: this.sendData
-        }, "Posalji"));
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "r_treatmant"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lek: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol));
-    }
-  }]);
-
-  return Visit_treatmant;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
 
 /***/ }),
 
