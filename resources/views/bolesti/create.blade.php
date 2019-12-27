@@ -11,7 +11,7 @@
 			<div class="okvir1">
 
 				<div class="okvir11">
-					<label>Šifra oboljenja</label>
+					<label for="sifra">Šifra oboljenja</label>
 				</div>
 				<div class="okvir12">
 					<input type="text" name="sifra" value="" requred>
@@ -22,7 +22,7 @@
 			<div class="okvir1">
 
 				<div class="okvir11">
-					<label>Naziv oboljenja</label>
+					<label for="ime">Naziv oboljenja</label>
 				</div>
 				
 				<div class="okvir12">
@@ -31,7 +31,7 @@
 
 			</div>
 
-			<input id='dugme' type="submit" value="Unesi">
+			<input id='dugme' class='dugmeUnos' type="submit" value="" style="background-image: url('/images/check_32.png')">
 
 
 	</form>
