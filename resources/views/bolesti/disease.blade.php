@@ -17,19 +17,20 @@
             </div>
         @endauth
 
-@if (Auth::user()->role==1)
-<button class='linkDugme' data-link='/bolesti/create'>Dodaj</button>
-@endif
-
-
-<table>
-    <tr>
-        <th>Šifra</th>
-        <th>Naziv</th>
         @if (Auth::user()->role==1)
-            <button class='linkDugme' data-link='/bolesti/create' >Dodaj novo oboljenje</button>
+        <button class='linkDugme' data-link='/bolesti/create' >Dodaj novo oboljenje</button>
         @endif
-    </tr>
+
+
+        <table>
+            <tr>
+                <th>Šifra</th>
+                <th>Naziv</th>
+                @if (Auth::user()->role==1)
+                <th>Izmeni</th>
+                <!-- <th>Obrisi</th> -->
+                @endif
+            </tr>
 
             @foreach ($diseases as $disease)
             <tr>
