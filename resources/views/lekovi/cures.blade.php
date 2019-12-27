@@ -40,7 +40,7 @@
                 <td>{{ $cure->ime_lek }}</td>
                 <td>{{ $cure->kolicina_lek }}</td>
                 @if (Auth::user()->role==1)
-                    <td><button class='linkDugme' data-link='/lekovi/edit/{{ $cure->id }}'>Izmeni</button></td>
+                    <td><button class='linkDugme linkDugmeIzmeni' data-link='/lekovi/edit/{{ $cure->id }}' style="background-image: url('/images/pencil.png')"></button></td>
                     <!-- <td><button class='obrisi' data-link='/lekovi/destroy/{{ $cure->id }}'>Obrisi</button></td> -->
                 @endif
             </tr>

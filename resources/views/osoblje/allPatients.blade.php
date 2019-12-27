@@ -54,7 +54,7 @@
                     <td>{{ $pacijent->ulica }}</td>
                     <td>{{ $pacijent->broj }}</td>
                     <td>{{ $pacijent->name }}</td>
-                    <td><button class='linkDugme' data-link='/osoblje/edit/{{ $pacijent->id }}'>DA</button></td>
+                    <td><button class='linkDugme linkDugmeIzmeni' data-link='/osoblje/edit/{{ $pacijent->id }}' style="background-image: url('/images/pencil.png')"></button></td>
                     <!-- <td><button class='obrisi' data-link='/osoblje/destroy/{{ $pacijent->id }}'>Ubij</button></td> -->
                 </tr>
                     
