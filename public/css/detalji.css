@@ -9,14 +9,34 @@
 
 .flexRowES
 {
-    /* display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0px auto 5px;
     flex-wrap: wrap;
-    min-width: 700px; */
+    min-width: 700px;
+    
+}
+
+.grid_8_50_300
+{
     display: grid;
     grid-template-columns: repeat(8,minmax(50px,300px));
+}
+
+.grid_5_50_300
+{
+    display: grid;
+    grid-template-columns: repeat(5,minmax(50px,300px));
+    text-align: center;
+}
+
+.grid_visit
+{
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    min-width: 400px;
+    max-width: 2400px;
 }
 
 .screen

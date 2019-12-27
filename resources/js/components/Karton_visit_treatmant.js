@@ -109,10 +109,10 @@ export default class Karton_visit_treatmant extends Component {
 
         return (
 
-            <div className="r_treatmant">
-                <div>Ime Bolesti: {this.props.data.name_bolest}</div>
-                <div>Lek: {this.props.data.name_lek}</div>
-                <div>Kolicina: {this.props.data.lek_prepisana_kol}</div>
+            <div className="r_treatmant_grid">
+                <div>{this.props.data.name_bolest}</div>
+                <div>{this.props.data.name_lek}</div>
+                <div>{this.props.data.lek_prepisana_kol}</div>
             </div>
 
 

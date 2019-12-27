@@ -52227,16 +52227,14 @@ function (_Component) {
         className: "r_visit",
         onClick: this.otkrijDetalje
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRowES"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "grid_visit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "grid_5_50_300"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.id_lekar, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_naslov"
-      }, "Dijagnoza: "), " ", this.props.data.dijagnoza.slice(0, 96))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, this.props.data.dijagnoza.slice(0, 96)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_naslov"
-      }, "Terapija: "), " ", this.props.data.terapija.slice(0, 96))), treatmants);
+      }, this.props.data.terapija.slice(0, 96))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, treatmants)));
     }
   }]);
 
@@ -52641,8 +52639,8 @@ function (_Component) {
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "r_treatmant"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Lek: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol));
+        className: "r_treatmant_grid"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.lek_prepisana_kol));
     }
   }]);
 

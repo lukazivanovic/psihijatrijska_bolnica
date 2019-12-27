@@ -121,7 +121,7 @@ export default class Karton_visit extends Component {
                         <div className="flexRowES">
                             <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
                             <div> Tip: {(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
-                            <div> Lekarrrrrrrrrrr: {this.props.data.id_lekar} </div>
+                            <div> Lekar: {this.props.data.id_lekar} </div>
                         </div>
 
                         <div>
@@ -154,13 +154,19 @@ export default class Karton_visit extends Component {
         }
         return (
             <div className="r_visit" onClick={this.otkrijDetalje}>
-                <div className="flexRowES">
-                    <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
-                    <div> Tip: {(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
-                    <div> Lekar: {this.props.data.id_lekar} </div>
-                    <div className="r_naslov">Dijagnoza: {this.props.data.dijagnoza.slice(0, 96)}</div>
-                    <div className="r_naslov">Terapija: {this.props.data.terapija.slice(0, 96)}</div>
-                    {treatmants}
+                <div className="grid_visit">
+                    <div className="grid_5_50_300">
+                        <div>{pf.dateToSerbianFormat(this.props.data.datum)} </div>
+                        <div>{(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
+                        <div>{this.props.data.id_lekar} </div>
+                        <div className="r_naslov">{this.props.data.dijagnoza.slice(0, 96)}</div>
+                        <div className="r_naslov">{this.props.data.terapija.slice(0, 96)}</div>
+                    </div>
+                    <div>
+                        {treatmants}
+                    </div>
+                    
+                    
                 </div>
 
 

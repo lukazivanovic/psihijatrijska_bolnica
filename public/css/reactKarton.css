@@ -97,13 +97,19 @@
 
 .r_treatmant
 {
-    /* background-color: var(--bojaA);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0px auto 5px;
     flex-wrap: nowrap;
-    min-width: 700px; */
+    background-color: var(--bojaD);
+}
+
+.r_treatmant_grid
+{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(50px,300px));
+    text-align: center;
 }
 
 .r_space_beetwen
