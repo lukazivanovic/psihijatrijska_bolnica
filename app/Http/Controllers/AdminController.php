@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserModel;
+use App\Http\Resources\HelpFuncResource;
 
 class AdminController extends Controller
 {
@@ -68,7 +69,7 @@ class AdminController extends Controller
     {
         
         $user=UserModel::findOrFail($id);
-        if($user->role<3)
+        if($user->role<3 and HelpFuncResource::canDeleteDoctor($id))
         {
           $user->delete();  
         }

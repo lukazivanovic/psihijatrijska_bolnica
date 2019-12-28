@@ -24,7 +24,7 @@ class FrontPageController extends Controller
 
     public function test()
     {
-        $a=json_encode(['bolesti'=>HelpFuncResource::getListOfDiseaseCodes(),'lekovi'=>HelpFuncResource::getListOfCuresCodes()]);
+        $a=HelpFuncResource::canDeleteDoctor(1);
         return view('test.test',['a'=>$a]);
     }
 

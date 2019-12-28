@@ -101,4 +101,9 @@ class HelpFuncResource extends JsonResource
     {
         return CureModel::select('sifra_lek')->get();
     }
+
+    public static function canDeleteDoctor($id)
+    {
+        return (PatientModel::where('lekar',$id)->count()==0)? true:false;
+    }
 }
