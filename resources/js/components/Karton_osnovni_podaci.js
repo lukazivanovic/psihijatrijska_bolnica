@@ -101,12 +101,14 @@ export default class Karton_osnovni_podaci extends Component {
                     </label>
 
                     <p>
-                        <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
-                        <button className='linkDugme' onClick={this.sendData}>Posalji</button>
+                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Odustani</button>
+                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.sendData}>Posalji</button>
                     </p>
 
-
-                    <div className="r_error">{this.state.odgovor}</div>
+                    <div className="margin_top_25 w100">
+                        <div className="r_error">{this.state.odgovor}</div>
+                    </div>
+                    
                 </div>
             )
         }
@@ -162,8 +164,8 @@ export default class Karton_osnovni_podaci extends Component {
 
                     </div>
                     <div className="dodaj-posetu">
-                        <button className='linkDugme' onClick={this.showNewVisit}>Poseta Meni</button>
-                        <button className='linkDugme' onClick={this.otvoriFormu}>Izmeni</button>
+                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
+                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
                     </div>
                 </div>
                 <div className="istorijaBolesti">
@@ -174,11 +176,13 @@ export default class Karton_osnovni_podaci extends Component {
                         <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
                     </div>
                     <div className="nazad">
-                        <button onClick={this.nazad}>Nazad</button>
+                        <button className='r_karton_osnovni_podaci_dugme' onClick={this.nazad}>Nazad</button>
                     </div>
 
                 </div>
-                <div className="r_error">{this.state.odgovor}</div>
+                    <div className="margin_top_25 w100">
+                        <div className="r_error">{this.state.odgovor}</div>
+                    </div>
             </div>
         )
     }

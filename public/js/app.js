@@ -52232,9 +52232,9 @@ function (_Component) {
         className: "grid_5_50_300"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.data.id_lekar, " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_naslov"
-      }, this.props.data.dijagnoza.slice(0, 96)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.data.dijagnoza.slice(0, 32)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_naslov"
-      }, this.props.data.terapija.slice(0, 96))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, treatmants)));
+      }, this.props.data.terapija.slice(0, 32))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, treatmants)));
     }
   }]);
 
@@ -52410,14 +52410,16 @@ function (_Component) {
           ref: this.alergije,
           onChange: this.alergijaState
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "linkDugme",
+          className: "linkDugme r_karton_osnovni_podaci_dugme",
           onClick: this.otvoriFormu
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "linkDugme",
+          className: "linkDugme r_karton_osnovni_podaci_dugme",
           onClick: this.sendData
         }, "Posalji")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "margin_top_25 w100"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
-        }, this.state.odgovor));
+        }, this.state.odgovor)));
       }
 
       if (this.state.visit) {
@@ -52435,35 +52437,66 @@ function (_Component) {
         className: "pacijentInfo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pacijentKarton"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "infoId"
+      }, "Id Kartona:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "infoIme"
+      }, this.props.data.ime, " ", this.props.data.prezime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Datum Rodjenja:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Pol:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "ostalo"
+      }, "Alergija na lekove:"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "colInfo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "infoId"
-      }, "Id Kartona: K-", this.props.data.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "K-", this.props.data.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "colNaslov"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "infoIme"
-      }, this.props.data.ime, " ", this.props.data.prezime), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "colOstalo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, "Datum Rodjenja: ", pf.dateToSerbianFormat(this.props.data.dat_rodjenja)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, pf.dateToSerbianFormat(this.props.data.dat_rodjenja))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "colOstalo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, "Pol: ", this.props.data.pol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.data.pol)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "colOstalo"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, "Alergija na lekove: ", this.props.data.alergija_lek)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.data.alergija_lek)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dodaj-posetu"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "linkDugme",
+        className: "linkDugme r_karton_osnovni_podaci_dugme",
         onClick: this.showNewVisit
       }, "Poseta Meni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "linkDugme",
+        className: "linkDugme r_karton_osnovni_podaci_dugme",
         onClick: this.otvoriFormu
-      }, "Izmeni Karton"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Izmeni"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "istorijaBolesti"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "istorijaBolestiLabel"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija Bolesti:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "opisIstorijaBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "opisIstorija"
-      }, this.props.data.istorija_bolesti), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.data.istorija_bolesti)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nazad"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "r_karton_osnovni_podaci_dugme",
         onClick: this.nazad
       }, "Nazad"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "margin_top_25 w100"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_error"
-      }, this.state.odgovor));
+      }, this.state.odgovor)));
     }
   }]);
 
@@ -52849,7 +52882,9 @@ function (_Component) {
 
       if (this.state.br_kartona != null || this.state.br_kartona != "") {
         if (this.state.baza.charts[this.state.br_kartona]) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Kartoni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Karton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "pacijentKartonNaslov"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Karton")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Karton__WEBPACK_IMPORTED_MODULE_4__["default"], {
             data: this.state.baza.charts[this.state.br_kartona],
             upisiIDstate: this.upisiIDstate,
             callLaravel: this.callLaravel

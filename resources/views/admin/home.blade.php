@@ -15,11 +15,11 @@
 
 <table>
     <tr>
-        <th>Username</th>
+        <th>Ime</th>
         <th>Email</th>
-        <th>Role</th>
-        <th>Change Role</th>
-        <th>Remove</th>
+        <th>Uloga</th>
+        <th>Promeni ulogu</th>
+        <th>Otpusti</th>
         
     </tr>
 
@@ -39,9 +39,9 @@
                     "<td>" .
                     "Osoblje"
                     . "</td>"
-                    ."<td><button class='linkDugme' data-link='/admin/roleChange/".$user->id."'>Change Role</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
 
-                    ."<td><button class='obrisi' data-link='/admin/delete/$user->id'>Remove</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
                     
              . "</tr>";
             !!}
@@ -60,9 +60,9 @@
                     "<td>" .
                     "Lekar"
                     . "</td>"
-                    ."<td><button class='linkDugme' data-link='/admin/roleChange/".$user->id."'>Change Role</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
 
-                    ."<td><button class='obrisi' data-link='/admin/delete/$user->id'>Remove</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
                     
              . "</tr>";
             !!}
@@ -104,9 +104,9 @@
                     "<td>" .
                     $user->role
                     . "</td>"
-                    ."<td><button class='linkDugme' data-link='/admin/roleChange/".$user->id."'>Change Role</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
 
-                    ."<td><button class='obrisi' data-link='/admin/delete/$user->id'>Remove</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
                     
              . "</tr>";
             !!}

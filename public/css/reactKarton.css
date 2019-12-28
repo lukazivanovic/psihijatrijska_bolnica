@@ -201,3 +201,8 @@
     text-align: center;
 }
 
+.r_error:first-child
+{
+    margin-top: 25px;
+}
+

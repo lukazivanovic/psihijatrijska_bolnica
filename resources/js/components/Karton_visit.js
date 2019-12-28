@@ -159,8 +159,8 @@ export default class Karton_visit extends Component {
                         <div>{pf.dateToSerbianFormat(this.props.data.datum)} </div>
                         <div>{(this.props.data.prva_poseta) ? "Prva poseta" : "Kontrolna poseta"} </div>
                         <div>{this.props.data.id_lekar} </div>
-                        <div className="r_naslov">{this.props.data.dijagnoza.slice(0, 96)}</div>
-                        <div className="r_naslov">{this.props.data.terapija.slice(0, 96)}</div>
+                        <div className="r_naslov">{this.props.data.dijagnoza.slice(0, 32)}</div>
+                        <div className="r_naslov">{this.props.data.terapija.slice(0, 32)}</div>
                     </div>
                     <div>
                         {treatmants}
