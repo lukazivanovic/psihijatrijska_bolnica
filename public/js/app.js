@@ -51621,7 +51621,7 @@ function (_Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parentUpis"
       }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "submit",
+        className: "submit srednjeDugme",
         onClick: this.submit
       }, "Posalji u bazu"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow r_error"
@@ -51815,7 +51815,7 @@ function (_Component) {
       var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "noviUnosDugme",
         onClick: this.increaseCount
-      }, "Novi unos") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Novi") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "obrisi",
         onClick: this.ukloni
       }, "X");

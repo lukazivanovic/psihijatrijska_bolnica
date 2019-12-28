@@ -1238,6 +1238,8 @@ p
     justify-content: center;
     max-width: 1280px;
     margin: 5px auto;
+    justify-items: center;
+    align-items: center;
 }
 
 .donje

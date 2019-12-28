@@ -174,7 +174,7 @@ export default class Create_visit extends Component
                                     {treatments} 
                             </div>
             
-                        <button className="submit" onClick={this.submit}>Posalji u bazu</button>
+                        <button className="submit srednjeDugme" onClick={this.submit}>Posalji u bazu</button>
                         </div>
             
                     </div>

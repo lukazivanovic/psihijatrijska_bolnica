@@ -41,7 +41,7 @@ export default class Create_visit_treatmant extends Component
     render()
     {
        let button=(this.state.active)?
-            <button className="noviUnosDugme" onClick={this.increaseCount}>Novi unos</button>:
+            <button className="noviUnosDugme" onClick={this.increaseCount}>Novi</button>:
             <button className="obrisi" onClick={this.ukloni}>X</button>;
         
         return(
