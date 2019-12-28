@@ -716,7 +716,7 @@ button:hover
     cursor: pointer;
     box-shadow: 0px 0px gray;
     background-color: var(--bojaC);
-    color: white;
+    /* color: white; */
     transform: translate(2px,2px);
     border-top: 3px solid var(--bojaC);
     border-left: 3px solid var(--bojaC);
@@ -727,7 +727,7 @@ button:hover
     cursor: pointer;
     box-shadow: 0px 0px gray;
     background-color: var(--bojaD);
-    color: white;
+    /* color: white; */
     transform: translate(2px,2px);
     border-top: 3px solid var(--bojaD);
     border-left: 3px solid var(--bojaD);
