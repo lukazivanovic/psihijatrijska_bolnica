@@ -104,7 +104,7 @@ export default class Karton_osnovni_podaci extends Component {
                         <button className='linkDugme' onClick={this.otvoriFormu}>Odustani</button>
                         <button className='linkDugme' onClick={this.sendData}>Posalji</button>
                     </p>
-                    
+
 
                     <div className="r_error">{this.state.odgovor}</div>
                 </div>
@@ -125,20 +125,54 @@ export default class Karton_osnovni_podaci extends Component {
             <div className="karton">
                 <div className="pacijentInfo">
                     <div className="pacijentKarton">
-                        <p className="infoId">Id Kartona: K-{this.props.data.id}</p>
-                        <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
-                        <p className="ostalo">Datum Rodjenja: {pf.dateToSerbianFormat(this.props.data.dat_rodjenja)}</p>
-                        <p className="ostalo">Pol: {this.props.data.pol}</p>
-                        <p className="ostalo">Alergija na lekove: {this.props.data.alergija_lek}</p>
+                        <div className="col1">
+                            <div>
+                                <p className="infoId">Id Kartona:</p>
+                            </div>
+                            <div>
+                                <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
+                            </div>
+                            <div>
+                                <p className="ostalo">Datum Rodjenja:</p>
+                            </div>
+                            <div>
+                                <p className="ostalo">Pol:</p>
+                            </div>
+                            <div>
+                                <p className="ostalo">Alergija na lekove:</p>
+                            </div>
+                        </div>
+                        <div className="col2">
+                            <div className="colInfo">
+                                <p className="infoId">K-{this.props.data.id}</p>
+                            </div>
+                            <div className="colNaslov">
+                                <p className="infoIme"></p>
+                            </div>
+                            <div className="colOstalo">
+                                <p className="ostalo">{pf.dateToSerbianFormat(this.props.data.dat_rodjenja)}</p>
+                            </div>
+                            <div className="colOstalo">
+                                <p className="ostalo">{this.props.data.pol}</p>
+                            </div>
+                            <div className="colOstalo">
+                                <p className="ostalo">{this.props.data.alergija_lek}</p>
+                            </div>
+                        </div>
+
                     </div>
                     <div className="dodaj-posetu">
                         <button className='linkDugme' onClick={this.showNewVisit}>Poseta Meni</button>
-                        <button className='linkDugme' onClick={this.otvoriFormu}>Izmeni Karton</button>
+                        <button className='linkDugme' onClick={this.otvoriFormu}>Izmeni</button>
                     </div>
                 </div>
                 <div className="istorijaBolesti">
-                    <p>Istorija Bolesti:</p>
-                    <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
+                    <div className="istorijaBolestiLabel">
+                        <p>Istorija Bolesti:</p>
+                    </div>
+                    <div className="opisIstorijaBox">
+                        <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
+                    </div>
                     <div className="nazad">
                         <button onClick={this.nazad}>Nazad</button>
                     </div>

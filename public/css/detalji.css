@@ -28,7 +28,11 @@
 {
     display: grid;
     grid-template-columns: repeat(5,minmax(50px,300px));
+    padding: 10px;
     text-align: center;
+    align-items: center;
+    color: var(--bojaA);
+    font-weight: 600;
 }
 
 .grid_visit

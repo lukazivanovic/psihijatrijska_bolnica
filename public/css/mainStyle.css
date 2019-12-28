@@ -467,9 +467,42 @@ h1,h2,h3,h4,h5,h6
 .pacijentKarton
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 20px;
 
+}
+.col1
+{
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+}
+.col2
+{
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    margin-left: 20px;
+}
+.colInfo
+{
+    width: 50px;
+    background-color: var(--bojaTri);
+    border-radius: 3px;
+    color: var(--bojaJedan);
+    text-align: center;
+}
+.colNaslov
+{
+    height: 63px;
+}
+.colOstalo
+{
+    border-radius: 3px;
+    background-color: var(--bojaTri);
+    color: var(--bojaJedan);
+    text-align: center;
+    margin: 2px 0;
 }
 .infoId
 {
@@ -477,7 +510,7 @@ h1,h2,h3,h4,h5,h6
 }
 .infoIme 
 {
-    font-size: 35px;
+    font-size: 40px;
 }
 .ostalo 
 {
@@ -489,10 +522,25 @@ h1,h2,h3,h4,h5,h6
     flex-direction: column;
     width: 70%;
 }
+.istorijaBolestiLabel
+{
+    font-size: 20px;
+}
+.opisIstorijaBox
+{
+    height: 160px;
+    margin: 10px 0;
+    background-color: var(--bojaTri);
+    overflow: auto;
+    border-radius: 3px;
+    color: var(--bojaJedan);
+    text-align: center;
+}
 .opisIstorija
 {
-    height: 150px;
+    padding: 10px;
     overflow: auto;
+    text-align: left;
 }
 .opisIstorija::-webkit-scrollbar
 {
@@ -516,13 +564,11 @@ h1,h2,h3,h4,h5,h6
 {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
 }
 
 .dodaj-posetu
 {
-    margin-left: 20px;
-    padding-top: 10px;
+   margin: 10px 0 0 20px;
 }
 .poseteInfo
 {
@@ -584,16 +630,18 @@ form *
 
 button,#dugme
 {
-    width: 60px;
+    width: 160px;
+    height: 50px;
     padding: 5px;
-    background-color: white;
+    background-color: var(--bojaTri);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     font-family: 'Saira Extra Condensed', sans-serif;
+    color: var(--bojaJedan);
     font-size: 1em;
     font-weight: 400;
     transition: all 0.3s;
     border: 1px solid var(--bojaD);
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 #dugme
@@ -619,10 +667,10 @@ button:hover
     cursor: pointer;
     box-shadow: 0px 0px gray;
     background-color: var(--bojaD);
-    color: white;
+    color: var(--bojaTri);
     transform: translate(2px,2px);
-    border-top: 1px solid #778899;
-    border-left: 1px solid #778899;
+    font-size: 1.2em;
+    border: 1px solid var(--bojaTri);
     
 }
 
@@ -724,8 +772,9 @@ button:hover
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    margin: 0px auto 5px;
+    margin: 100px auto 5px;
     flex-wrap: wrap;
+    color: var(--bojaA);
 }
 
 .flexColumn

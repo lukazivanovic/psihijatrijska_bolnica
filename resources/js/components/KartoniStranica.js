@@ -129,7 +129,10 @@ class KartoniStranica extends Component {
             if (this.state.baza.charts[this.state.br_kartona]) {
                 return (
                     <div>
-                        <h1>Kartoni</h1>
+                        <div className="pacijentKartonNaslov">
+                            <h1>Karton</h1>
+                        </div>
+
                         {/* Upisi broj Kartona: <input type="text" onChange={this.upisiBrojKartona} /> */}
                         <Karton data={this.state.baza.charts[this.state.br_kartona]} upisiIDstate={this.upisiIDstate} callLaravel={this.callLaravel} />
                     </div>

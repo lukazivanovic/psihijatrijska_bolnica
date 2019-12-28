@@ -165,8 +165,8 @@ export default class Karton_visit extends Component {
                     <div>
                         {treatmants}
                     </div>
-                    
-                    
+
+
                 </div>
 
 
