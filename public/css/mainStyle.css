@@ -354,13 +354,19 @@ select/* #selectorGrad */
 
 .karton
 {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
     width: 100%;
     padding: 20px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     background: var(--bojaA);
     color: var(--bojaTri);
+}
+
+.karton_grid
+{
+    display: grid;
+    grid-template-columns: minmax(125px,750px) minmax(275px,1650px);
 }
 
 .karton .pacijent-info h1
@@ -462,7 +468,8 @@ h1,h2,h3,h4,h5,h6
 {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    /* width: 30%; */
+    flex: 3 1 300px;
 }
 .pacijentKarton
 {
@@ -520,7 +527,9 @@ h1,h2,h3,h4,h5,h6
 {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    /* width: 70%; */
+    flex: 6 1 600px;
+    margin-left: 5px;
 }
 .istorijaBolestiLabel
 {
@@ -544,15 +553,12 @@ h1,h2,h3,h4,h5,h6
 }
 .opisIstorijaBox::-webkit-scrollbar
 {
-    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
-    sa elementom koji ima scrolbar */
-    /* background-color: green; */
     width: 8px;
 }
 
 .opisIstorijaBox::-webkit-scrollbar-thumb
 {
-    background-color: var(--bojaB);
+    background-color: var(--bojaCetiri);
 }
 
 .opisIstorijaBox::-webkit-scrollbar-track
