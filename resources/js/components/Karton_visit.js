@@ -86,7 +86,7 @@ export default class Karton_visit extends Component {
                 <div className="r_visit_screen">
 
                     <div className="oneVisit">
-                        <div className="flexRowRight"><button onClick={this.otkrijDetalje}>X</button></div>
+                        <div className="flexRowRight"><button className="exit" onClick={this.otkrijDetalje}>X</button></div>
 
                         <div className="flexRowES">
                             <div> Datum: {pf.dateToSerbianFormat(this.props.data.datum)} </div>
@@ -94,15 +94,15 @@ export default class Karton_visit extends Component {
                             <div> Lekar: {this.props.data.id_lekar} </div>
                         </div>
 
-                        <div>
+                        <div className="dijagnozaBox">
                             <h4 className="r_naslov_c">Dijagnoza: </h4>
                             {this.props.data.dijagnoza}
                         </div>
-                        <div>
+                        <div className="terapijaBox">
                             <h4 className="r_naslov_c">Terapija: </h4>
                             {this.props.data.terapija}
                         </div>
-                        <div className="flexRowRight"><button onClick={this.izmeni}>Edit</button></div>
+                        <div className="flexRowRight"><button onClick={this.izmeni}>Izmeni</button></div>
 
                         {treatmants}
                         <div className="r_error">{this.state.odgovor}</div>
@@ -124,16 +124,16 @@ export default class Karton_visit extends Component {
                             <div> Lekar: {this.props.data.id_lekar} </div>
                         </div>
 
-                        <div>
-
+                        <div className="dijagnozaBoxKont">
 
                             <label>
                                 <p>Dijagnoza:</p>
 
                                 <textarea defaultValue={this.props.data.dijagnoza} ref={this.dijagnozaArea} onChange={this.setDijagnoza} />
                             </label>
+
                         </div>
-                        <div>
+                        <div className="terapijaBoxKont">
 
                             <label>
                                 <p>Terapija:</p>
@@ -142,8 +142,11 @@ export default class Karton_visit extends Component {
                             </label>
 
                         </div>
-                        <button onClick={this.izmeni}>Odustani</button>
-                        <button onClick={this.sendData}>Posalji</button>
+                        <div className="r_box_button">
+                            <button onClick={this.izmeni}>Odustani</button>
+                            <button onClick={this.sendData}>Sačuvaj</button>
+                        </div>
+
                         <div className="r_error">{this.state.odgovor}</div>
                         {treatmants}
                     </div>
@@ -165,13 +168,7 @@ export default class Karton_visit extends Component {
                     <div>
                         {treatmants}
                     </div>
-
-
                 </div>
-
-
-
-
             </div>
         )
     }

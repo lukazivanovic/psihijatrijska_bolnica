@@ -1,9 +1,9 @@
 @extends('layouts.index')
 
 @section('content')
-    @csrf
+@csrf
 
-    {{-- <div id="showVisit" class="showVisit disapear">
+{{-- <div id="showVisit" class="showVisit disapear">
         <div class="flexRowRight"><button id="disapearVisit">X</button></div>
 
         <div class="vueFormaVisit">
@@ -33,16 +33,16 @@
     
             <div  v-show="errors.length>0">
                 <p v-for="error in errors">@{{ error }}</p>
-            </div>
-    
-            <div v-show="odgovor!=null">@{{ odgovor }}</div>
-    </div>
-    
-    <script src="{{ asset('/js/vueVisit2.js') }}" defer></script>
-    
-    </div> --}}
+</div>
 
-    
-    <div id="kartoniStranica"></div>
-    <script src="/js/app.js"></script>
+<div v-show="odgovor!=null">@{{ odgovor }}</div>
+</div>
+
+<script src="{{ asset('/js/vueVisit2.js') }}" defer></script>
+
+</div> --}}
+
+
+<div id="kartoniStranica"></div>
+<script src="/js/app.js"></script>
 @endsection

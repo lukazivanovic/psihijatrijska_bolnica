@@ -90,25 +90,32 @@ export default class Karton_osnovni_podaci extends Component {
         if (this.state.forma) {
             return (
                 <div className="formaReact">
-                    <label>
-                        <p>Istorija bolesti:</p>
-                        <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState} />
-                    </label>
-
-                    <label>
-                        <p>Alergija lek:</p>
-                        <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState} />
-                    </label>
-
-                    <p>
-                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Odustani</button>
-                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.sendData}>Posalji</button>
-                    </p>
-
+                    <div className="formaKont">
+                        <div className="izmeniNaslovi">
+                            <div className="izmeniText">
+                                <label>
+                                    <p>Istorija bolesti:</p>
+                                </label>
+                                <textarea defaultValue={this.props.data.istorija_bolesti} ref={this.istorija} onChange={this.istorijaState} />
+                            </div>
+                            <div className="izmeniAlergija">
+                                <label>
+                                    <p>Alergija lek:</p>
+                                </label>
+                                <textarea defaultValue={this.props.data.alergija_lek} ref={this.alergije} onChange={this.alergijaState} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="izmeniButton">
+                        <p>
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Odustani</button>
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.sendData}>Posalji</button>
+                        </p>
+                    </div>
                     <div className="margin_top_25 w100">
                         <div className="r_error">{this.state.odgovor}</div>
                     </div>
-                    
+
                 </div>
             )
         }
@@ -132,7 +139,7 @@ export default class Karton_osnovni_podaci extends Component {
                                 <div>
                                     <p className="infoId">Id Kartona:</p>
                                 </div>
-                                <div>
+                                <div className="infoImeNaslov">
                                     <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
                                 </div>
                                 <div>
@@ -162,12 +169,6 @@ export default class Karton_osnovni_podaci extends Component {
                                     <p className="ostalo">{this.props.data.alergija_lek}</p>
                                 </div>
                             </div>
-
-                        </div>
-                        <div className="dodaj-posetu">
-                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
-                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
-                            
                         </div>
                     </div>
                     <div className="istorijaBolesti">
@@ -177,10 +178,19 @@ export default class Karton_osnovni_podaci extends Component {
                         <div className="opisIstorijaBox">
                             <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
                         </div>
-                        <div className="nazad">
-                            <button className='r_karton_osnovni_podaci_dugme' onClick={this.nazad}>Nazad</button>
+                    </div>
+                    <div className="dodaj-posetu">
+                        <div className="posetaMeni">
+                            <   button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
                         </div>
-
+                        <div className="izmeni">
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
+                        </div>
+                        <div className="nazadKont">
+                            <div className="nazad">
+                                <button className='r_karton_osnovni_podaci_dugme' onClick={this.nazad}>Nazad</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="margin_top_25 w100">

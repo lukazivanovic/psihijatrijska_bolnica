@@ -15,7 +15,55 @@
     margin: 0px auto 5px;
     flex-wrap: wrap;
     min-width: 700px;
+    color: var(--bojaC);
     
+}
+.dijagnozaBox
+{
+    background-color: var(--bojaC);
+    padding: 20px;
+    margin: auto 10px;
+    height: auto;
+    color: var(--bojaA);
+}
+.terapijaBox
+{
+    background-color: var(--bojaC);
+    padding: 20px;
+    margin: 10px 10px;
+    height: auto;
+    color: var(--bojaA);
+}
+.dijagnozaBoxKont
+{
+    height: auto;
+    padding: 20px;
+}
+.dijagnozaBoxKont textarea
+{
+    height: 150px;
+    padding: 5px;
+}
+.terapijaBoxKont
+{
+    margin: 50px auto;
+    height: auto;
+    padding: 20px;
+}
+.terapijaBoxKont textarea
+{
+    height: 150px;
+    padding: 5px;
+}
+.r_box_button
+{
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+}
+.r_box_button button
+{
+    width: 100px;
 }
 
 .grid_8_50_300
@@ -56,17 +104,17 @@
 .oneVisit
 {
     position: fixed;
-    top: 10%;
+    top: 15%;
     left: 25%;
     height: 600px;
     width: 900px;
-    background-color: white;
+    background-color: var(--bojaA);
     z-index: 10;
     padding: 5px;
     box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
     overflow: auto;
     transition: box-shadow 0.3s;
-    border: solid 5px var(--bojaC);
+    border: solid 2px var(--bojaA);
 }
 
 .oneVisit:hover
