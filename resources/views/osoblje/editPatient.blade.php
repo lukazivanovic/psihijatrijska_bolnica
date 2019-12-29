@@ -75,9 +75,9 @@
             </div>
             <div class="okvir12">
                 <select class="formaIzbor" name="pol" id="" value= {{ $pacijent->pol }} >
-                    <option value="muski">muški</option>
-                    <option value="zenski">ženski</option>
-                    <option value="neopredeljen">neopredeljen</option>
+                    <option value="muski"  @if ($pacijent->pol=='muski')selected @endif>muški</option>
+                    <option value="zenski" @if ($pacijent->pol=='zenski')selected @endif>ženski</option>
+                    <option value="neopredeljen" @if ($pacijent->pol=='neopredeljen')selected @endif>neopredeljen</option>
                 </select>
             </div>
         </div>
@@ -124,7 +124,7 @@
             <div class="okvir12">
                 <select name="lekar" id="" value= {{ $pacijent->lekar }} >
                     @foreach ($doctorList as $doctor)
-                        <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                        <option value="{{ $doctor->id }}" @if($pacijent->lekar==$doctor->id) selected @endif>{{ $doctor->name }}</option>
                     @endforeach
                 </select>
             </div>
