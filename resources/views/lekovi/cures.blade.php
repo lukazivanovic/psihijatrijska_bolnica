@@ -11,10 +11,13 @@
     <div class="bolestiNaslov">
         <h1>Medikamenti</h1>
     </div>
-
+    @foreach ($errors->all() as $error)
+    <p class="r_error">{{ $error }}</p>
+    @endforeach
     <label for="filter">
         <input type="text" id="filter" class='kartonInput' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
     </label>
+
 </div>
 @endauth
 @if (Auth::user()->role==1)

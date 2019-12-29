@@ -35,7 +35,7 @@ export default class Create_visit_treatmant extends Component {
     render() {
         let klNovo = (this.props.kl <= 0) ? "" : this.props.kl;
         let button = (this.state.active) ?
-            <button className="noviUnosDugme" onClick={this.increaseCount}>Novi</button> :
+            <button className="noviUnosDugme" onClick={this.increaseCount}>+</button> :
             <button className="obrisi" onClick={this.ukloni}>X</button>;
 
         return (
