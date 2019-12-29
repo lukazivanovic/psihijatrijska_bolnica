@@ -8,7 +8,7 @@
         <div class="bolestiNaslov">
             <h1>
 				<div>
-					{{ __('Stranica za prijavljivanje') }}
+					{{ __('Prijavljivanje') }}
 				</div>
 			</h1>
         </div>
