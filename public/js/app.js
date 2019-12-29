@@ -51448,7 +51448,7 @@ function (_Component) {
   }, {
     key: "increaseCount",
     value: function increaseCount() {
-      // console.log('povecaj1');
+      console.log('povecaj1');
       var c = this.state.count;
       c++;
       this.setState({
@@ -51506,8 +51506,8 @@ function (_Component) {
         this.niz_send.push(pom);
       }
 
-      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes); // console.log('errors',this.errors);
-
+      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes);
+      console.log('errors', this.errors);
       this.setState({
         errors: this.errors
       });
@@ -51530,8 +51530,8 @@ function (_Component) {
               dijagnoza: dod.dijagnoza,
               terapija: dod.terapija,
               prva_poseta: dod.prva_poseta
-            }; // console.log('poslat niz', niz); 
-
+            };
+            console.log('poslat niz', niz);
             var opcije = {
               method: "POST",
               body: JSON.stringify(niz),
@@ -51603,27 +51603,47 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "donje"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "flexRow"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "poljaKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "naziviPolja"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posetaKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Tip posete:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "textBoxNaziv"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Dijagnoza:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "textBoxNaziv"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Terapija:"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "inputPolja"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "selectKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
         id: "r_tipPosete"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "1"
       }, "Prva Poseta"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "0"
-      }, "Kontrolna Poseta")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dijagnoza:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, "Kontrolna Poseta"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "textBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "r_dijagnoza",
         cols: "30",
         rows: "10"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Terapija:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "textBox"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         id: "r_terapija",
         cols: "30",
         rows: "10"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "upisKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "parentUpis"
-      }, treatments), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, treatments)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sacuvajKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit srednjeDugme",
         onClick: this.submit
-      }, "Posalji u bazu"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errorsPr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "flexRow r_error"
       }, this.state.odgovor)));
     }
@@ -51816,7 +51836,7 @@ function (_Component) {
       var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "noviUnosDugme",
         onClick: this.increaseCount
-      }, "Novi") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "+") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "obrisi",
         onClick: this.ukloni
       }, "X");
@@ -52183,18 +52203,24 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowRight"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "exit",
           onClick: this.otkrijDetalje
         }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowES"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "dijagnozaBox"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
           className: "r_naslov_c"
-        }, "Dijagnoza: "), this.props.data.dijagnoza), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        }, "Dijagnoza: "), this.props.data.dijagnoza), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "terapijaBox"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
           className: "r_naslov_c"
         }, "Terapija: "), this.props.data.terapija), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowRight"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "linkIzmeni",
           onClick: this.izmeni
-        }, "Edit")), treatmants, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), treatmants, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
         }, this.state.odgovor)));
       }
@@ -52210,19 +52236,25 @@ function (_Component) {
           onClick: this.otkrijDetalje
         }, "X")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "flexRowES"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dijagnoza:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Datum: ", pf.dateToSerbianFormat(this.props.data.datum), " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Tip: ", this.props.data.prva_poseta ? "Prva poseta" : "Kontrolna poseta", " "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " Lekar: ", this.props.data.id_lekar, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "dijagnozaBoxKont"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Dijagnoza:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.dijagnoza,
           ref: this.dijagnozaArea,
           onChange: this.setDijagnoza
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Terapija:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "terapijaBoxKont"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Terapija:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.terapija,
           ref: this.terapijaArea,
           onChange: this.setTerapija
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "r_box_button"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.izmeni
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.sendData
-        }, "Posalji"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Sa\u010Duvaj")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
         }, this.state.odgovor), treatmants));
       }
@@ -52405,21 +52437,31 @@ function (_Component) {
       if (this.state.forma) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "formaReact"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija bolesti:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "formaKont"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "izmeniNaslovi"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "izmeniText"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Istorija bolesti:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.istorija_bolesti,
           ref: this.istorija,
           onChange: this.istorijaState
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija lek:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "izmeniAlergija"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Alergija lek:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
           defaultValue: this.props.data.alergija_lek,
           ref: this.alergije,
           onChange: this.alergijaState
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "izmeniButton"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme r_karton_osnovni_podaci_dugme",
           onClick: this.otvoriFormu
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme r_karton_osnovni_podaci_dugme",
           onClick: this.sendData
-        }, "Posalji")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Posalji"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "margin_top_25 w100"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
@@ -52447,7 +52489,9 @@ function (_Component) {
         className: "col1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "infoId"
-      }, "Id Kartona:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Id Kartona:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "infoImeNaslov"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "infoIme"
       }, this.props.data.ime, " ", this.props.data.prezime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
@@ -52477,15 +52521,7 @@ function (_Component) {
         className: "colOstalo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, this.props.data.alergija_lek)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "dodaj-posetu"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "linkDugme r_karton_osnovni_podaci_dugme",
-        onClick: this.showNewVisit
-      }, "Poseta Meni"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "linkDugme r_karton_osnovni_podaci_dugme",
-        onClick: this.otvoriFormu
-      }, "Izmeni"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.data.alergija_lek))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "istorijaBolesti"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "istorijaBolestiLabel"
@@ -52493,12 +52529,26 @@ function (_Component) {
         className: "opisIstorijaBox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "opisIstorija"
-      }, this.props.data.istorija_bolesti)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.props.data.istorija_bolesti))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "dodaj-posetu"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posetaMeni"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "linkDugme r_karton_osnovni_podaci_dugme",
+        onClick: this.showNewVisit
+      }, "Poseta Meni")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "izmeni"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "linkDugme r_karton_osnovni_podaci_dugme",
+        onClick: this.otvoriFormu
+      }, "Izmeni")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nazadKont"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nazad"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "r_karton_osnovni_podaci_dugme",
         onClick: this.nazad
-      }, "Nazad")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Nazad"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "margin_top_25 w100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_error"
@@ -52648,8 +52698,9 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_treatmant r_space_beetwen"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Bolesti: ", this.props.data.name_bolest), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Ime Leka: ", this.props.data.name_lek), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Kolicina: ", this.props.data.lek_prepisana_kol), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "linkIzmeni",
           onClick: this.izmeni
-        }, "Edit"));
+        }));
       }
 
       if (this.props.show_div && this.state.show_edit_treatment) {
@@ -52672,9 +52723,9 @@ function (_Component) {
           onChange: this.setKL
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.izmeni
-        }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.sendData
-        }, "Posalji"));
+        }, "Sa\u010Duvaj"));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
