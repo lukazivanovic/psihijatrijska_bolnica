@@ -58,9 +58,13 @@
                         @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        <!-- @if (Route::has('register'))
+<!-- OVJ DEO BI TREBALO ISKLJUČITI -->
+
+                        @if (Route::has('register'))
                         <a href="{{ route('register') }}">Register</a>
-                        @endif -->
+                        @endif
+
+<!-- DOVDE -->
                         @endauth
                     </div>
                     @endif
