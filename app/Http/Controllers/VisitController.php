@@ -19,7 +19,7 @@ class VisitController extends Controller
         }
         else
         {
-            return back();
+            return back()->withErrors(['Nije vas pacijent!']);
         }
         
     }
@@ -87,7 +87,7 @@ class VisitController extends Controller
         }
         else
         {
-            return back();
+            return back()->withErrors(['Nije vas pacijent!']);;
         }
     }
 
@@ -106,13 +106,17 @@ class VisitController extends Controller
             {
                 $pom->save();
             }
+            else
+            {
+                return back()->withErrors(['Nije vas pacijent!']);
+            }
         }
 
         if($json)
         {
             return json_encode("Azurirano!");
         } 
-        return redirect('/lekar/chart/'.$pom->id_pacijent); 
+        return redirect('/lekar/chart/'.$pom->id_pacijent)->withErrors(['Sačuvano!']); 
     }
 
     public function destroyVisit($list)
@@ -133,14 +137,16 @@ class VisitController extends Controller
             }
         }
 
-        return redirect('/lekar/chart/'.$id_pacijent);
+        return redirect('/lekar/chart/'.$id_pacijent)->withErrors(['Destroyed!']);
     }
 
+    //pravi i vraca json za jednu posetu
     public function showSingleVisitJSON($list)
     {
         return json_encode(ChartResource::getVisitData($list));
     }
 
+    //vraca json sa spiskom oboljenja i spiskom medikamenata
     public function getCodes()
     {
         return json_encode(['bolesti'=>HelpFuncResource::getListOfDiseaseCodes(),'lekovi'=>HelpFuncResource::getListOfCuresCodes()]);

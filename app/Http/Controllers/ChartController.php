@@ -20,7 +20,7 @@ class ChartController extends Controller
         }
         else
         {
-            return back();
+            return back()->withErrors(['Nije vas pacijent!']);;
         }
     }
 
@@ -33,7 +33,7 @@ class ChartController extends Controller
         }
         else
         {
-            return back();
+            return back()->withErrors(['Nije vas pacijent!']);
         }
     }
 
@@ -57,7 +57,7 @@ class ChartController extends Controller
             {
                 return json_encode("Snimljeno");
             }
-            return redirect('/lekar/chart/'.$request->id); 
+            return redirect('/lekar/chart/'.$request->id)->withErrors(['Nije sačuvano!']); 
         }
         else
         {
@@ -65,7 +65,7 @@ class ChartController extends Controller
             {
                 return json_encode("Nije Vas pacijent.");
             }
-            return back();
+            return back()->withErrors(['Nije sačuvano!']);
         }
     }
 }
