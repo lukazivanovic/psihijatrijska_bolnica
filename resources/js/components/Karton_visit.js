@@ -102,7 +102,7 @@ export default class Karton_visit extends Component {
                             <h4 className="r_naslov_c">Terapija: </h4>
                             {this.props.data.terapija}
                         </div>
-                        <div className="flexRowRight"><button onClick={this.izmeni}>Izmeni</button></div>
+                        <div className="flexRowRight"><button className="linkIzmeni" onClick={this.izmeni}></button></div>
 
                         {treatmants}
                         <div className="r_error">{this.state.odgovor}</div>

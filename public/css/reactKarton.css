@@ -134,7 +134,7 @@
 .r_space_beetwen button
 {
     margin: 0;
-    width: 50px;
+    width: 40px;
 }
 
 /* obrati paznju na color */
@@ -275,4 +275,13 @@
 .izmeniButton
 {
     padding: 10px;
+}
+.linkIzmeni
+{
+    background-image: url('/images/pencil.png');
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: 4px;
+    vertical-align: middle;
 }

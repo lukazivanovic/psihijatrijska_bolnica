@@ -79,7 +79,7 @@ export default class Karton_visit_treatmant extends Component {
                     <div>Ime Bolesti: {this.props.data.name_bolest}</div>
                     <div>Ime Leka: {this.props.data.name_lek}</div>
                     <div>Kolicina: {this.props.data.lek_prepisana_kol}</div>
-                    <button onClick={this.izmeni}>Edit</button>
+                    <button className="linkIzmeni" onClick={this.izmeni}></button>
 
                 </div>
             )
@@ -100,8 +100,8 @@ export default class Karton_visit_treatmant extends Component {
                         <input type="number" defaultValue={this.props.data.lek_prepisana_kol} ref={this.kl} onChange={this.setKL} />
                     </label>
 
-                    <button onClick={this.izmeni}>Odustani</button>
-                    <button onClick={this.sendData}>Posalji</button>
+                    <button onClick={this.izmeni}>X</button>
+                    <button onClick={this.sendData}>Sačuvaj</button>
 
                 </div>
             )

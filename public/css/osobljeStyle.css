@@ -96,12 +96,10 @@ option
 table
 {
     width: auto;
-    border: 1px solid var(--bojaC);
     margin: 20px 5%;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
     font-weight: 500;
-
     max-width: 1400px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
@@ -149,10 +147,13 @@ form, .forma {
     width: 80%;
     margin: 0px;
 }
+.okvir12 input{
+    width: 100%;
+}
 
 .jmbg
 {
-    max-width: 250px;
+    /* max-width: 250px; */
 }
 
 .formaIzbor {
@@ -305,6 +306,7 @@ label
 {
     padding: 0px;
     min-width: 0%;
+    width: 100%;
 }
 
 #dateRodj
@@ -330,12 +332,13 @@ label
 
 #dateRodj2EditChart
 {
-    max-width: 250px;
+    width: 100%s;
     height: 37px;
     margin: auto;
 }
 
 input {
+    width: 50%;
     color: var(--bojaA);
     font-weight: 500;
     background-color: var(--bojaTri);
