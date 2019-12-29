@@ -15,7 +15,7 @@
             @endforeach
 
             <label for="filter">
-                <input type="text" id="filter" class='filter' placeholder="Pretraži...">
+                <input type="text" id="filter" class='kartonInput' placeholder="Pretraži...">
             </label>
         </div>
     @endauth
