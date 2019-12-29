@@ -15,7 +15,7 @@
         <div class="bolestiNaslov">
             <h1>
                 <div>
-                    {{ __('Registracija') }}
+                    {{ __('Promena podataka') }}
                 </div>
             </h1>
         </div>
