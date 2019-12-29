@@ -20,10 +20,10 @@ h1
 
 select
 {
-    color: black;
+    color: var(--bojaA);
     font-size: 1em;
-    font-weight: 400;
-    padding-left: 35px;
+    font-weight: 500;
+    padding-left: 15px;
 }
 
 option
@@ -43,6 +43,8 @@ table
     margin: 20px 5%;
     border-collapse: collapse;
     font-family: 'Saira Extra Condensed', sans-serif;
+    font-weight: 500;
+
     max-width: 1400px;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.1);
 }
@@ -99,6 +101,8 @@ button,#dugme
     width: auto;
     box-shadow: none;
     border-radius: 8px;
+    font-weight: 500;
+
 }
 
 #dugme
@@ -129,8 +133,10 @@ button:hover
 
 .dugmeUnos
 {
-    /* padding: 20px 30px;
-    max-width: 400px; */
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 30px;
+    max-width: 400px;
 }
 
 .linkDugme
@@ -192,16 +198,22 @@ button:hover
     justify-content: flex-start; */
 }
 
-.margin_5
-{
-    /* margin: 5px; */
-}
-
 .margin_20
 {
     margin: 0px 5% 20px 5%;
     width: auto;
 }
+
+.divUnos
+{
+    padding: 0px 30%;
+    margin: 20px 0px 0px 0px;
+    width: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+}
+
 
 .top-right a
 {
@@ -261,10 +273,14 @@ label
 }
 
 input {
+    color: var(--bojaA);
+    font-weight: 500;
+    background-color: var(--bojaTri);
     border: 1px solid var(--bojaD);
     border-radius: 8px;
     max-width: 100%;
     height: 37px;
+    padding: 5px 5px 5px 15px;
 }
 
 

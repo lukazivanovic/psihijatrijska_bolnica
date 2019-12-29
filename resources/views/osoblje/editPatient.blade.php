@@ -7,7 +7,7 @@
     // var_dump($pacijent);
 @endphp
 @auth
-    <div class="margin_20">
+    <div class="margin_20 flexColumn">
         <div class="bolestiNaslov">
             <h1>Pacijent - promena podataka</h1>
         </div>

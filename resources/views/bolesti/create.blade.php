@@ -3,6 +3,15 @@
 @section('content')
 	<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
+	@auth
+		<div class="margin_20 flexColumn">
+			<div class="bolestiNaslov">
+				<h1>Dodavanje novog oboljenja</h1>
+			</div>
+		</div>
+	@endauth
+
+
 	<button class='linkDugme' data-link='/bolesti'>Povratak na listu</button>
 
 	<form action="/bolesti/store" method="POST">
@@ -30,8 +39,9 @@
 				</div>
 
 			</div>
-
-			<input id='dugme' class='dugmeUnos' type="submit" value="" style="background-image: url('/images/check_32.png')">
+			<div class="divUnos">
+				<input id='dugme' class='dugmeUnos' type="submit" value="" style="background-image: url('/images/check_32.png')">
+			</div>
 
 
 	</form>
