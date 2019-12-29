@@ -54,7 +54,7 @@
             <div class="okvir11">
                 <label for="jmbg">JMBG</label>
             </div>
-            <div class="okvir12">
+            <div class="okvir12 jmbg">
                 <input type="number" name="jmbg" value="" requred>
             </div>
         </div>
@@ -102,7 +102,7 @@
             <div class="okvir11">
                 <label for="broj">Broj</label>
             </div>
-            <div class="okvir12">
+            <div class="okvir12 jmbg">
                 <input type="text" name="broj" value="" requred>
             </div>
         </div>
@@ -120,8 +120,9 @@
             </div>
         </div>
         
-        <!-- Mozda treba dodati i neki kontakt u tabelu sa pacijentom. Pitati Vilusa.  -->
-        <input id='dugme' type="submit" value="Unesi">
+        <div class="divUnos">
+            <input id='dugme' class='dugmeUnos' type="submit" value="" style="background-image: url('/images/check_32.png')">
+        </div>
 
 
     </form>
