@@ -51,7 +51,7 @@ class DiseaseController extends Controller
 
         $disease->saveOrFail();
 
-        return redirect('/bolesti');
+        return redirect('/bolesti')->withErrors(['Sačuvano!']);;
     }
 
     /**
@@ -90,7 +90,7 @@ class DiseaseController extends Controller
 
         $disease->saveOrFail();
 
-        return redirect('/bolesti');
+        return redirect('/bolesti')->withErrors(['Sačuvano!']);;
     }
 
     /**
@@ -103,6 +103,6 @@ class DiseaseController extends Controller
     {
         //
         DiseaseModel::destroy($id);
-        return redirect('/bolesti');
+        return redirect('/bolesti')->withErrors(['Desroyed!']);;
     }
 }

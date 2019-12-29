@@ -124,7 +124,7 @@ class AssistController extends Controller
         $newPatient->lekar=$request->lekar;
         $newPatient->saveOrFail();
 
-        return redirect('/osoblje');
+        return redirect('/osoblje')->withErrors(['Sačuvano!']);
     }
 
     /**
@@ -137,6 +137,6 @@ class AssistController extends Controller
     {
         //za brisanje
         PatientModel::destroy($id);
-        return redirect('/osoblje');
+        return redirect('/osoblje')->withErrors(['Destroyed!']);;
     }
 }
