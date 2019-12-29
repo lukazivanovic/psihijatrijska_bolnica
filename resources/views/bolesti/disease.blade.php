@@ -15,7 +15,7 @@
         <input type="text" id="filter" class='kartonInput' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
     </label>
 </div>
-<!-- @endauth -->
+@endauth
 @foreach ($errors->all() as $error)
 <p class="r_error">{{ $error }}</p>
 @endforeach
@@ -24,7 +24,7 @@
     <input type="text" id="filter" class='filter' placeholder="Pretraži...">
 </label>
 </div>
-@endauth
+<!-- @endauth -->
 
 @if (Auth::user()->role==1)
 <button class='linkDugme' data-link='/bolesti/create'>Dodaj novo oboljenje</button>
