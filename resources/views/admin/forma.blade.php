@@ -3,6 +3,10 @@
 @section('content')
 
 <form method="POST" action="/admin/change">
+
+    @foreach ($errors->all() as $error)
+        <p class="r_error">{{ $error }}</p>
+    @endforeach
     
     
     <div class="flexRow cardDisapear">@csrf</div>

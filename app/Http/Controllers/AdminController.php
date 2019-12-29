@@ -26,7 +26,7 @@ class AdminController extends Controller
         }
         else
         {
-            return $this->home();
+            return back()->withErrors(['Nije moguce dodeliti ulogu admina']);
         }
     }
 
@@ -59,7 +59,7 @@ class AdminController extends Controller
             $user->save();
         }
 
-        return $this->home();
+        return $this->home()->withErrors(['Sacuvano']);
     }
 
     
@@ -72,6 +72,10 @@ class AdminController extends Controller
         if($user->role<3 and HelpFuncResource::canDeleteDoctor($id))
         {
           $user->delete();  
+        }
+        else
+        {
+            return back()->withErrors(['Ne mozete obrisati lekara koji ima dodeljene pacijente!']);
         }
         
         return redirect('/admin');
