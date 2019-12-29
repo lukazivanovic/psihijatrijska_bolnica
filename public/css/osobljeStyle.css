@@ -79,6 +79,7 @@ form, .forma {
 
 }
 .okvir11 {
+    color: var(--bojaTri);
     display: flex;
     justify-content: flex-end;
     width: 20%;
