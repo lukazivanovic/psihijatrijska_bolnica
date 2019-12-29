@@ -20,14 +20,14 @@
     <form action="/osoblje/update" method="POST">
         @csrf
                     
-        <div class="okvir1">
+        <!-- <div class="okvir1">
             <div class="okvir11">
                 <label for="id">ID</label>
             </div>
             <div class="okvir12">
                 <input type="text" name='id' value="{{ $pacijent->id }}" requred readonly>
             </div>
-        </div>
+        </div> -->
         
         <div class="okvir1">
             <div class="okvir11">
@@ -64,8 +64,8 @@
             <div class="okvir11">
                 <label for="jmbg">JMBG</label>
             </div>
-            <div class="okvir12">
-            <input type="number" name="jmbg" value="{{ $pacijent->jmbg }}" requred>
+            <div class="okvir12 jmbg">
+                <input type="number" name="jmbg" value="{{ $pacijent->jmbg }}" requred>
             </div>
         </div>
 
@@ -82,35 +82,57 @@
             </div>
         </div>
 
-        
-        <div> 
-                
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="">Adresa stanovanja</label>
+            </div>
+            <div class="okvir12">
+            </div>
         </div>
-        <br>
-        <div>
-            Adresa stanovanja
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="grad">Grad</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="grad" value="{{ $pacijent->grad }}" requred>
+            </div>
         </div>
-        <div>
-            Grad <input type="text" name="grad" value="{{ $pacijent->grad }}" requred>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="ulica">Ulica</label>
+            </div>
+            <div class="okvir12">
+                <input type="text" name="ulica" value="{{ $pacijent->ulica }}" requred>
+            </div>
         </div>
-        <div>
-            Ulica <input type="text" name="ulica" value="{{ $pacijent->ulica }}" requred>
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="broj">Broj</label>
+            </div>
+            <div class="okvir12 jmbg">
+                <input type="text" name="broj" value="{{ $pacijent->broj }}" requred>
+            </div>
         </div>
-        <div>
-            Broj <input type="text" name="broj" value="{{ $pacijent->broj }}" requred>
-        </div>
-        
-        <div>
-            Glavni doktor
+
+        <div class="okvir1">
+            <div class="okvir11">
+                <label for="lekar">Glavni doktor</label>
+            </div>
+            <div class="okvir12">
                 <select name="lekar" id="" value= {{ $pacijent->lekar }} >
                     @foreach ($doctorList as $doctor)
                         <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
                     @endforeach
                 </select>
+            </div>
         </div>
         
-        <!-- Mozda treba dodati i neki kontakt u tabelu sa pacijentom. Pitati Vilusa.  -->
-        <input id='dugme' type="submit" value="Unesi">
+        <div class="divUnos">
+            <input id='dugme' class='dugmeUnos' type="submit" value="" style="background-image: url('/images/check_32.png')">
+        </div>
 
 
     </form>
