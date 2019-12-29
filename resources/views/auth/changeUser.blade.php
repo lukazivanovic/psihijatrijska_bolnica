@@ -26,16 +26,16 @@
         <form method="POST" action="/madeChangeUser">
             @csrf
 
-
-
             <input type="text" name="id" value="{{ Auth::user()->id }}" requered hidden>
 
-            <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">
-                    Username
-                </label>
+            <div class="okvir1">
+                <div class="okvir11">
+                    <label for="name" class="col-md-4 col-form-label text-md-right">
+                        Username
+                    </label>
+                </div>
 
-                <div class="col-md-6">
+                <div class="okvir12">
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" autofocus>
 
                     @error('name')
@@ -46,12 +46,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">  
-                    Email
-                </label>
+            <div class="okvir1">
+                <div class="okvir11">
+                    <label for="email" class="col-md-4 col-form-label text-md-right">  
+                        Email
+                    </label>
+                </div>
 
-                <div class="col-md-6">
+                <div class="okvir12">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email }}" required autocomplete="email">
 
                     @error('email')
@@ -80,12 +82,9 @@
             </div>
             --}}
 
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        Izmeni
-                    </button>
-                </div>
+            <div class="divPrijava">
+                <button type="submit" class="dugmePrijava" style="background-image: url('/images/check_32.png')">
+                </button>
             </div>
         </form>
     </div>
