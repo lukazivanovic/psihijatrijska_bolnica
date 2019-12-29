@@ -20,7 +20,7 @@
     <form action="/osoblje/update" method="POST">
         @csrf
                     
-        <div class="okvir1 disapear">
+        <div class="okvir1 cardDisapear">
             <div class="okvir11">
                 <label for="id">ID</label>
             </div>
