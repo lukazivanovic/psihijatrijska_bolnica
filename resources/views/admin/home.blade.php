@@ -28,7 +28,7 @@
         <th>Ime</th>
         <th>Email</th>
         <th>Uloga</th>
-        <th>Promeni ulogu</th>
+        <th>Promeni</th>
         <th>Otpusti</th>
         
     </tr>
