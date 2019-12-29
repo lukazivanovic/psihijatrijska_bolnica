@@ -146,7 +146,7 @@ font-weight: bold;
     margin-right: 25px;
     margin-top: 15px;
     height: 47px;
-    text-shadow: 1px 1px black;
+    text-shadow: 1px 1px var(--bojaJedan);
 }
 
 .main
