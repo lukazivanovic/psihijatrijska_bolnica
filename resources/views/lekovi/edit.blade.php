@@ -20,14 +20,14 @@
 <form action="/lekovi/update" method="POST">
         @csrf
 
-        <!-- <div class="okvir1">
+        <div class="okvir1 disapear">
             <div class="okvir11">
                 <label for="id">ID medikamenta</label>
             </div>
             <div class="okvir12">
                 <input type="number" name='id' value="{{ $cure->id }}" readonly required>
             </div>
-        </div> -->
+        </div>
 
         <div class="okvir1">
             <div class="okvir11">
