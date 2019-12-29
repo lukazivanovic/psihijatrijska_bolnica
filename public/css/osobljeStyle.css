@@ -137,6 +137,7 @@ button:hover
 {
     margin-right: 5%;
     margin-left: 5%;
+    vertical-align: middle;
 }
 
 .linkDugmeIzmeni
@@ -145,6 +146,7 @@ button:hover
     height: 35px;
     background-repeat: no-repeat;
     background-position: 4px;
+    vertical-align: middle;
 }
 
 .linkIzmeni
@@ -154,6 +156,7 @@ button:hover
     height: 35px;
     background-repeat: no-repeat;
     background-position: 4px;
+    vertical-align: middle;
 }
 
 .obrisi
@@ -164,7 +167,7 @@ button:hover
     height: 35px;
     background-repeat: no-repeat;
     background-position: 0.5px;
-}
+    vertical-align: middle;}
 
 .hidden
 {
