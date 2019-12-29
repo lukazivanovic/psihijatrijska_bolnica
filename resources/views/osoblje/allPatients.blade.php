@@ -7,7 +7,7 @@
         // var_dump($listaPacijenata);
     @endphp
     @auth
-        <div class="margin_20">
+        <div class="margin_20 flexColumn">
 
             <div class="bolestiNaslov">
                 <h1>Pacijenti</h1>

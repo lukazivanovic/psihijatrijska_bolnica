@@ -6,7 +6,7 @@
             // var_dump($cures);
         @endphp
         @auth
-            <div class="margin_20">
+            <div class="margin_20 flexColumn">
                 <div class="bolestiNaslov">
                     <h1>Oboljenja</h1>
                 </div>

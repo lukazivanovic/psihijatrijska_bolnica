@@ -6,7 +6,7 @@
             // var_dump($cures);
         @endphp
         @auth
-            <div class="margin_20">
+            <div class="margin_20 flexColumn">
                 <label for="filter">
                     <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
                 </label>
