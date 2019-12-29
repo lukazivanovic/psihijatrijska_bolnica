@@ -153,6 +153,12 @@ button:hover
     vertical-align: middle;
 }
 
+.izlistaj
+{
+    margin-top: 10px;
+}
+
+
 .linkDugmeIzmeni
 {
     width: 35px;

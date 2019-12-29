@@ -24,7 +24,7 @@
 
         @if (Auth::user()->role==1)
             <button class='linkDugme' data-link='/lekovi/create'>Dodaj novi medikament</button>
-            <button class='linkDugme' data-link='/lekovi'>Izlistaj po nazivu</button>
+            <button class='linkDugme izlistaj' data-link='/lekovi'>Izlistaj po nazivu</button>
 
         @endif
         
