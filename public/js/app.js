@@ -51339,7 +51339,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/images/thermometer.png",
         alt: "temperature"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, temp, " C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, temp, " \u2103")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "temperature"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "/images/pressure.png",
