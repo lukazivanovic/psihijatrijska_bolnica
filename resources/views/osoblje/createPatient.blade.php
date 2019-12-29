@@ -3,14 +3,15 @@
 @section('content')
 <link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
-@php
-// var_dump($doctorList);
-@endphp
 @auth
     <div class="margin_20 flexColumn">
         <div class="bolestiNaslov">
             <h1>Pacijent - dodavanje novog</h1>
         </div>
+
+        @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
     </div>
 @endauth
 
