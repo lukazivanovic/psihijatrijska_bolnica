@@ -8,6 +8,10 @@
         <div class="bolestiNaslov">
             <h1>Medikament - promena podataka</h1>
         </div>
+
+        @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
     </div>
 @endauth
 
@@ -16,14 +20,14 @@
 <form action="/lekovi/update" method="POST">
         @csrf
 
-        <!-- <div class="okvir1">
+        <div class="okvir1 cardDisapear">
             <div class="okvir11">
                 <label for="id">ID medikamenta</label>
             </div>
-            <div class="okvir12">
+            <div class="okvir12 jmbg">
                 <input type="number" name='id' value="{{ $cure->id }}" readonly required>
             </div>
-        </div> -->
+        </div>
 
         <div class="okvir1">
             <div class="okvir11">

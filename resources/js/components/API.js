@@ -138,7 +138,7 @@ class API extends Component {
                 <div className="reactWeather">
                     <div className="temperature">
                         <img src="/images/thermometer.png" alt="temperature"></img>
-                        <span>{temp} C</span>
+                        <span>{temp} &#x2103;</span>
                     </div>
                     <div className="temperature">
                         <img src="/images/pressure.png" alt="pressure"></img>

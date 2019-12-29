@@ -3,14 +3,15 @@
 @section('content')
 <link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
-@php
-    // var_dump($pacijent);
-@endphp
 @auth
     <div class="margin_20 flexColumn">
         <div class="bolestiNaslov">
             <h1>Pacijent - promena podataka</h1>
         </div>
+
+        @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
     </div>
 @endauth
 
@@ -19,14 +20,14 @@
     <form action="/osoblje/update" method="POST">
         @csrf
                     
-        <!-- <div class="okvir1">
+        <div class="okvir1 cardDisapear">
             <div class="okvir11">
                 <label for="id">ID</label>
             </div>
-            <div class="okvir12">
+            <div class="okvir12 jmbg">
                 <input type="text" name='id' value="{{ $pacijent->id }}" requred readonly>
             </div>
-        </div> -->
+        </div>
         
         <div class="okvir1">
             <div class="okvir11">
@@ -74,9 +75,9 @@
             </div>
             <div class="okvir12">
                 <select class="formaIzbor" name="pol" id="" value= {{ $pacijent->pol }} >
-                    <option value="muski">muški</option>
-                    <option value="zenski">ženski</option>
-                    <option value="neopredeljen">neopredeljen</option>
+                    <option value="muski"  @if ($pacijent->pol=='muski')selected @endif>muški</option>
+                    <option value="zenski" @if ($pacijent->pol=='zenski')selected @endif>ženski</option>
+                    <option value="neopredeljen" @if ($pacijent->pol=='neopredeljen')selected @endif>neopredeljen</option>
                 </select>
             </div>
         </div>
@@ -123,7 +124,7 @@
             <div class="okvir12">
                 <select name="lekar" id="" value= {{ $pacijent->lekar }} >
                     @foreach ($doctorList as $doctor)
-                        <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                        <option value="{{ $doctor->id }}" @if($pacijent->lekar==$doctor->id) selected @endif>{{ $doctor->name }}</option>
                     @endforeach
                 </select>
             </div>

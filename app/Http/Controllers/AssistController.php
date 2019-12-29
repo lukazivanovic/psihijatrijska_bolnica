@@ -58,6 +58,7 @@ class AssistController extends Controller
             'lekar'=>'required',
         ]);
 
+
         $newPatient=new PatientModel;
         $newPatient->ime=$request->ime;
         $newPatient->prezime=$request->prezime;
@@ -70,8 +71,9 @@ class AssistController extends Controller
         $newPatient->lekar=$request->lekar;
         $newPatient->istorija_bolesti="";
         $newPatient->alergija_lek="";
+        if(strlen($newPatient->jmbg)!=13) return back()->withInput()->withErrors(['JMBG mora da ima 13 karaktera']);
         $newPatient->saveOrFail();
-        return redirect('/osoblje');
+        return redirect('/osoblje')->withErrors(['Sacuvano']);
     }
 
     /**
@@ -122,7 +124,7 @@ class AssistController extends Controller
         $newPatient->lekar=$request->lekar;
         $newPatient->saveOrFail();
 
-        return redirect('/osoblje');
+        return redirect('/osoblje')->withErrors(['Sačuvano!']);
     }
 
     /**
@@ -135,6 +137,6 @@ class AssistController extends Controller
     {
         //za brisanje
         PatientModel::destroy($id);
-        return redirect('/osoblje');
+        return redirect('/osoblje')->withErrors(['Destroyed!']);;
     }
 }

@@ -8,6 +8,10 @@
         <div class="bolestiNaslov">
             <h1>Medikament - dodavanje novog</h1>
         </div>
+
+        @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
     </div>
 @endauth
 

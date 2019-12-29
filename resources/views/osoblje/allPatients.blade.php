@@ -3,9 +3,6 @@
 @section('content')
 <link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
-    @php
-        // var_dump($listaPacijenata);
-    @endphp
     @auth
         <div class="margin_20 flexColumn">
 
@@ -13,8 +10,12 @@
                 <h1>Pacijenti</h1>
             </div>
 
+            @foreach ($errors->all() as $error)
+                <p class="r_error">{{ $error }}</p>
+            @endforeach
+
             <label for="filter">
-                <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
+                <input type="text" id="filter" class='filter' placeholder="Pretraži...">
             </label>
         </div>
     @endauth

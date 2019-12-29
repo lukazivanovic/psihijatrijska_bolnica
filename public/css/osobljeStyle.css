@@ -14,9 +14,64 @@
 }
 
 h1
- {
+{
     padding: 0px;
- }
+}
+
+.prijava
+{
+    margin: 0px 30%;
+}
+
+.prijavaPot
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin: 0px 30%;
+    height: 200px;
+    background-color: var(--bojaA);
+}
+
+.inPrijava
+{
+    min-width: 0px;
+}
+
+.divPrijava
+{
+    padding: 0px 30%;
+    width: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+}
+
+.dugmePrijava
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 30px;
+    width: 1000px;
+    max-width: 400px;
+}
+
+.passReq
+{
+    padding: 0px 15%;
+    width: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+}
+
+.viSteLogovani
+{
+    margin: auto;
+    font-size: 20px;
+    font-weight: 600;
+}
 
 select
 {
@@ -79,6 +134,7 @@ form, .forma {
 
 }
 .okvir11 {
+    color: var(--bojaTri);
     display: flex;
     justify-content: flex-end;
     width: 20%;
@@ -102,6 +158,19 @@ form, .forma {
     height: 37px;
 }
 
+.formCheckInput{
+    min-width: 16px;
+    position: inherit;
+    /* vertical-align: middle; */
+    margin-top: 14px;
+    max-width: 0%;
+    height: 16px;
+}
+
+.remember
+{
+    color: var(--bojaTri);
+}
 button,#dugme
 {
     width: auto;
@@ -151,6 +220,12 @@ button:hover
     margin-left: 5%;
     vertical-align: middle;
 }
+
+.izlistaj
+{
+    margin-top: 10px;
+}
+
 
 .linkDugmeIzmeni
 {
@@ -275,7 +350,24 @@ input {
     color: var(--bojaA);
 }
 
+input:active 
+{
+    border-radius: 8px;
+}
 
+input:focus
+{
+    border-color: rgb(102, 175, 233);
+    border-radius: 8px;
+    outline: 0;
+}}
+
+
+.cardDisapear
+{
+    display: none;
+    flex-direction: unset;
+}
 
 
 

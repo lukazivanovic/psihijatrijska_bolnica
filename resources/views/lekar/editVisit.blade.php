@@ -11,6 +11,10 @@
 <form action="/lekar/updateVisit" method="POST">
     @csrf
 
+    @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
+
     <div class="disapear"><input type="text" name="tracers" id="id" value={{ $data->tracers }}></div>
             <label for="tipPosete">
                 <select name="prva_poseta" id="tipPosete">

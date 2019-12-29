@@ -59,7 +59,7 @@ class CureController extends Controller
 
         $cure->saveOrFail();
 
-        return redirect('/lekovi/curesByAmount');
+        return redirect('/lekovi/curesByAmount')->withErrors(['Sačuvano!']);
     }
 
     /**
@@ -100,7 +100,7 @@ class CureController extends Controller
 
         $cure->saveOrFail();
 
-        return redirect('/lekovi/curesByAmount');
+        return redirect('/lekovi/curesByAmount')->withErrors(['Sačuvano!']);
     }
 
     /**
@@ -113,6 +113,6 @@ class CureController extends Controller
     {
         //
         CureModel::destroy($id);
-        return redirect('/lekovi/curesByAmount');
+        return redirect('/lekovi/curesByAmount')->withErrors(['Destroyed!']);;
     }
 }
