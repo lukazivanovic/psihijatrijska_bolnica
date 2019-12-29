@@ -79,6 +79,7 @@ form, .forma {
 
 }
 .okvir11 {
+    color: var(--bojaTri);
     display: flex;
     justify-content: flex-end;
     width: 20%;
@@ -151,6 +152,12 @@ button:hover
     margin-left: 5%;
     vertical-align: middle;
 }
+
+.izlistaj
+{
+    margin-top: 10px;
+}
+
 
 .linkDugmeIzmeni
 {

@@ -23,7 +23,7 @@
         @endauth
         @if (Auth::user()->role==1)
             <button class='linkDugme' data-link='/lekovi/create'>Dodaj novi medikament</button>
-            <button class='linkDugme' data-link='/lekovi/curesByAmount'>Izlistaj po količini</button>
+            <button class='linkDugme izlistaj' data-link='/lekovi/curesByAmount'>Izlistaj po količini</button>
         @endif
         
 
