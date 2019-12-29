@@ -64,10 +64,5 @@
 
 </table>
 
-<label for="filter">
-    <input type="text" id="filter" class='kartonInput' placeholder="Pretraži...">
-</label>
-</div>
-@endauth
 
 @endsection
