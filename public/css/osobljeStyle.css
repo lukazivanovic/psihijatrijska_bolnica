@@ -14,9 +14,46 @@
 }
 
 h1
- {
+{
     padding: 0px;
- }
+}
+
+.prijava
+{
+    margin: 0px 30%;
+}
+
+.inPrijava
+{
+    min-width: 0px;
+}
+
+.divPrijava
+{
+    padding: 0px 30%;
+    width: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+}
+
+.dugmePrijava
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 30px;
+    width: 1000px;
+    max-width: 400px;
+}
+
+.passReq
+{
+    padding: 0px 15%;
+    width: auto;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+}
 
 select
 {
@@ -103,6 +140,19 @@ form, .forma {
     height: 37px;
 }
 
+.formCheckInput{
+    min-width: 16px;
+    position: inherit;
+    /* vertical-align: middle; */
+    margin-top: 14px;
+    max-width: 0%;
+    height: 16px;
+}
+
+.remember
+{
+    color: var(--bojaTri);
+}
 button,#dugme
 {
     width: auto;
