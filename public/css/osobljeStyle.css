@@ -84,9 +84,11 @@ select
 {
     color: var(--bojaA);
     background-color: var(--bojaTri);
-    font-size: 1em;
+    font-size: 18px;
     font-weight: 500;
     padding-left: 15px;
+    width: 150px;
+
 }
 
 option
@@ -158,7 +160,7 @@ form, .forma {
 
 .jmbg
 {
-    max-width: 250px;
+    max-width: 190px;
 }
 
 .formaIzbor {
@@ -183,6 +185,7 @@ button,#dugme
     width: auto;
     box-shadow: none;
     border-radius: 8px;
+    font-size: 18px;
     font-weight: 500;
 
 }
@@ -305,8 +308,9 @@ button:hover
 
 label
 {
-    padding: 5px 0px ;
+    padding: 2px 0px ;
     min-width: 0%;
+    font-size: 20px;
 }
 
 #label1
@@ -324,6 +328,7 @@ label
 #dateRodj
 {
     max-width: 250px;
+    width: 150px;
     height: 37px;
     margin: auto;
 }
@@ -331,6 +336,7 @@ label
 #dateRodj2
 {
     max-width: 250px;
+    width: 150px;
     height: 37px;
     margin: auto;
 }
@@ -338,6 +344,7 @@ label
 #dateRodjEditChart
 {
     max-width: 250px;
+    width: 150px;
     height: 37px;
     margin: auto;
 }
@@ -345,12 +352,14 @@ label
 #dateRodj2EditChart
 {
     max-width: 250px;
+    width: 150px;
     height: 37px;
     margin: auto;
 }
 
 input {
     color: var(--bojaA);
+    font-size: 18px;
     font-weight: 500;
     background-color: var(--bojaTri);
     border: 1px solid var(--bojaD);
