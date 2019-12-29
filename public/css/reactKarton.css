@@ -39,7 +39,7 @@
 .pacijentKartonNaslov
 {
     display: flex;
-    color: var(--bojaA);
+    /* color: var(--bojaA); */
 }
 .r_pacijent
 {

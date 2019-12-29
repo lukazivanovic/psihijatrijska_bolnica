@@ -125,64 +125,67 @@ export default class Karton_osnovni_podaci extends Component {
 
         return (
             <div className="karton">
-                <div className="pacijentInfo">
-                    <div className="pacijentKarton">
-                        <div className="col1">
-                            <div>
-                                <p className="infoId">Id Kartona:</p>
+                <div className="flexRow">
+                    <div className="pacijentInfo">
+                        <div className="pacijentKarton">
+                            <div className="col1">
+                                <div>
+                                    <p className="infoId">Id Kartona:</p>
+                                </div>
+                                <div>
+                                    <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
+                                </div>
+                                <div>
+                                    <p className="ostalo">Datum Rodjenja:</p>
+                                </div>
+                                <div>
+                                    <p className="ostalo">Pol:</p>
+                                </div>
+                                <div>
+                                    <p className="ostalo">Alergija na lekove:</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
+                            <div className="col2">
+                                <div className="colInfo">
+                                    <p className="infoId">K-{this.props.data.id}</p>
+                                </div>
+                                <div className="colNaslov">
+                                    <p className="infoIme"></p>
+                                </div>
+                                <div className="colOstalo">
+                                    <p className="ostalo">{pf.dateToSerbianFormat(this.props.data.dat_rodjenja)}</p>
+                                </div>
+                                <div className="colOstalo">
+                                    <p className="ostalo">{this.props.data.pol}</p>
+                                </div>
+                                <div className="colOstalo">
+                                    <p className="ostalo">{this.props.data.alergija_lek}</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="ostalo">Datum Rodjenja:</p>
-                            </div>
-                            <div>
-                                <p className="ostalo">Pol:</p>
-                            </div>
-                            <div>
-                                <p className="ostalo">Alergija na lekove:</p>
-                            </div>
+
                         </div>
-                        <div className="col2">
-                            <div className="colInfo">
-                                <p className="infoId">K-{this.props.data.id}</p>
-                            </div>
-                            <div className="colNaslov">
-                                <p className="infoIme"></p>
-                            </div>
-                            <div className="colOstalo">
-                                <p className="ostalo">{pf.dateToSerbianFormat(this.props.data.dat_rodjenja)}</p>
-                            </div>
-                            <div className="colOstalo">
-                                <p className="ostalo">{this.props.data.pol}</p>
-                            </div>
-                            <div className="colOstalo">
-                                <p className="ostalo">{this.props.data.alergija_lek}</p>
-                            </div>
+                        <div className="dodaj-posetu">
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
+                            
+                        </div>
+                    </div>
+                    <div className="istorijaBolesti">
+                        <div className="istorijaBolestiLabel">
+                            <p>Istorija Bolesti:</p>
+                        </div>
+                        <div className="opisIstorijaBox">
+                            <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
+                        </div>
+                        <div className="nazad">
+                            <button className='r_karton_osnovni_podaci_dugme' onClick={this.nazad}>Nazad</button>
                         </div>
 
                     </div>
-                    <div className="dodaj-posetu">
-                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
-                        <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
-                    </div>
                 </div>
-                <div className="istorijaBolesti">
-                    <div className="istorijaBolestiLabel">
-                        <p>Istorija Bolesti:</p>
-                    </div>
-                    <div className="opisIstorijaBox">
-                        <p className="opisIstorija">{this.props.data.istorija_bolesti}</p>
-                    </div>
-                    <div className="nazad">
-                        <button className='r_karton_osnovni_podaci_dugme' onClick={this.nazad}>Nazad</button>
-                    </div>
-
+                <div className="margin_top_25 w100">
+                    <div className="r_error">{this.state.odgovor}</div>
                 </div>
-                    <div className="margin_top_25 w100">
-                        <div className="r_error">{this.state.odgovor}</div>
-                    </div>
             </div>
         )
     }

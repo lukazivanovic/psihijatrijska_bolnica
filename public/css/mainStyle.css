@@ -354,13 +354,19 @@ select/* #selectorGrad */
 
 .karton
 {
-    display: flex;
-    flex-direction: row;
+    /* display: flex; */
+    /* flex-direction: row; */
     width: 100%;
     padding: 20px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     background: var(--bojaA);
     color: var(--bojaTri);
+}
+
+.karton_grid
+{
+    display: grid;
+    grid-template-columns: minmax(125px,750px) minmax(275px,1650px);
 }
 
 .karton .pacijent-info h1
@@ -462,7 +468,8 @@ h1,h2,h3,h4,h5,h6
 {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    /* width: 30%; */
+    flex: 3 1 300px;
 }
 .pacijentKarton
 {
@@ -520,7 +527,9 @@ h1,h2,h3,h4,h5,h6
 {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    /* width: 70%; */
+    flex: 6 1 600px;
+    margin-left: 5px;
 }
 .istorijaBolestiLabel
 {
@@ -544,15 +553,12 @@ h1,h2,h3,h4,h5,h6
 }
 .opisIstorijaBox::-webkit-scrollbar
 {
-    /* mora nesto da bude upisano u -scrollbar ; mora da bude povezano
-    sa elementom koji ima scrolbar */
-    /* background-color: green; */
     width: 8px;
 }
 
 .opisIstorijaBox::-webkit-scrollbar-thumb
 {
-    background-color: var(--bojaB);
+    background-color: var(--bojaCetiri);
 }
 
 .opisIstorijaBox::-webkit-scrollbar-track
@@ -632,21 +638,21 @@ button,#dugme
 {
     width: 40px;
     height: 40px;
-    padding: 5px;
+    line-height: 40px;
     background-color: var(--bojaTri);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.20); */
     font-family: 'Saira Extra Condensed', sans-serif;
     color: var(--bojaJedan);
     font-size: 1em;
     font-weight: 400;
     transition: all 0.3s;
     border: 1px solid var(--bojaD);
+    padding: 0px;
 }
 
 .srednjeDugme
 {
     width: 160px;
-   
 }
 
 .r_karton_osnovni_podaci_dugme
@@ -671,25 +677,12 @@ button,#dugme
     box-shadow: 0px 0px gray;
     background-color: var(--bojaD);
     color: var(--bojaTri);
-    transform: translate(2px,2px);
-    font-size: 1.2em;
     border: 1px solid var(--bojaTri);
 }
 
 .srednjeDugme:hover
 {
 
-}
-
-#dugme
-{
-    padding: 20px 30px;
-    max-width: 400px;
-}
-
-#dugme2
-{
-    padding: 10px 15px;
 }
 
 .dugmeRezervisi
@@ -703,10 +696,8 @@ button:hover
 {
     cursor: pointer;
     box-shadow: 0px 0px gray;
-    background-color: var(--bojaD);
+    background-color: var(--bojaCetiri);
     color: var(--bojaTri);
-    transform: translate(2px,2px);
-    font-size: 1.2em;
     border: 1px solid var(--bojaTri);
     
 }
@@ -715,29 +706,11 @@ button:hover
 {
     cursor: pointer;
     box-shadow: 0px 0px gray;
-    background-color: var(--bojaC);
-    color: white;
-    transform: translate(2px,2px);
-    border-top: 3px solid var(--bojaC);
-    border-left: 3px solid var(--bojaC);
+    background-color: var(--bojaCetiri);
+    color: var(--bojaTri);
 }
 
-#dugme2:hover
-{
-    cursor: pointer;
-    box-shadow: 0px 0px gray;
-    background-color: var(--bojaD);
-    color: white;
-    transform: translate(2px,2px);
-    border-top: 3px solid var(--bojaD);
-    border-left: 3px solid var(--bojaD);
-}
 
-.dugmeRezervisi:hover
-{
-    transform: translate(0px,0px);
-    border: 2px solid black;
-}
 .linkDugme
 {
     margin-right: 20px;
@@ -830,6 +803,12 @@ button:hover
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.flexColumnR
+{
+    display: flex;
+    flex-direction: column;
 }
 
 .sveRez
@@ -971,14 +950,12 @@ input
     width: 100%;
     border: thin solid var(--bojaJedan);
     border-radius: 5px;
-    /* background-image: url('/public/images/search.png'); */
-    /* padding: 5px; */
+    
+    padding: 5px;
     font-family: 'Saira Extra Condensed', sans-serif;
     font-size: 1em;
     font-weight: 400;
-    background-position: 5px;
-    background-repeat: no-repeat;
-  padding: 5px 20px 5px 35px;
+    
     
 }
 /* input:focus
@@ -1082,6 +1059,10 @@ p
 {
     min-width: 100px;
     max-width: 300px;
+    background-position: 5px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 35px;
+    background-image: url('../images/search.png');
 }
 
 .inputCheckBox
