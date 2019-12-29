@@ -134,6 +134,14 @@ class VisitController extends Controller
                 {
                     TreatmentModel::destroy($id);
                 }
+                else
+                {
+                    return back()->withErrors(['Ne mozete brisati posetu koja se dogodila u proslosti!']);
+                }
+            }
+            else
+            {
+                return back()->withErrors(['Nije vas pacijent!']);
             }
         }
 
