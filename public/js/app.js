@@ -52434,6 +52434,8 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "karton"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "flexRow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pacijentInfo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "pacijentKarton"
@@ -52492,7 +52494,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "r_karton_osnovni_podaci_dugme",
         onClick: this.nazad
-      }, "Nazad"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Nazad")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "margin_top_25 w100"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "r_error"
