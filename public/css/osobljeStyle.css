@@ -73,6 +73,12 @@ h1
     font-weight: 600;
 }
 
+.promenaLoz
+{
+    margin: 0px 15%;
+}
+
+
 select
 {
     color: var(--bojaA);
@@ -340,6 +346,7 @@ input {
     background-color: var(--bojaTri);
     border: 1px solid var(--bojaD);
     border-radius: 8px;
+    width: inherit;
     max-width: 100%;
     height: 37px;
     padding: 5px 5px 5px 15px;
@@ -360,7 +367,7 @@ input:focus
     border-color: rgb(102, 175, 233);
     border-radius: 8px;
     outline: 0;
-}}
+}
 
 
 .cardDisapear
