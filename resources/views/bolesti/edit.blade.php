@@ -26,7 +26,7 @@
                 <div class="okvir11">
                     <label for="id">ID</label>
                 </div>
-                <div class="okvir12">
+                <div class="okvir12 jmbg">
                     <input type="number" name='id' value="{{ $disease->id }}" readonly required>
                 </div>
             </div>
