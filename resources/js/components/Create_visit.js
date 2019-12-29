@@ -37,7 +37,7 @@ export default class Create_visit extends Component
 
     increaseCount()
     {
-        console.log('povecaj1');
+        // console.log('povecaj1');
         let c=this.state.count;
         c++;
         this.setState({count:c});
@@ -89,7 +89,7 @@ export default class Create_visit extends Component
 
 
         this.errors=this.verifikuj(this.niz_send,this.state.check_codes,this.state.codes);
-        console.log('errors',this.errors);
+        // console.log('errors',this.errors);
         this.setState({errors:this.errors});
 
         if(this.errors.length==0)
@@ -108,7 +108,7 @@ export default class Create_visit extends Component
                     terapija:dod.terapija,
                     prva_poseta:dod.prva_poseta,
                 }
-                console.log('poslat niz', niz); 
+                // console.log('poslat niz', niz); 
 
                 let opcije={
                     method: "POST",

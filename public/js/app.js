@@ -51448,7 +51448,7 @@ function (_Component) {
   }, {
     key: "increaseCount",
     value: function increaseCount() {
-      console.log('povecaj1');
+      // console.log('povecaj1');
       var c = this.state.count;
       c++;
       this.setState({
@@ -51506,8 +51506,8 @@ function (_Component) {
         this.niz_send.push(pom);
       }
 
-      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes);
-      console.log('errors', this.errors);
+      this.errors = this.verifikuj(this.niz_send, this.state.check_codes, this.state.codes); // console.log('errors',this.errors);
+
       this.setState({
         errors: this.errors
       });
@@ -51530,8 +51530,8 @@ function (_Component) {
               dijagnoza: dod.dijagnoza,
               terapija: dod.terapija,
               prva_poseta: dod.prva_poseta
-            };
-            console.log('poslat niz', niz);
+            }; // console.log('poslat niz', niz); 
+
             var opcije = {
               method: "POST",
               body: JSON.stringify(niz),
@@ -51812,6 +51812,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var klNovo = this.props.kl <= 0 ? "" : this.props.kl;
       var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "noviUnosDugme",
         onClick: this.increaseCount
@@ -51824,14 +51825,17 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra bolesti: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "r_sifra_bolesti",
+        defaultValue: this.props.sb,
         onFocus: this.ponisti
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Sifra leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "r_sifra_leka",
+        defaultValue: this.props.sl,
         onFocus: this.ponisti
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Kolicina leka: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         className: "r_kolicina_leka",
+        defaultValue: klNovo,
         onFocus: this.ponisti
       })), button);
     }
