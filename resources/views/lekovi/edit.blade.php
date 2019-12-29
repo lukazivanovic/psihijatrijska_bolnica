@@ -20,7 +20,7 @@
 <form action="/lekovi/update" method="POST">
         @csrf
 
-        <div class="okvir1">
+        <div class="okvir1 disapear">
             <div class="okvir11">
                 <label for="id">ID medikamenta</label>
             </div>

@@ -22,7 +22,7 @@
             @csrf
             
 
-            <div class="okvir1">
+            <div class="okvir1 disapear">
                 <div class="okvir11">
                     <label for="id">ID</label>
                 </div>
