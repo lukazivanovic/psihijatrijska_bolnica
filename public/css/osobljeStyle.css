@@ -98,6 +98,7 @@ button,#dugme
 {
     width: auto;
     box-shadow: none;
+    border-radius: 8px;
 }
 
 #dugme
@@ -162,6 +163,8 @@ button:hover
 
 .flexColumn
 {
+    padding-top: 0px;
+
     /* display: flex;
     flex-direction: column;
     justify-content: flex-start; */
@@ -174,7 +177,7 @@ button:hover
 
 .margin_20
 {
-    margin: 20px 5%;
+    margin: 0px 5% 20px 5%;
     width: auto;
 }
 

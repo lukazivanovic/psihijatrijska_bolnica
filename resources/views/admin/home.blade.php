@@ -1,12 +1,18 @@
 @extends('layouts.index')
 
 @section('content')
+<link rel="stylesheet" href="{{ url('/css/osobljeStyle.css') }}">
 
 {{-- @php
     var_dump($users);
 @endphp --}}
 @auth
-        <div class="margin_20">
+        <div class="margin_20 flexColumn">
+
+            <div class="bolestiNaslov">
+                <h1>Spisak korisnika</h1>
+            </div>
+
             <label for="filter">
                 <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
             </label>

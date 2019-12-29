@@ -7,7 +7,7 @@
 // var_dump($doctorList);
 @endphp
 @auth
-    <div class="margin_20">
+    <div class="margin_20 flexColumn">
         <div class="bolestiNaslov">
             <h1>Pacijent - dodavanje novog</h1>
         </div>
