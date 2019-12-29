@@ -18,7 +18,7 @@
             @endforeach
 
             <label for="filter">
-                <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
+                <input type="text" id="filter" class='filter' placeholder="Pretraži...">
             </label>
         </div>
 @endauth

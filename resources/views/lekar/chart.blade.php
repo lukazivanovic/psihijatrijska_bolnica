@@ -10,8 +10,12 @@
         @auth
         <div class="margin_20">
             <label for="filter">
-                <input type="text" id="filter" class='filter' style="background-image: url('/images/search.png')" placeholder="Pretraži...">
+                <input type="text" id="filter" class='filter' placeholder="Pretraži...">
             </label>
+
+            @foreach ($errors->all() as $error)
+                <p class="r_error">{{ $error }}</p>
+            @endforeach
         </div>
         @endauth
 

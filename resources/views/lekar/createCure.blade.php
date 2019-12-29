@@ -10,6 +10,10 @@
 
 <form action="/lekar/storeCure" method="POST">
     @csrf
+
+    @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
         <div class="disapear"><input type="date" name="datum"  value={{ $data->datum }} readonly></div>
         <div class="disapear"><input type="text" name="id_lekar"  value={{ $data->id_lekar }} readonly></div>
         <div class="disapear"><input type="text" name="id_pacijent"  value={{ $data->id_pacijent }} readonly></div>

@@ -10,6 +10,10 @@
 
 <form action="/lekar/updateChart" method="POST">
     @csrf
+
+    @foreach ($errors->all() as $error)
+            <p class="r_error">{{ $error }}</p>
+        @endforeach
     <div class="flexRow">
         <div>
             <span>Broj Kartona: K-<input type="number" name='id' value="{{ $mainData->id }}" readonly required></span>
