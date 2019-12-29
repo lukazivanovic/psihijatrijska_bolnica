@@ -20,12 +20,6 @@
 <p class="r_error">{{ $error }}</p>
 @endforeach
 
-<label class="osobFilter" for="filter">
-    <input type="text" id="filter" class='filter' placeholder="Pretraži...">
-</label>
-</div>
-@endauth
-
 @if (Auth::user()->role==1)
 <button class='linkDugme' data-link='/bolesti/create'>Dodaj novo oboljenje</button>
 @endif
