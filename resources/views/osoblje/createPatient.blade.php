@@ -6,6 +6,13 @@
 @php
 // var_dump($doctorList);
 @endphp
+@auth
+    <div class="margin_20">
+        <div class="bolestiNaslov">
+            <h1>Pacijent - dodavanje novog</h1>
+        </div>
+    </div>
+@endauth
 
 <button class='linkDugme' data-link='/osoblje'>Povratak na listu</button>
 <div>
@@ -37,10 +44,8 @@
                 <label for="">Datum rođenja</label>
             </div>
             <div class="okvir12">
-                    <label for="dateRodj" id="label1"><input type="date" name="dat_rodjenja" value="" id="dateRodj" requred>
-                    </label>
-                    <label for="dateRodj2" id="label2" class="disapear"><input type="text" id="dateRodj2">
-                    </label>
+                <label for="dateRodj" id="label1"><input type="date" name="dat_rodjenja" value="" id="dateRodj" requred></label>
+                <label for="dateRodj2" id="label2" class="disapear"><input type="text" id="dateRodj2"></label>
             </div>
         </div>
         <!-- KRAJ DELA SA DATUMOM -->
