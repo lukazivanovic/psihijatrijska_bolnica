@@ -45,9 +45,9 @@
                     "<td>" .
                     "Osoblje"
                     . "</td>"
-                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme linkIzmeni' data-link='/admin/roleChange/".$user->id."'></button></td>"
 
-                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'></button></td>"
                     
              . "</tr>";
             !!}
@@ -66,9 +66,9 @@
                     "<td>" .
                     "Lekar"
                     . "</td>"
-                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme linkIzmeni' data-link='/admin/roleChange/".$user->id."'></button></td>"
 
-                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'></button></td>"
                     
              . "</tr>";
             !!}
@@ -110,9 +110,9 @@
                     "<td>" .
                     $user->role
                     . "</td>"
-                    ."<td><button class='linkDugme srednjeDugme' data-link='/admin/roleChange/".$user->id."'>Promeni ulogu</button></td>"
+                    ."<td><button class='linkDugme srednjeDugme linkIzmeni' data-link='/admin/roleChange/".$user->id."'></button></td>"
 
-                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'>Otpusti</button></td>"
+                    ."<td><button class='obrisi srednjeDugme' data-link='/admin/delete/$user->id'></button></td>"
                     
              . "</tr>";
             !!}

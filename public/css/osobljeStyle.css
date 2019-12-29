@@ -147,6 +147,25 @@ button:hover
     background-position: 4px;
 }
 
+.linkIzmeni
+{
+    background-image: url('/images/pencil.png');
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: 4px;
+}
+
+.obrisi
+{
+    background-image: url('/images/trooper.png');
+    background-size: 32px;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-position: 0.5px;
+}
+
 .hidden
 {
     /* visibility: hidden; */
