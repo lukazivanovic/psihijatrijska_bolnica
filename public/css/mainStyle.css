@@ -166,6 +166,11 @@ font-weight: bold;
     flex-direction: column;
     overflow: auto;
     flex: 1 1 auto;
+    background-image: url('/images/vader.png');
+    background-repeat: no-repeat;
+    background-position: top;
+
+
     /* END NE DIRAJ */
     position: fixed;
     top: 120px;
