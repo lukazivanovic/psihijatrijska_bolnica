@@ -571,6 +571,21 @@ h1,h2,h3,h4,h5,h6
     box-shadow: inset 0 0 4px;
     background-color: white;
 }
+textarea::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-thumb
+{
+    background-color: var(--bojaCetiri);
+}
+
+textarea::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 4px;
+    background-color: white;
+}
 .nazad
 {
     display: flex;
@@ -816,7 +831,7 @@ button:hover
 }
 
 /* AKO TI TREBA NESTO RAZLICITO NAPRAVI NOVU KLASU*/
-.kurac
+.nekaNovaKlasa
 {
     display: flex;
     flex-direction: column;
