@@ -666,6 +666,11 @@ button,#dugme
     border: 1px solid var(--bojaA);
     border-radius: 10px;
 }
+.noviUnosDugme span
+{
+    font-weight: bold;
+    font-size: 30px;
+}
 
 .srednjeDugme
 {

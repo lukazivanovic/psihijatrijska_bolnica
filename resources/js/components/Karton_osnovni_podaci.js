@@ -109,7 +109,7 @@ export default class Karton_osnovni_podaci extends Component {
                     <div className="izmeniButton">
                         <p>
                             <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Odustani</button>
-                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.sendData}>Posalji</button>
+                            <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.sendData}>Sačuvaj</button>
                         </p>
                     </div>
                     <div className="margin_top_25 w100">
@@ -181,7 +181,7 @@ export default class Karton_osnovni_podaci extends Component {
                     </div>
                     <div className="dodaj-posetu">
                         <div className="posetaMeni">
-                            <   button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Poseta Meni</button>
+                            <   button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.showNewVisit}>Dodaj posetu</button>
                         </div>
                         <div className="izmeni">
                             <button className='linkDugme r_karton_osnovni_podaci_dugme' onClick={this.otvoriFormu}>Izmeni</button>
