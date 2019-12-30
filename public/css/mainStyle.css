@@ -166,9 +166,9 @@ font-weight: bold;
     flex-direction: column;
     overflow: auto;
     flex: 1 1 auto;
-    background-image: url('/images/vader.png');
+    /* background-image: url('/images/vader.png');
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: top; */
 
 
     /* END NE DIRAJ */
@@ -1489,6 +1489,14 @@ aside ul
     background-color: var(--bojaB);
     border: 2px solid var(--bojaC);
 }
+.tabelaOboljenja
+{
+    width: 100%;
+    padding: 18px;
+    min-width: 800px;
+    max-width: 1400px;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .contentOptions {

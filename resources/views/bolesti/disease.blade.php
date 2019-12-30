@@ -19,31 +19,34 @@
 @foreach ($errors->all() as $error)
 <p class="r_error">{{ $error }}</p>
 @endforeach
-
-@if (Auth::user()->role==1)
-<button class='linkDugme' data-link='/bolesti/create'>Dodaj novo oboljenje</button>
-@endif
+<div class="tabelaOboljenja">
 
 
-<table>
-    <tr>
-        <th>Šifra</th>
-        <th>Naziv</th>
-        @if (Auth::user()->role==1)
-        <th>Izmeni</th>
-        <!-- <th>Obrisi</th> -->
-        @endif
-    </tr>
+    @if (Auth::user()->role==1)
+    <button class='linkDugme w100' data-link='/bolesti/create'>Dodaj novo oboljenje</button>
+    @endif
 
-    @foreach ($diseases as $disease)
-    <tr>
-        <td>{{ $disease->sifra_bolest }}</td>
-        <td>{{ $disease->ime_bolest }}</td>
-        @if (Auth::user()->role==1)
-        <td><button class='linkDugme linkDugmeIzmeni' data-link='/bolesti/edit/{{ $disease->id }}' style="background-image: url('/images/pencil.png')"></button></td>
-        <!-- <td><button class='obrisi' data-link='/bolesti/destroy/{{ $disease->id }}'>Obrisi</button></td> -->
-        @endif
-    </tr>
-    @endforeach
-</table>
+
+    <table>
+        <tr>
+            <th>Šifra</th>
+            <th>Naziv</th>
+            @if (Auth::user()->role==1)
+            <th>Izmeni</th>
+            <!-- <th>Obrisi</th> -->
+            @endif
+        </tr>
+
+        @foreach ($diseases as $disease)
+        <tr>
+            <td>{{ $disease->sifra_bolest }}</td>
+            <td>{{ $disease->ime_bolest }}</td>
+            @if (Auth::user()->role==1)
+            <td><button class='linkDugme linkDugmeIzmeni' data-link='/bolesti/edit/{{ $disease->id }}' style="background-image: url('/images/pencil.png')"></button></td>
+            <!-- <td><button class='obrisi' data-link='/bolesti/destroy/{{ $disease->id }}'>Obrisi</button></td> -->
+            @endif
+        </tr>
+        @endforeach
+    </table>
+</div>
 @endsection
