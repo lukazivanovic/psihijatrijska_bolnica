@@ -714,7 +714,7 @@ button,#dugme
     height: 50px;
     padding: 5px;
     background-color: var(--bojaTri);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
     font-family: 'Saira Extra Condensed', sans-serif;
     color: var(--bojaJedan);
     font-size: 1em;
