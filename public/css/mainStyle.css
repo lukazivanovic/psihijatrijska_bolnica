@@ -1496,6 +1496,10 @@ aside ul
     min-width: 800px;
     max-width: 1400px;
 }
+.leftMargin
+{
+    margin-left: 85px;
+}
 
 
 @media only screen and (max-width: 1200px) {
