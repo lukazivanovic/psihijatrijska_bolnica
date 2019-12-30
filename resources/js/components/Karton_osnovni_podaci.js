@@ -142,13 +142,13 @@ export default class Karton_osnovni_podaci extends Component {
                                 <div className="infoImeNaslov">
                                     <p className="infoIme">{this.props.data.ime} {this.props.data.prezime}</p>
                                 </div>
-                                <div>
+                                <div className="pacPod">
                                     <p className="ostalo">Datum Rodjenja:</p>
                                 </div>
-                                <div>
+                                <div className="pacPod">
                                     <p className="ostalo">Pol:</p>
                                 </div>
-                                <div>
+                                <div className="pacPod">
                                     <p className="ostalo">Alergija na lekove:</p>
                                 </div>
                             </div>

@@ -510,6 +510,7 @@ h1,h2,h3,h4,h5,h6
     background-color: var(--bojaTri);
     color: var(--bojaJedan);
     text-align: center;
+    min-height: 33px;
     margin: 2px 0;
 }
 .infoId
@@ -524,6 +525,13 @@ h1,h2,h3,h4,h5,h6
 {
     font-size: 32px;
 }
+
+.pacPod 
+{
+    margin-top: 3px;
+}
+
+
 .ostalo 
 {
     font-size: 18px;
@@ -542,7 +550,7 @@ h1,h2,h3,h4,h5,h6
 }
 .opisIstorijaBox
 {
-    height: 160px;
+    height: 174px;
     margin: 10px 0;
     background-color: var(--bojaTri);
     overflow: auto;

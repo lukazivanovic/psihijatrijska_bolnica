@@ -51836,7 +51836,7 @@ function (_Component) {
       var button = this.state.active ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "noviUnosDugme",
         onClick: this.increaseCount
-      }, "+") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "+")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "obrisi",
         onClick: this.ukloni
       }, "X");
@@ -52461,7 +52461,7 @@ function (_Component) {
         }, "Odustani"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "linkDugme r_karton_osnovni_podaci_dugme",
           onClick: this.sendData
-        }, "Posalji"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Sa\u010Duvaj"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "margin_top_25 w100"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "r_error"
@@ -52493,11 +52493,17 @@ function (_Component) {
         className: "infoImeNaslov"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "infoIme"
-      }, this.props.data.ime, " ", this.props.data.prezime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, this.props.data.ime, " ", this.props.data.prezime)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pacPod"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, "Datum Rodjenja:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Datum Rodjenja:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pacPod"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
-      }, "Pol:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Pol:")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pacPod"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "ostalo"
       }, "Alergija na lekove:"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col2"
@@ -52536,7 +52542,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "linkDugme r_karton_osnovni_podaci_dugme",
         onClick: this.showNewVisit
-      }, "Poseta Meni")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Dodaj posetu")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "izmeni"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "linkDugme r_karton_osnovni_podaci_dugme",
@@ -53078,8 +53084,8 @@ var Scroll = function Scroll(props) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\psihijatrijska_bolnica\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\bolnica2Test\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\bolnica2Test\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
