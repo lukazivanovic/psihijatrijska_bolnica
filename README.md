@@ -51,7 +51,10 @@ Osoblje ima više funkcionalnosti:
 3. Aleksandar Vilus
 4. Luka Živanović
 
+![Alt text](Screenshot_psi_bolnica_phpMyAdmin.png?raw=true "Optional Title")
 
+![Alt text](Screenshot_psi_bolnica3.png?raw=true "Optional Title")
 
+![Alt text](Screenshot_psi_bolnica7.png?raw=true "Optional Title")
 
-
+![Alt text](Screenshot_psi_bolnica11.png?raw=true "Optional Title")
